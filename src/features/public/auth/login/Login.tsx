@@ -1,9 +1,11 @@
 import { Avatar } from "@/components/Avatar";
+import { useTranslations } from "next-intl";
 
 export const Login = () => {
+  const t = useTranslations("LoginPage");
   return (
     <div>
-      <p>Welcome back this is your avatar</p>
+      <p>{t("title")}</p>
       <Avatar initials="GD" />
     </div>
   );
