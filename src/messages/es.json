@@ -1,0 +1,10 @@
+{
+  "LoginPage": {
+    "title": "Inicia sesión en tu cuenta",
+    "emailLabel": "Dirección de correo electrónico",
+    "passwordLabel": "Contraseña",
+    "loginButton": "Iniciar sesión",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes una cuenta? Regístrate"
+  }
+}

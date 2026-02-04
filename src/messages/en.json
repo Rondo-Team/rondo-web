@@ -1,0 +1,10 @@
+{
+  "LoginPage": {
+    "title": "Login to Your Account",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "loginButton": "Log In",
+    "forgotPassword": "Forgot your password?",
+    "noAccount": "Don't have an account? Sign up"
+  }
+}
