@@ -3,7 +3,7 @@ import { Button } from "@/components/Button/Button";
 import { TextField } from "@/components/TextField";
 import { loginAction } from "@/features/public/auth/login/actions/loginAction";
 import { useTranslations } from "next-intl";
-import { useActionState, useEffect } from "react";
+import { useActionState } from "react";
 import styles from "./LoginForm.module.css";
 
 export const LoginForm = () => {
@@ -12,19 +12,17 @@ export const LoginForm = () => {
 
   const t = useTranslations("loginPage.loginForm");
 
-  useEffect(() => {
-    if (state.success) {
-      // Send to home page
-      console.log("login succesfully");
-    } else {
-      // Show login incorrect message
-      console.log("login failed");
-    }
-  }, [state]);
-
   return (
-    // Custom components for textfields (in textfield component we can add real time validation) and buttons
     <form action={formAction} className={styles.loginFormContainer}>
+      <p
+        className={`${styles.errorText} ${
+          !state.success && state.message
+            ? styles.errorVisible
+            : styles.errorHidden
+        }`}
+      >
+        {state.message || " "}
+      </p>
       <TextField
         name="email"
         type="text"
