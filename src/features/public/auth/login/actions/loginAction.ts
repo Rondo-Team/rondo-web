@@ -8,6 +8,7 @@ import { FormActionState } from "@/modules/shared/infrastructure/FormActionState
 import { LoginUser } from "@/modules/user/application/use-cases/LoginUser";
 import { HttpUserRepository } from "@/modules/user/infrastructure/repositories/HttpUserRepository";
 import { validateFormData } from "@/utils/validateFormData";
+import { getTranslations } from "next-intl/server";
 
 type LoginFormActionState = FormActionState<LoginActionDTO>;
 
@@ -17,12 +18,12 @@ export async function loginAction(
 ): Promise<LoginFormActionState> {
   const userRepository = new HttpUserRepository();
   const loginUseCase = new LoginUser(userRepository);
+  const t = await getTranslations("loginPage");
 
   const [values, validationErrors] = validateFormData(
     LoginSchema,
     formData,
-    // Translated message??
-    "Login Failed",
+    t("loginFailed"),
   );
 
   if (validationErrors) {
