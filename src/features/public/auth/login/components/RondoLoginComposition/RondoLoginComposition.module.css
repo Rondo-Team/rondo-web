@@ -1,0 +1,9 @@
+.rondoInfoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rondoImage {
+  border-radius: 5px;
+}

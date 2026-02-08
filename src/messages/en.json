@@ -1,10 +1,25 @@
 {
-  "LoginPage": {
-    "title": "Login to Your Account",
-    "emailLabel": "Email Address",
-    "passwordLabel": "Password",
-    "loginButton": "Log In",
-    "forgotPassword": "Forgot your password?",
-    "noAccount": "Don't have an account? Sign up"
+  "loginPage": {
+    "breefing": {
+      "title": "Welcome Back! <subtitle>Log in and let's get things rolling.</subtitle>"
+    },
+    "loginForm": {
+      "email": {
+        "label": "Email address",
+        "placeholder": "E.g: email@example.com",
+        "invalid": "The email is not a valid email."
+      },
+      "password": {
+        "label": "Your password",
+        "placeholder": "Enter your password",
+        "invalid": "The password is not valid."
+      },
+      "loginButton": {
+        "title": "Log In"
+      },
+      "noAccount": "You don't have and account? <signUp>Sign Up</signUp> and join the community",
+      "signUp": "Sign Up"
+    },
+    "loginFailed": "Email or password is incorrect. Please try again."
   }
 }

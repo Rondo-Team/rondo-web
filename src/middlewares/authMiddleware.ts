@@ -1,0 +1,41 @@
+import { CustomMiddleware } from "@/middlewares/chain";
+import { cookies } from "next/headers";
+import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
+
+const publicRoutes = ["/login"];
+const privateRoutes = ["/home"];
+
+export function authMiddleware(customMiddleware: CustomMiddleware) {
+  return async (
+    request: NextRequest,
+    event: NextFetchEvent,
+    response: NextResponse,
+  ) => {
+    console.log("🔥 auth middleware ejecutado");
+
+    const pathname = request.nextUrl.pathname.replace(/^\/(en|es)/, "");
+
+    const accessToken = (await cookies()).get("accessToken");
+    const refreshToken = (await cookies()).get("refreshToken");
+
+    console.log("tokens:", accessToken, refreshToken);
+
+    const isPublicRoute = publicRoutes.some((route) =>
+      pathname.startsWith(route),
+    );
+
+    const isPrivateRoute = privateRoutes.some((route) =>
+      pathname.startsWith(route),
+    );
+
+    if (isPublicRoute && accessToken) {
+      return NextResponse.redirect(new URL("/home", request.url));
+    }
+
+    if (isPrivateRoute && !accessToken) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+
+    return customMiddleware(request, event, response);
+  };
+}
