@@ -1,0 +1,24 @@
+.buttonContainer {
+  padding: 10px;
+  font-size: smaller;
+  color: white;
+  background-color: black;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 15px;
+  border: 1px solid rgba(100, 100, 100, 30);
+  cursor: pointer;
+}
+
+.buttonContainer:hover {
+  color: black;
+  background-color: white;
+  transition: 0.1s;
+}
+
+.buttonContainer:disabled {
+  color: white;
+  background-color: rgba(0, 0, 0, 70);
+  border-radius: 15px;
+  cursor: not-allowed;
+}

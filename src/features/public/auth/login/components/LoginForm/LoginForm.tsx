@@ -1,13 +1,16 @@
 "use client";
+import { Button } from "@/components/Button/Button";
+import { TextField } from "@/components/TextField";
 import { loginAction } from "@/features/public/auth/login/actions/loginAction";
 import { useTranslations } from "next-intl";
 import { useActionState, useEffect } from "react";
+import styles from "./LoginForm.module.css";
 
 export const LoginForm = () => {
   const [state, formAction, isPending] = useActionState(loginAction, {});
   console.log("State", state);
 
-  const t = useTranslations("LoginPage");
+  const t = useTranslations("loginPage.loginForm");
 
   useEffect(() => {
     if (state.success) {
@@ -21,16 +24,24 @@ export const LoginForm = () => {
 
   return (
     // Custom components for textfields (in textfield component we can add real time validation) and buttons
-    <form action={formAction}>
-      {state.errors?.email && <p>{state.errors.email}</p>}
-      <input name="email" type="text" placeholder="Enter your email" />
-      {state.errors?.password && <p>{state.errors.password}</p>}
-      <input
+    <form action={formAction} className={styles.loginFormContainer}>
+      <TextField
+        name="email"
+        type="text"
+        placeholder={t("email.placeholder")}
+        label={t("email.label")}
+        error={state.errors?.email && t("email.invalid")}
+      />
+      <TextField
         name="password"
         type="password"
-        placeholder="Enter your password"
+        placeholder={t("password.placeholder")}
+        label={t("password.label")}
+        error={state.errors?.password && t("password.invalid")}
       />
-      <button type="submit">{t("loginButton")}</button>
+      <Button type="submit" disabled={isPending}>
+        {t("loginButton.title")}
+      </Button>
     </form>
   );
 };
