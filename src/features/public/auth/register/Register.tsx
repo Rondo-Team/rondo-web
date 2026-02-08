@@ -1,13 +1,13 @@
 import { RondoLoginComposition } from "@/components/RondoLoginComposition";
-import { LoginForm } from "@/features/public/auth/login/components/LoginForm/LoginForm";
+import { RegisterForm } from "@/features/public/auth/register/components/RegisterForm/RegisterForm";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import styles from "./Login.module.css";
+import styles from "./Register.module.css";
 
-export const Login = () => {
-  const t = useTranslations("loginPage");
+export const Register = () => {
+  const t = useTranslations("registerPage");
   return (
-    <div className={styles.loginContainer}>
+    <div className={styles.registerContainer}>
       <h1 className={styles.welcomeText}>
         {t.rich("breefing.title", {
           subtitle: (chunks: React.ReactNode) => (
@@ -16,9 +16,9 @@ export const Login = () => {
         })}
       </h1>
       <RondoLoginComposition />
-      <LoginForm />
+      <RegisterForm />
       <p className={styles.signUpText}>
-        {t.rich("loginForm.noAccount", {
+        {t.rich("registerForm.haveAccount", {
           signUp: (chunks: React.ReactNode) => (
             <Link href="/register" className={styles.signUpLink}>
               {chunks}
