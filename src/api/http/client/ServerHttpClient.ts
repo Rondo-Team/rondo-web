@@ -11,7 +11,7 @@ type RequestOptions<T = unknown> = {
   params?: Record<string, string | number | boolean>;
 };
 
-export class ServerHttpClient {
+class ServerHttpClient {
   private baseUrl: string;
   private cookieService: CookieService;
   constructor() {
@@ -133,3 +133,5 @@ export class ServerHttpClient {
     });
   }
 }
+
+export const serverHttpClient = new ServerHttpClient();
