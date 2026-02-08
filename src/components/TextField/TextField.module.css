@@ -48,7 +48,7 @@
 }
 
 .errorText {
-  font-size: x-small;
+  font-size: smaller;
   color: red;
   min-height: 1em;
   line-height: 1em;

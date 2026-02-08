@@ -6,19 +6,20 @@
   width: fit-content;
   height: fit-content;
   border-radius: 15px;
-  border: 1px solid rgba(100, 100, 100, 30);
+  border: 1px solid rgb(255, 255, 255, 0.3);
   cursor: pointer;
 }
 
 .buttonContainer:hover {
   color: black;
   background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   transition: 0.1s;
 }
 
 .buttonContainer:disabled {
   color: white;
-  background-color: rgba(0, 0, 0, 70);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   cursor: not-allowed;
 }

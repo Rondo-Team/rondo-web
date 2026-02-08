@@ -2,5 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
+}
+
+.errorText {
+  font-size: small;
+  color: red;
+  min-height: 1em;
+  line-height: 1em;
+  width: 100%;
+  text-align: start;
+}
+
+.errorHidden {
+  opacity: 0;
+}
+
+.errorVisible {
+  opacity: 1;
 }
