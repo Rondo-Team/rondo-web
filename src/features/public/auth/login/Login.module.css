@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 28px;
 }
 
 .spanText {
@@ -15,7 +15,7 @@
 }
 
 .signUpText {
-  font-size: x-small;
+  font-size: smaller;
 }
 
 .signUpLink {
