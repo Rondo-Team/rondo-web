@@ -1,7 +1,7 @@
 import { LoginForm } from "@/features/public/auth/login/components/LoginForm/LoginForm";
 import { RondoLoginComposition } from "@/features/public/auth/login/components/RondoLoginComposition";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import styles from "./Login.module.css";
 
 export const Login = () => {
