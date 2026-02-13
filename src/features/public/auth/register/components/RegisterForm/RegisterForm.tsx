@@ -28,35 +28,35 @@ export const RegisterForm = () => {
         type="text"
         placeholder={t("name.placeholder")}
         label={t("name.label")}
-        error={state.errors?.email && t("name.invalid")}
+        error={state.errors?.name}
       />
       <TextField
         name="username"
         type="text"
         placeholder={t("username.placeholder")}
         label={t("username.label")}
-        error={state.errors?.password && t("username.invalid")}
+        error={state.errors?.username}
       />
       <TextField
         name="email"
         type="text"
         placeholder={t("email.placeholder")}
         label={t("email.label")}
-        error={state.errors?.email && t("email.invalid")}
+        error={state.errors?.email}
       />
       <TextField
         name="password"
         type="password"
         placeholder={t("password.placeholder")}
         label={t("password.label")}
-        error={state.errors?.password && t("password.invalid")}
+        error={state.errors?.password}
       />
       <TextField
         name="passwordConfirm"
         type="password"
         placeholder={t("passwordConfirm.placeholder")}
         label={t("password.label")}
-        error={state.errors?.password && t("passwordConfirm.invalid")}
+        error={state.errors?.passwordConfirm}
       />
       <Button type="submit" disabled={isPending}>
         {t("registerButton.title")}

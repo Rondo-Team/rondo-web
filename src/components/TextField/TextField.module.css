@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 300px;
 }
 
 .labelText {
@@ -15,7 +16,6 @@
   background-color: white;
   color: #000000;
   font-size: small;
-  width: 300px;
   outline: none; /* Quita el borde azul del focus */
   box-shadow: none; /* Quita sombras raras */
   appearance: none; /* Estilo por defecto */
@@ -50,8 +50,14 @@
 .errorText {
   font-size: smaller;
   color: red;
-  min-height: 1em;
-  line-height: 1em;
+  min-height: 1.1em;
+  line-height: 1.1em;
+
+  line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .errorHidden {

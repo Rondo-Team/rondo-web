@@ -20,7 +20,7 @@ export const Register = () => {
       <p className={styles.signUpText}>
         {t.rich("registerForm.haveAccount", {
           signUp: (chunks: React.ReactNode) => (
-            <Link href="/register" className={styles.signUpLink}>
+            <Link href="/login" className={styles.signUpLink}>
               {chunks}
             </Link>
           ),
