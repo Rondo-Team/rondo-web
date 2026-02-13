@@ -30,12 +30,20 @@
       "name": {
         "label": "What is your name?",
         "placeholder": "E.g: Michael Scott",
-        "invalid": "The name you entered is not valid."
+        "invalid": "The name you entered is not valid.",
+        "empty": "The name is required.",
+        "tooShort": "The name must be at least 2 characters long.",
+        "tooLong": "The name must be at most 30 characters long.",
+        "invalidChars": "The name can only contain letters, spaces, apostrophes, and hyphens."
       },
       "username": {
         "label": "How do you want to be known?",
-        "placeholder": "Type here your usernmae",
-        "invalid": "This username is not valid."
+        "placeholder": "Type here your username",
+        "empty": "The username is required.",
+        "invalid": "This username is not valid.",
+        "tooShort": "The username must be at least 3 characters long.",
+        "tooLong": "The username must be at most 20 characters long.",
+        "invalidChars": "The username can only contain letters, numbers, dots, and underscores."
       },
       "email": {
         "label": "Tell us your email",
@@ -45,12 +53,16 @@
       "password": {
         "label": "Create your password",
         "placeholder": "Enter your new password",
-        "invalid": "The password is not valid."
+        "empty": "The password is required.",
+        "invalid": "The password is not valid.",
+        "tooShort": "The password must be at least 8 characters long.",
+        "invalidChars": "The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character."
       },
       "passwordConfirm": {
         "label": "Confirm your password",
         "placeholder": "Enter the same password again",
-        "invalid": "Password does not match."
+        "empty": "Please confirm your password.",
+        "notMatch": "Password does not match."
       },
       "registerButton": {
         "title": "Sign Up"

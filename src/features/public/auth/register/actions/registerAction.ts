@@ -19,9 +19,10 @@ export async function registerAction(
   formData: FormData,
 ): Promise<RegisterFormActionState | never> {
   const t = await getTranslations("registerPage");
+  const tForm = await getTranslations("registerPage.registerForm");
 
   const [values, validationErrors] = validateFormData(
-    RegisterSchema,
+    RegisterSchema(tForm),
     formData,
     t("registerFailed"),
   );
