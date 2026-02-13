@@ -18,9 +18,10 @@ export async function loginAction(
   formData: FormData,
 ): Promise<LoginFormActionState | never> {
   const t = await getTranslations("loginPage");
+  const tForm = await getTranslations("loginPage.loginForm");
 
   const [values, validationErrors] = validateFormData(
-    LoginSchema,
+    LoginSchema(tForm),
     formData,
     t("loginFailed"),
   );

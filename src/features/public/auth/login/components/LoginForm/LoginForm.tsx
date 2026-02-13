@@ -28,14 +28,14 @@ export const LoginForm = () => {
         type="text"
         placeholder={t("email.placeholder")}
         label={t("email.label")}
-        error={state.errors?.email && t("email.invalid")}
+        error={state.errors?.email}
       />
       <TextField
         name="password"
         type="password"
         placeholder={t("password.placeholder")}
         label={t("password.label")}
-        error={state.errors?.password && t("password.invalid")}
+        error={state.errors?.password}
       />
       <Button type="submit" disabled={isPending}>
         {t("loginButton.title")}
