@@ -1,3 +1,5 @@
-export default function Home() {
-  return <div>Esto es la home</div>;
+import { Home } from "@/features/private/home";
+
+export default function HomePage() {
+  return <Home />;
 }
