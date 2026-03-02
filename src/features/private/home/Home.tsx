@@ -1,3 +1,5 @@
+import { TrendingPlay } from "@/features/private/home/components/TrendingPlay";
+
 export const Home = () => {
-  return <div>Esto es la home</div>;
+  return <TrendingPlay />;
 };
