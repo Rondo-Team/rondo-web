@@ -30,13 +30,7 @@ export const TextField = ({
           className={`${styles.textField} ${error ? styles.textFieldError : ""}`}
           {...rest}
         />
-        <p
-          className={`${styles.errorText} ${
-            error ? styles.errorVisible : styles.errorHidden
-          }`}
-        >
-          {error || " "}
-        </p>
+        {error && <p className={styles.errorText}>{error}</p>}
       </div>
     </div>
   );

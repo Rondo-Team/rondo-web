@@ -50,20 +50,9 @@
 .errorText {
   font-size: smaller;
   color: red;
-  min-height: 1.1em;
-  line-height: 1.1em;
-
   line-clamp: 1;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-}
-
-.errorHidden {
-  opacity: 0;
-}
-
-.errorVisible {
-  opacity: 1;
 }
