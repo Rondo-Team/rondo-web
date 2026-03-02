@@ -1,0 +1,90 @@
+.navBar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  height: 72px;
+  max-width: 816px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+  padding: 10px 20px 0;
+  background-color: var(--background);
+}
+
+.rondoComposition {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.rondoImage {
+  border-radius: 5px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 36px;
+}
+
+.menuButton {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menuIcon {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--foreground);
+}
+
+.desktopUserProfile {
+  display: flex;
+}
+
+.mobileUserProfile {
+  display: none;
+}
+
+@media (max-width: 816px) {
+  .navBar {
+    gap: 16px;
+    padding: 10px 16px 0;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .navLinks {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background-color: var(--background);
+  }
+
+  .open {
+    display: flex;
+  }
+
+  .desktopUserProfile {
+    display: none;
+  }
+
+  .mobileUserProfile {
+    display: flex;
+    margin-top: 8px;
+  }
+}
