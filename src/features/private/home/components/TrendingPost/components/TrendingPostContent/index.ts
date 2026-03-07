@@ -1,0 +1,1 @@
+export { TrendingPostContent } from "./TrendingPostContent";

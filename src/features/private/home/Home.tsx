@@ -1,5 +1,5 @@
-import { TrendingPlay } from "@/features/private/home/components/TrendingPlay";
+import { TrendingPost } from "@/features/private/home/components/TrendingPost";
 
 export const Home = () => {
-  return <TrendingPlay />;
+  return <TrendingPost />;
 };
