@@ -1,0 +1,13 @@
+import { serverHttpClient } from "@/api/http/client/ServerHttpClient";
+import { PostRepository } from "@/modules/post/domain/repositories/PostRepository";
+import { GetTrendingPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetTrendingPostResponseDTO";
+import { getTrendingPostMapper } from "@/modules/post/infrastructure/mappers/getTrendingPostMapper";
+
+export class HttpPostRepository implements PostRepository {
+  async getTrendingPost() {
+    const result = await serverHttpClient.get<GetTrendingPostResponseDTO>(
+      "/api/v1/trending-post",
+    );
+    return getTrendingPostMapper(result);
+  }
+}
