@@ -1,0 +1,1 @@
+export { ProposalIcon } from "./ProposalIcon";
