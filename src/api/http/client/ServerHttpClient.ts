@@ -42,7 +42,7 @@ class ServerHttpClient {
     const cookie = await this.cookieService.getCookie(
       CookieTokens.ACCESS_TOKEN,
     );
-    if (cookie) headers["Cookie"] = cookie;
+    if (cookie) headers["Cookie"] = `${CookieTokens.ACCESS_TOKEN}=${cookie}`;
 
     return headers;
   }
