@@ -1,0 +1,1 @@
+export { TrendingPostContentSkeleton } from "./TrendingPostContentSkeleton";

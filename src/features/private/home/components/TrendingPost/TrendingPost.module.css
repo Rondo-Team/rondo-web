@@ -1,0 +1,10 @@
+.trendingPlayContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.trendingPostDivisor {
+  display: flex;
+  justify-content: center;
+}

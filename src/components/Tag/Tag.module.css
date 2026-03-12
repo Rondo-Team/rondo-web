@@ -1,0 +1,11 @@
+.tagContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.3);
+  font-size: small;
+  width: fit-content;
+  border-radius: 15px;
+}

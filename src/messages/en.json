@@ -71,5 +71,14 @@
       "signUp": "Sign Up"
     },
     "registerFailed": "Something went wrong with registration. Please try again."
-  }
+  },
+  "navBar": {
+    "navSections": {
+      "home": "Home",
+      "create": "Create",
+      "community": "Community",
+      "myTactics": "My Tactics"
+    }
+  },
+  "homePage": {}
 }
