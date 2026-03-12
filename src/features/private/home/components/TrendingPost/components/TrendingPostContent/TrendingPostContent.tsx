@@ -11,30 +11,32 @@ export const TrendingPostContent = async () => {
   if (!trendingPost) return <p>There are no posts yet</p>;
   return (
     <div className={styles.trendingPostContainer}>
-      <div>
-        <h1 className={styles.trendingPostTitle}>{trendingPost.title}</h1>
-        <p className={styles.trendingPostDescription}>
-          {trendingPost.description}
-        </p>
-      </div>
-      <div className={styles.postStats}>
-        <HeartIcon
-          text={trendingPost.favouritesCount.toString()}
-          color="rgba(255, 0, 0, 0.7)"
-        />
-        <CommentIcon
-          text={trendingPost.commentsCount.toString()}
-          color="rgba(0,0,0,0.7)"
-        />
-        <ProposalIcon
-          text={trendingPost.proposalsCount.toString()}
-          color="rgba(61, 118, 0, 0.7)"
-        />
-      </div>
-      <div className={styles.trendingPostTags}>
-        {trendingPost.tags.map((tag) => (
-          <Tag text={tag} key={tag} />
-        ))}
+      <div className={styles.trendingPostInformation}>
+        <div>
+          <h1 className={styles.trendingPostTitle}>{trendingPost.title}</h1>
+          <p className={styles.trendingPostDescription}>
+            {trendingPost.description}
+          </p>
+        </div>
+        <div className={styles.postStats}>
+          <HeartIcon
+            text={trendingPost.favouritesCount.toString()}
+            color="rgba(255, 0, 0, 0.7)"
+          />
+          <CommentIcon
+            text={trendingPost.commentsCount.toString()}
+            color="rgba(0,0,0,0.7)"
+          />
+          <ProposalIcon
+            text={trendingPost.proposalsCount.toString()}
+            color="rgba(61, 118, 0, 0.7)"
+          />
+        </div>
+        <div className={styles.trendingPostTags}>
+          {trendingPost.tags.map((tag) => (
+            <Tag text={tag} key={tag} />
+          ))}
+        </div>
       </div>
       <div className={styles.footerContainer}>
         <UserProfile
