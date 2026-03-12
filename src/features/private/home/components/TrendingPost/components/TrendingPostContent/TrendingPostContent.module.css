@@ -2,4 +2,48 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+  font-weight: bold;
+}
+
+.trendingPostContainer {
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.3);
+  padding: 25px 36px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 670px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px
+
+}
+
+.trendingPostTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.trendingPostDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.trendingPostTags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
