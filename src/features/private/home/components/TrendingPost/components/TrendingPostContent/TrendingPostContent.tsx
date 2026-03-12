@@ -7,6 +7,7 @@ import styles from "./TrendingPostContent.module.css";
 
 export const TrendingPostContent = async () => {
   const trendingPost = await getTrendingPost();
+  if (!trendingPost) return <p>There are no posts yet</p>;
   return (
     <div>
       <TitleSubtitle
