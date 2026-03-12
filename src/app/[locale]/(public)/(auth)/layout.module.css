@@ -1,11 +1,8 @@
-.layout {
-  width: 100%;
+.authLayout {
   min-height: 100dvh;
   display: flex;
+  align-items: center;
   justify-content: center;
-}
-
-.content {
   width: 100%;
-  padding-top: 96px;
+  padding: 20px 0;
 }
