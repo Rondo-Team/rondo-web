@@ -11,9 +11,11 @@ export const TrendingPost = () => {
         title="Trending this week"
         subtitle="Discover the most popular play of the week"
       />
-      <Suspense fallback={<TrendingPostContentSkeleton />}>
-        <TrendingPostContent />
-      </Suspense>
+      <div className={styles.trendingPostDivisor}>
+        <Suspense fallback={<TrendingPostContentSkeleton />}>
+          <TrendingPostContent />
+        </Suspense>
+      </div>
     </div>
   );
 };

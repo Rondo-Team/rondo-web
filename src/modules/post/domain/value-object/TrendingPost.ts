@@ -12,6 +12,7 @@ export interface TrendingPost {
   play: Play;
   user: {
     username: string;
+    name: string;
     profilePicture: string;
   };
 }

@@ -56,12 +56,12 @@ export const NavBar = () => {
           {t("navSections.myTactics")}
         </Link>
         <div className={styles.mobileUserProfile}>
-          <UserProfile />
+          <UserProfile name="cambiar" username="cambiar" />
         </div>
       </div>
 
       <div className={styles.desktopUserProfile}>
-        <UserProfile />
+        <UserProfile name="cambiar" username="cambiar" />
       </div>
     </nav>
   );

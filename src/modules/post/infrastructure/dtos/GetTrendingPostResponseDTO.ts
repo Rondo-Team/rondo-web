@@ -12,6 +12,7 @@ export type GetTrendingPostResponseDTO = {
   play: Play;
   user: {
     username: string;
+    name: string;
     profilePicture: string;
   };
 };

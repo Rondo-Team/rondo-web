@@ -16,6 +16,7 @@ export const getTrendingPostMapper = (
     play: dto.play,
     user: {
       username: dto.user.username,
+      name: dto.user.name,
       profilePicture: dto.user.profilePicture,
     },
   };
