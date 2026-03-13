@@ -1,0 +1,1 @@
+export { CommunityHighlightsContent } from "./CommunityHighlightsContent";
