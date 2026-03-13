@@ -4,13 +4,17 @@ import { ProposalIcon } from "@/components/Icons/ProposalIcon";
 import { Tag } from "@/components/Tag";
 import { UserProfile } from "@/components/UserProfile";
 import { getTrendingPost } from "@/features/private/home/components/TrendingPost/components/TrendingPostContent/queries/getTrendingPost";
+import Link from "next/link";
 import styles from "./TrendingPostContent.module.css";
 
 export const TrendingPostContent = async () => {
   const trendingPost = await getTrendingPost();
   if (!trendingPost) return <p>There are no posts yet</p>;
   return (
-    <div className={styles.trendingPostContainer}>
+    <Link
+      href={`post/${trendingPost.id}`}
+      className={styles.trendingPostContainer}
+    >
       <div className={styles.trendingPostInformation}>
         <div>
           <h1 className={styles.trendingPostTitle}>{trendingPost.title}</h1>
@@ -43,8 +47,8 @@ export const TrendingPostContent = async () => {
           name={trendingPost.user.name}
           username={trendingPost.user.username}
         />
-        <p>See more!</p>
+        <p className={styles.seeMoreText}>See more!</p>
       </div>
-    </div>
+    </Link>
   );
 };
