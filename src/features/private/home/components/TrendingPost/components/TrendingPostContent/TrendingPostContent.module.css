@@ -16,7 +16,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 16px
+  gap: 16px;
+  transition: 0.1s;
 }
 
 .trendingPostInformation {
@@ -46,6 +47,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 5px;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .footerContainer {
@@ -55,4 +57,18 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.seeMoreText {
+  transition:
+    text-decoration-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.trendingPostContainer:hover {
+  border-color: black;
+}
+
+.trendingPostContainer:hover .seeMoreText {
+  text-decoration: underline;
 }
