@@ -1,6 +1,9 @@
 import { serverHttpClient } from "@/api/http/client/ServerHttpClient";
 import { PostRepository } from "@/modules/post/domain/repositories/PostRepository";
+import { GetCommunityHighlightsRequestDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsRequestDTO";
+import { GetCommunityHighlightsResponseDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsResponseDTO";
 import { GetTrendingPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetTrendingPostResponseDTO";
+import { getCommunityHighlightsMapper } from "@/modules/post/infrastructure/mappers/getCommunityHighlightsMapper";
 import { getTrendingPostMapper } from "@/modules/post/infrastructure/mappers/getTrendingPostMapper";
 
 export class HttpPostRepository implements PostRepository {
@@ -9,5 +12,13 @@ export class HttpPostRepository implements PostRepository {
       "/api/v1/trending-post",
     );
     return getTrendingPostMapper(result);
+  }
+  async getCommunityHighlights(req: GetCommunityHighlightsRequestDTO) {
+    const result =
+      await serverHttpClient.get<GetCommunityHighlightsResponseDTO>(
+        "/api/v1/posts",
+        { params: req },
+      );
+    return getCommunityHighlightsMapper(result);
   }
 }

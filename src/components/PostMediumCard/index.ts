@@ -1,0 +1,1 @@
+export { PostMediumCard } from "./PostMediumCard";
