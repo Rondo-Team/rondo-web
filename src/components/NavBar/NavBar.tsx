@@ -49,7 +49,7 @@ export const NavBar = () => {
         <Link href={AppSectionsRoutes.CREATE} onClick={closeMenu}>
           {t("navSections.create")}
         </Link>
-        <Link href={AppSectionsRoutes.COMMUNITY} onClick={closeMenu}>
+        <Link href={AppSectionsRoutes.DISCOVER} onClick={closeMenu}>
           {t("navSections.community")}
         </Link>
         <Link href={AppSectionsRoutes.MY_TACTICS} onClick={closeMenu}>

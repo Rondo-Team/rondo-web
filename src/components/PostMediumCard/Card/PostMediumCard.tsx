@@ -30,13 +30,15 @@ export const PostMediumCard = ({
           <h1 className={styles.postTitle}>{title}</h1>
           <p className={styles.postDescription}>{description}</p>
         </div>
+      </div>
+      <div className={styles.footerSection}>
         <PostStats
           favouritesCount={favourites}
           commentsCount={comments}
           proposalsCount={proposals}
         />
+        <p className={styles.seeMoreText}>See details</p>
       </div>
-      <p className={styles.seeMoreText}>See details</p>
     </div>
   );
 };
