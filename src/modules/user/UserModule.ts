@@ -1,5 +1,6 @@
 import { Token } from "@/modules/shared/domain/Token";
 import { NextCookieService } from "@/modules/shared/infrastructure/services/NextCookieService";
+import { GetUserRecentPlays } from "@/modules/user/application/use-cases/GetUserRecentPlays";
 import { LoginUser } from "@/modules/user/application/use-cases/LoginUser";
 import { RegisterUser } from "@/modules/user/application/use-cases/RegisterUser";
 import { HttpUserRepository } from "@/modules/user/infrastructure/repositories/HttpUserRepository";
@@ -14,6 +15,8 @@ container.bind(Token.COOKIES_SERVICE).to(NextCookieService);
 // Use cases
 container.bind(LoginUser).toSelf();
 container.bind(RegisterUser).toSelf();
+container.bind(GetUserRecentPlays).toSelf();
 
 export const loginUserUseCase = container.get(LoginUser);
 export const registerUserUseCase = container.get(RegisterUser);
+export const getUserRecentPlaysUseCase = container.get(GetUserRecentPlays);
