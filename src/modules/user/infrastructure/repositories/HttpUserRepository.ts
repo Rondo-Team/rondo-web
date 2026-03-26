@@ -4,6 +4,8 @@ import { LoginUserRequestDTO } from "@/modules/user/infrastructure/dtos/LoginUse
 import { LoginUserResponseDTO } from "@/modules/user/infrastructure/dtos/LoginUserResponseDTO";
 import { RegisterUserRequestDTO } from "@/modules/user/infrastructure/dtos/RegisterUserRequestDTO";
 import { RegisterUserResponseDTO } from "@/modules/user/infrastructure/dtos/RegisterUserResponseDTO";
+import { UserProfileResponseDTO } from "@/modules/user/infrastructure/dtos/UserProfileResponseDTO";
+import { getUserProfileMapper } from "@/modules/user/infrastructure/mappers/getUserProfileMapper";
 
 export class HttpUserRepository implements UserRepository {
   async login(req: LoginUserRequestDTO) {
@@ -18,5 +20,12 @@ export class HttpUserRepository implements UserRepository {
       RegisterUserResponseDTO,
       RegisterUserRequestDTO
     >("/api/v1/users", req);
+  }
+
+  async me() {
+    const result = await serverHttpClient.get<UserProfileResponseDTO>(
+      "/api/v1/users/me/profile",
+    );
+    return getUserProfileMapper(result);
   }
 }
