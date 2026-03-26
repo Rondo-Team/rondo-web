@@ -1,6 +1,9 @@
+import { Button } from "@/components/Button/Button";
 import { TitleSubtitle } from "@/components/TitleSubtitle";
 import { CommunityHighlightsContent } from "@/features/private/home/components/CommunityHighlights/components/CommunityHighlightsContent";
 import { CommunityHighlightsContentSkeleton } from "@/features/private/home/components/CommunityHighlights/components/CommunityHighlightsContentSkeleton";
+import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
+import Link from "next/link";
 import { Suspense } from "react";
 import styles from "./CommunityHighlights.module.css";
 
@@ -15,6 +18,9 @@ export const CommunityHighlights = () => {
         <Suspense fallback={<CommunityHighlightsContentSkeleton />}>
           <CommunityHighlightsContent />
         </Suspense>
+        <Button>
+          <Link href={AppSectionsRoutes.DISCOVER}>Discover more!</Link>
+        </Button>
       </div>
     </div>
   );

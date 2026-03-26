@@ -1,6 +1,7 @@
 export enum AppSectionsRoutes {
   HOME = "/home",
   CREATE = "/create",
-  COMMUNITY = "/community",
+  DISCOVER = "/discover",
   MY_TACTICS = "/tactics",
+  POST = "/post"
 }

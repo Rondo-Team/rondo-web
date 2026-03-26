@@ -1,1 +1,2 @@
-export { PostMediumCard } from "./PostMediumCard";
+export { PostMediumCard } from "./Card/PostMediumCard";
+export { PostMediumCardSkeleton } from "./Skeleton/PostMediumCardSkeleton";

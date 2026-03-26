@@ -1,5 +1,6 @@
 import { PostMediumCard } from "@/components/PostMediumCard";
 import { getCommunityHighlights } from "@/features/private/home/components/CommunityHighlights/components/CommunityHighlightsContent/queries/getCommunityHighlights";
+import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
 import Link from "next/link";
 import styles from "./CommunityHighlighsContent.module.css";
 
@@ -10,7 +11,7 @@ export const CommunityHighlightsContent = async () => {
     <div className={styles.communityHighlightsContainer}>
       {communityHighlights.items.map((post) => {
         return (
-          <Link href={`/post/${post.id}`} key={post.id}>
+          <Link href={`${AppSectionsRoutes.POST}/${post.id}`} key={post.id}>
             <PostMediumCard
               title={post.title}
               description={post.description}
