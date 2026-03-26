@@ -1,10 +1,94 @@
 {
-  "LoginPage": {
-    "title": "Inicia sesión en tu cuenta",
-    "emailLabel": "Dirección de correo electrónico",
-    "passwordLabel": "Contraseña",
-    "loginButton": "Iniciar sesión",
-    "forgotPassword": "¿Olvidaste tu contraseña?",
-    "noAccount": "¿No tienes una cuenta? Regístrate"
+  "loginPage": {
+    "breefing": {
+      "title": "¡Bienvenido de nuevo! <subtitle>Inicia sesión y pongámonos en marcha.</subtitle>"
+    },
+    "loginForm": {
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "Ej: correo@ejemplo.com",
+        "invalid": "El correo electrónico no es válido."
+      },
+      "password": {
+        "label": "Tu contraseña",
+        "placeholder": "Introduce tu contraseña",
+        "invalid": "La contraseña no es válida."
+      },
+      "loginButton": {
+        "title": "Iniciar sesión"
+      },
+      "noAccount": "¿No tienes una cuenta? <signUp>Regístrate</signUp> y únete a la comunidad",
+      "signUp": "Regístrate"
+    },
+    "loginFailed": "El correo electrónico o la contraseña son incorrectos. Por favor, inténtalo de nuevo."
+  },
+  "registerPage": {
+    "breefing": {
+      "title": "¿Nuevo por aquí? <subtitle>Regístrate y empecemos.</subtitle>"
+    },
+    "registerForm": {
+      "name": {
+        "label": "¿Cuál es tu nombre?",
+        "placeholder": "Ej: Michael Scott",
+        "invalid": "El nombre que has introducido no es válido.",
+        "empty": "El nombre es obligatorio.",
+        "tooShort": "El nombre debe tener al menos 2 caracteres.",
+        "tooLong": "El nombre debe tener como máximo 30 caracteres.",
+        "invalidChars": "El nombre solo puede contener letras, espacios, apóstrofes y guiones."
+      },
+      "username": {
+        "label": "¿Cómo quieres que te llamemos?",
+        "placeholder": "Escribe aquí tu nombre de usuario",
+        "empty": "El nombre de usuario es obligatorio.",
+        "invalid": "Este nombre de usuario no es válido.",
+        "tooShort": "El nombre de usuario debe tener al menos 3 caracteres.",
+        "tooLong": "El nombre de usuario debe tener como máximo 20 caracteres.",
+        "invalidChars": "El nombre de usuario solo puede contener letras, números, puntos y guiones bajos."
+      },
+      "email": {
+        "label": "Dinos tu correo electrónico",
+        "placeholder": "Ej: correo@ejemplo.com",
+        "invalid": "El correo electrónico no es válido."
+      },
+      "password": {
+        "label": "Crea tu contraseña",
+        "placeholder": "Introduce tu nueva contraseña",
+        "empty": "La contraseña es obligatoria.",
+        "invalid": "La contraseña no es válida.",
+        "tooShort": "La contraseña debe tener al menos 8 caracteres.",
+        "invalidChars": "La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial."
+      },
+      "passwordConfirm": {
+        "label": "Confirma tu contraseña",
+        "placeholder": "Introduce la misma contraseña de nuevo",
+        "empty": "Por favor, confirma tu contraseña.",
+        "notMatch": "Las contraseñas no coinciden."
+      },
+      "registerButton": {
+        "title": "Registrarse"
+      },
+      "haveAccount": "¿Ya tienes una cuenta? <signUp>Inicia sesión</signUp> y continúa",
+      "signUp": "Regístrate"
+    },
+    "registerFailed": "Algo salió mal durante el registro. Por favor, inténtalo de nuevo."
+  },
+  "navBar": {
+    "navSections": {
+      "home": "Inicio",
+      "create": "Crear",
+      "community": "Comunidad",
+      "myTactics": "Mis tácticas"
+    }
+  },
+  "homePage": {
+    "trendingPost": {
+      "title": "Tendencias de la semana",
+      "subtitle": "Descubre la jugada más popular de la semana."
+    },
+    "communityHighlights": {
+      "title": "Destacados de la comunidad",
+      "subtitle": "Lo que entrenadores de todo el mundo están creando hoy.",
+      "discover": "¡Descubre más!"
+    }
   }
 }

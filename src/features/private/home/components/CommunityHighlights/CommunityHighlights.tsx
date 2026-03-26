@@ -3,23 +3,22 @@ import { TitleSubtitle } from "@/components/TitleSubtitle";
 import { CommunityHighlightsContent } from "@/features/private/home/components/CommunityHighlights/components/CommunityHighlightsContent";
 import { CommunityHighlightsContentSkeleton } from "@/features/private/home/components/CommunityHighlights/components/CommunityHighlightsContentSkeleton";
 import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { Suspense } from "react";
 import styles from "./CommunityHighlights.module.css";
 
-export const CommunityHighlights = () => {
+export const CommunityHighlights = async () => {
+  const t = await getTranslations("homePage.communityHighlights");
   return (
     <div className={styles.communityHighlightsContainer}>
-      <TitleSubtitle
-        title="Community highlights"
-        subtitle="What coaches around the world are creating today."
-      />
+      <TitleSubtitle title={t("title")} subtitle={t("subtitle")} />
       <div className={styles.communityHighlightsDivisor}>
         <Suspense fallback={<CommunityHighlightsContentSkeleton />}>
           <CommunityHighlightsContent />
         </Suspense>
         <Button>
-          <Link href={AppSectionsRoutes.DISCOVER}>Discover more!</Link>
+          <Link href={AppSectionsRoutes.DISCOVER}>{t("discover")}</Link>
         </Button>
       </div>
     </div>

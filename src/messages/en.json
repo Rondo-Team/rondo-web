@@ -80,5 +80,15 @@
       "myTactics": "My Tactics"
     }
   },
-  "homePage": {}
+  "homePage": {
+    "trendingPost": {
+      "title": "Trending this week",
+      "subtitle": "Discover the most popular play of the week."
+    },
+    "communityHighlights": {
+      "title": "Community highlights",
+      "subtitle": "What coaches around the world are creating today.",
+      "discover": "Discover more!"
+    }
+  }
 }
