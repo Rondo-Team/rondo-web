@@ -1,0 +1,10 @@
+.quickAccessContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.quickAccessDivisor {
+  display: flex;
+  justify-content: center;
+}
