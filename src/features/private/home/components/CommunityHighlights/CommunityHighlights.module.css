@@ -1,0 +1,13 @@
+.communityHighlightsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.communityHighlightsDivisor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
