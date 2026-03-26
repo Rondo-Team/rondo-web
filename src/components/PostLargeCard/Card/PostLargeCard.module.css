@@ -1,0 +1,74 @@
+.postLargeCardContainer {
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.3);
+  padding: 25px 36px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 670px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: 0.1s;
+}
+
+.postStats {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.postInformation {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.postTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postTags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.seeMoreText {
+  transition:
+    text-decoration-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.postLargeCardContainer:hover {
+  border-color: black;
+}
+
+.postLargeCardContainer:hover .seeMoreText {
+  text-decoration: underline;
+}
