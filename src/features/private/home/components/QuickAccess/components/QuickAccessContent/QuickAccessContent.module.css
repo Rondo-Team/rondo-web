@@ -1,0 +1,17 @@
+.quickAccesContentContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .quickAccesContentContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .quickAccesContentContainer {
+    grid-template-columns: 1fr;
+  }
+}
