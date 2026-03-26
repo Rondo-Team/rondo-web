@@ -17,11 +17,9 @@ export const getUserProfileMapper = (
     commentsCount: dto.commentsCount,
     createdAt: new Date(dto.createdAt),
     usernameChangedAt: new Date(dto.createdAt),
-    recentlyViewedContent: {
-      recentlyViewedItems: dto.recentlyViewedContent.map((item) => ({
-        id: item.id,
-        type: item.type as RecentlyViewedItemTypes,
-      })),
-    },
+    recentlyViewedContent: dto.recentlyViewedContent.map((item) => ({
+      id: item.id,
+      type: item.type as RecentlyViewedItemTypes,
+    })),
   };
 };
