@@ -1,5 +1,5 @@
-import styles from "./TrendingPostSkeleton.module.css";
+import { PostLargeCardSkeleton } from "@/components/PostLargeCard";
 
 export const TrendingPostContentSkeleton = () => {
-  return <div className={styles.cardSkeleton} aria-hidden="true" />;
+  return <PostLargeCardSkeleton />;
 };
