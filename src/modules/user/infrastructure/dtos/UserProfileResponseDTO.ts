@@ -13,5 +13,7 @@ export type UserProfileResponseDTO = {
   recentlyViewedContent: {
     id: string;
     type: string;
+    title: string;
+    openedAt: Date;
   }[];
 };
