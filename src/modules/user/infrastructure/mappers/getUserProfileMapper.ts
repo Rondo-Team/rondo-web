@@ -20,6 +20,8 @@ export const getUserProfileMapper = (
     recentlyViewedContent: dto.recentlyViewedContent.map((item) => ({
       id: item.id,
       type: item.type as RecentlyViewedItemTypes,
+      openedAt: item.openedAt,
+      title: item.title
     })),
   };
 };
