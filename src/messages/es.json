@@ -89,6 +89,12 @@
       "title": "Destacados de la comunidad",
       "subtitle": "Lo que entrenadores de todo el mundo están creando hoy.",
       "discover": "¡Descubre más!"
+    },
+    "quickAccess": {
+      "title": "Visto recientemente",
+      "subtitle": "Vuelve a tus tácticas recientes o crea una nueva.",
+      "openedAt": "Abierto {timeAgo}",
+      "newTactic": "Crear nueva"
     }
   }
 }

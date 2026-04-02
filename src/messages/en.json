@@ -89,6 +89,12 @@
       "title": "Community highlights",
       "subtitle": "What coaches around the world are creating today.",
       "discover": "Discover more!"
+    },
+    "quickAccess": {
+      "title": "Quick access",
+      "subtitle": "Jump back into your recent tactics or start a new one.",
+      "openedAt": "Opened {timeAgo}",
+      "newTactic": "Create new"
     }
   }
 }

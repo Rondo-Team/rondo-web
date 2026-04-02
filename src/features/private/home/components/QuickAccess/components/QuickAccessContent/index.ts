@@ -1,0 +1,1 @@
+export { QuickAccessContent } from "./QuickAccessContent";
