@@ -92,7 +92,9 @@
     },
     "quickAccess": {
       "title": "Quick access",
-      "subtitle": "Jump back into your recent tactics or start a new one."
+      "subtitle": "Jump back into your recent tactics or start a new one.",
+      "openedAt": "Opened {timeAgo}",
+      "newTactic": "Create new"
     }
   }
 }

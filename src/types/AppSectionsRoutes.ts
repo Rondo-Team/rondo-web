@@ -3,5 +3,6 @@ export enum AppSectionsRoutes {
   CREATE = "/create",
   DISCOVER = "/discover",
   MY_TACTICS = "/tactics",
-  POST = "/post"
+  POST = "/post",
+  DRAFT = "/draft",
 }
