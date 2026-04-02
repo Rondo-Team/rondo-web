@@ -11,8 +11,7 @@
 }
 
 .buttonContainer:hover {
-  color: black;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.3);
   transition: 0.1s;
 }
@@ -20,6 +19,5 @@
 .buttonContainer:disabled {
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
   cursor: not-allowed;
 }

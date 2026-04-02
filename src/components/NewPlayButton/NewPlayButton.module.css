@@ -1,0 +1,17 @@
+.newPlayButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  width: 230px;
+  height: 56px;
+  transition: 0.1s;
+}
+
+.newPlayButtonContainer:hover {
+  border-color: black;
+}
