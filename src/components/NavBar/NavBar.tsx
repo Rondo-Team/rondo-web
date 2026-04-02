@@ -8,8 +8,14 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "./NavBar.module.css";
 
-export const NavBar = () => {
+interface NavBarProps {
+  username?: string;
+  name?: string;
+}
+
+export const NavBar = ({ name, username }: NavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const userProfileData = name && username ? { name, username } : null;
 
   const t = useTranslations("navBar");
 
@@ -55,14 +61,28 @@ export const NavBar = () => {
         <Link href={AppSectionsRoutes.MY_TACTICS} onClick={closeMenu}>
           {t("navSections.myTactics")}
         </Link>
-        <div className={styles.mobileUserProfile}>
-          <UserProfile name="cambiar" username="cambiar" />
-        </div>
+        {userProfileData && (
+          <Link href={`${AppSectionsRoutes.USER}/${userProfileData.username}`}>
+            <div className={styles.mobileUserProfile}>
+              <UserProfile
+                name={userProfileData.name}
+                username={userProfileData.username}
+              />
+            </div>
+          </Link>
+        )}
       </div>
 
-      <div className={styles.desktopUserProfile}>
-        <UserProfile name="cambiar" username="cambiar" />
-      </div>
+      {userProfileData && (
+        <Link href={`${AppSectionsRoutes.USER}/${userProfileData.username}`}>
+          <div className={styles.desktopUserProfile}>
+            <UserProfile
+              name={userProfileData.name}
+              username={userProfileData.username}
+            />
+          </div>
+        </Link>
+      )}
     </nav>
   );
 };
