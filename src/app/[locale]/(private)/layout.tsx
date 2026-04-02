@@ -1,4 +1,4 @@
-import { NavBar } from "@/components/NavBar/NavBar";
+import { NavBar } from "@/features/private/NavBar";
 import styles from "./layout.module.css";
 
 export default function AppLayout({
