@@ -1,0 +1,34 @@
+.piece {
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  cursor: grab;
+}
+
+.teammate {
+  width: 18px;
+  height: 18px;
+  background: rgb(162, 186, 129);
+  border: 1px solid #3d7600;
+}
+
+.rival {
+  width: 18px;
+  height: 18px;
+  background: rgb(255, 152, 152);
+  border: 1px solid #ff0000;
+}
+
+.ball {
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border: 1px solid black;
+}
+
+.large.ball {
+  width: 18px;
+  height: 18px;
+}

@@ -1,11 +1,56 @@
 .wrapper {
-	width: 100%;
-	overflow: hidden;
+  width: 100%;
+  display: grid;
+  gap: 12px;
 }
 
-.field {
-	width: 100%;
-	height: auto;
-	display: block;
-	aspect-ratio: 16 / 9;
+.board {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.piece {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  cursor: grab;
+}
+
+.piece:active {
+  cursor: grabbing;
+}
+
+.pieceAnimated {
+  transition:
+    left 700ms ease,
+    top 700ms ease;
+}
+
+.boardDragging,
+.boardDragging * {
+  cursor: grabbing !important;
+}
+
+.pieceLabel {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  user-select: none;
+}
+
+.board :global(svg) {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
 }
