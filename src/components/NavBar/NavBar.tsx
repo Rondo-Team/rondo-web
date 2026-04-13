@@ -49,16 +49,32 @@ export const NavBar = ({ name, username }: NavBarProps) => {
       <div
         className={`${styles.navLinks} ${isMenuOpen ? styles.open : ""}`.trim()}
       >
-        <Link href={AppSectionsRoutes.HOME} onClick={closeMenu}>
+        <Link
+          href={AppSectionsRoutes.HOME}
+          className={styles.navLinksText}
+          onClick={closeMenu}
+        >
           {t("navSections.home")}
         </Link>
-        <Link href={AppSectionsRoutes.CREATE} onClick={closeMenu}>
+        <Link
+          href={AppSectionsRoutes.CREATE}
+          className={styles.navLinksText}
+          onClick={closeMenu}
+        >
           {t("navSections.create")}
         </Link>
-        <Link href={AppSectionsRoutes.DISCOVER} onClick={closeMenu}>
+        <Link
+          href={AppSectionsRoutes.DISCOVER}
+          className={styles.navLinksText}
+          onClick={closeMenu}
+        >
           {t("navSections.community")}
         </Link>
-        <Link href={AppSectionsRoutes.MY_TACTICS} onClick={closeMenu}>
+        <Link
+          href={AppSectionsRoutes.MY_TACTICS}
+          className={styles.navLinksText}
+          onClick={closeMenu}
+        >
           {t("navSections.myTactics")}
         </Link>
         {userProfileData && (
@@ -74,13 +90,14 @@ export const NavBar = ({ name, username }: NavBarProps) => {
       </div>
 
       {userProfileData && (
-        <Link href={`${AppSectionsRoutes.USER}/${userProfileData.username}`}>
-          <div className={styles.desktopUserProfile}>
-            <UserProfile
-              name={userProfileData.name}
-              username={userProfileData.username}
-            />
-          </div>
+        <Link
+          href={`${AppSectionsRoutes.USER}/${userProfileData.username}`}
+          className={styles.desktopUserProfile}
+        >
+          <UserProfile
+            name={userProfileData.name}
+            username={userProfileData.username}
+          />
         </Link>
       )}
     </nav>
