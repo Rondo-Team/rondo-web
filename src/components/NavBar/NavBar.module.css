@@ -29,6 +29,14 @@
   gap: 32px;
 }
 
+.navLinksText {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .menuButton {
   display: none;
   flex-direction: column;
@@ -53,7 +61,7 @@
   display: none;
 }
 
-@media (max-width: 816px) {
+@media (max-width: 864px) {
   .navBar {
     gap: 16px;
     padding: 10px 16px 0;
