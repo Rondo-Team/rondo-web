@@ -1,12 +1,13 @@
 .proposalLargeCardContainer {
   display: flex;
   flex-direction: row;
+  gap: 64px;
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  transition: 0.1s;
-  width: 500px;
-  justify-content: space-between;
+  transition: border-color 0.1s ease;
+  width: 100%;
+  max-width: 500px;
 }
 
 .proposalLargeCardTitle {
@@ -56,4 +57,17 @@
 
 .proposalLargeCardContainer:hover {
   border-color: black;
+}
+
+@media (max-width: 560px) {
+  .proposalLargeCardContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .proposalLargeCardTitleMetrics {
+    width: 100%;
+    align-items: flex-start;
+  }
 }
