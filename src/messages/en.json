@@ -95,6 +95,15 @@
       "subtitle": "Jump back into your recent tactics or start a new one.",
       "openedAt": "Opened {timeAgo}",
       "newTactic": "Create new"
+    },
+    "myDiscussions": {
+      "title": "My Discussions",
+      "subtitle": "Review and comment on play revisions.",
+      "proposedFor": "Proposed for \"{parentPost}\"",
+      "createdAt": "Created {timeAgo}",
+      "viewAll": "View All",
+      "noProposals": "You do't have proposals",
+      "couldNotFetch": "Couldn't fetch proposals"
     }
   }
 }

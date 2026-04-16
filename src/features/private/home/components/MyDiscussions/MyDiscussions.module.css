@@ -1,0 +1,13 @@
+.myDiscussionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.myDiscussionsDivisor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
