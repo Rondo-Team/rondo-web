@@ -4,6 +4,7 @@ import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
 import { formatRelativeDate } from "@/utils/formatRelativeDate";
 import { getUserIdFromCookie } from "@/utils/getUserIdFromCookie";
 import { getLocale, getTranslations } from "next-intl/server";
+import styles from "./MyDiscussionsContent.module.css"
 import Link from "next/link";
 
 export const MyDiscussionsContent = async () => {
@@ -19,6 +20,7 @@ export const MyDiscussionsContent = async () => {
 
   return proposals.map((proposal) => (
     <Link
+    className={styles.myDiscussionsContainer}
       key={proposal.id}
       href={`${AppSectionsRoutes.PROPOSAL}/${proposal.id}`}
     >
