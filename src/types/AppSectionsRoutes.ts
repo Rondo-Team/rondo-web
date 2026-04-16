@@ -6,4 +6,5 @@ export enum AppSectionsRoutes {
   POST = "/post",
   DRAFT = "/draft",
   USER = "/user",
+  PROPOSAL = "/proposal"
 }

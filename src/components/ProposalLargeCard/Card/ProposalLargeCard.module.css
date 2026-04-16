@@ -1,0 +1,76 @@
+.proposalLargeCardContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  transition: border-color 0.1s ease;
+  width: 500px;
+  justify-content: space-between;
+}
+
+.proposalLargeCardTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 20px;
+  max-width: 350px;
+}
+
+.proposalLargeCardDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  opacity: 65%;
+  max-width: 350px;
+}
+
+.proposalLargeCardDate {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 10px;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.proposalLargeCardTitleSubtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+
+.proposalLargeCardTitleMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: end;
+}
+
+.proposalLargeCardContainer:hover {
+  border-color: black;
+}
+
+@media (max-width: 560px) {
+  .proposalLargeCardContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .proposalLargeCardTitleMetrics {
+    width: 100%;
+    align-items: flex-start;
+  }
+}
