@@ -1,11 +1,13 @@
 import { PostLargeCard } from "@/components/PostLargeCard";
 import { getTrendingPost } from "@/features/private/home/components/TrendingPost/components/TrendingPostContent/queries/getTrendingPost";
 import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
 export const TrendingPostContent = async () => {
+  const t = await getTranslations("homePage.trendingPost");
   const trendingPost = await getTrendingPost();
-  if (!trendingPost) return <p>There are no posts yet</p>;
+  if (!trendingPost) return <p>{t("error")}</p>;
   return (
     <Link href={`${AppSectionsRoutes.POST}/${trendingPost.id}`}>
       <PostLargeCard

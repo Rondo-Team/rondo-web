@@ -83,7 +83,8 @@
   "homePage": {
     "trendingPost": {
       "title": "Tendencias de la semana",
-      "subtitle": "Descubre la jugada más popular de la semana."
+      "subtitle": "Descubre la jugada más popular de la semana.",
+      "error": "Aun no hay publicaciones"
     },
     "communityHighlights": {
       "title": "Destacados de la comunidad",
@@ -95,6 +96,23 @@
       "subtitle": "Vuelve a tus tácticas recientes o crea una nueva.",
       "openedAt": "Abierto {timeAgo}",
       "newTactic": "Crear nueva"
+    },
+    "myDiscussions": {
+      "title": "Mis discusiones",
+      "subtitle": "Revisa y comenta las revisiones de jugadas.",
+      "proposedFor": "Propuesto para \"{parentPost}\"",
+      "createdAt": "Creado {timeAgo}",
+      "viewAll": "Ver todo",
+      "noProposals": "No tienes propuestas",
+      "couldNotFetch": "No se pudieron cargar las propuestas"
+    },
+    "userActivity": {
+      "title": "¡Nos alegra tenerte! <description>Echa un vistazo a tu actividad reciente</description>",
+      "posts": "Publicaciones creadas y compartidas",
+      "favourites": "Publicaciones marcadas como favoritas",
+      "comments": "Comentarios realizados en publicaciones",
+      "proposals": "Propuestas realizadas en publicaciones",
+      "error": "Ups. No pudimos cargar tu información"
     }
   }
 }
