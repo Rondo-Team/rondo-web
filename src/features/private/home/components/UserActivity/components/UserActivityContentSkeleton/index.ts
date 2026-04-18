@@ -1,0 +1,1 @@
+export { UserActivityContentSkeleton } from "./UserActivityContentSkeleton";

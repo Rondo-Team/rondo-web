@@ -83,7 +83,8 @@
   "homePage": {
     "trendingPost": {
       "title": "Trending this week",
-      "subtitle": "Discover the most popular play of the week."
+      "subtitle": "Discover the most popular play of the week.",
+      "error": "There are no posts yet"
     },
     "communityHighlights": {
       "title": "Community highlights",
@@ -104,6 +105,14 @@
       "viewAll": "View All",
       "noProposals": "You do't have proposals",
       "couldNotFetch": "Couldn't fetch proposals"
+    },
+    "userActivity": {
+      "title": "We're happy to have you! <description>Here's a quick look at your recent activity</description>",
+      "posts": "Posts created and shared!",
+      "favourites": "Posts marked as favourite",
+      "comments": "Comments made on posts",
+      "proposals": "Proposals made on posts!",
+      "error": "Oops! We couldn't fetch your information"
     }
   }
 }
