@@ -2,6 +2,7 @@ import { Token } from "@/modules/shared/domain/Token";
 import { NextCookieService } from "@/modules/shared/infrastructure/services/NextCookieService";
 import { GetUserNavBarInfo } from "@/modules/user/application/use-cases/GetUserNavBarInfo";
 import { GetUserRecentPlays } from "@/modules/user/application/use-cases/GetUserRecentPlays";
+import { GetUserStats } from "@/modules/user/application/use-cases/GetUserStats";
 import { LoginUser } from "@/modules/user/application/use-cases/LoginUser";
 import { RegisterUser } from "@/modules/user/application/use-cases/RegisterUser";
 import { HttpUserRepository } from "@/modules/user/infrastructure/repositories/HttpUserRepository";
@@ -18,8 +19,10 @@ container.bind(LoginUser).toSelf();
 container.bind(RegisterUser).toSelf();
 container.bind(GetUserRecentPlays).toSelf();
 container.bind(GetUserNavBarInfo).toSelf();
+container.bind(GetUserStats).toSelf();
 
 export const loginUserUseCase = container.get(LoginUser);
 export const registerUserUseCase = container.get(RegisterUser);
 export const getUserRecentPlaysUseCase = container.get(GetUserRecentPlays);
 export const getUserNavBarInfoUseCase = container.get(GetUserNavBarInfo);
+export const getUserStatsUseCase = container.get(GetUserStats);
