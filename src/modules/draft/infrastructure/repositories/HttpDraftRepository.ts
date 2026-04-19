@@ -5,6 +5,7 @@ import { CreateDraftResponseDTO } from "@/modules/draft/infrastructure/dtos/Crea
 
 export class HttpDraftRepository implements DraftRepository {
   async create(body: CreateDraftRequestDTO) {
+    console.dir(body, { depth: null });
     await serverHttpClient.post<CreateDraftResponseDTO, CreateDraftRequestDTO>(
       "/api/v1/drafts",
       body,
