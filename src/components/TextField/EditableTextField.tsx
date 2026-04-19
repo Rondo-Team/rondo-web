@@ -11,6 +11,7 @@ interface EditableTextFieldProps {
   onChange?: (value: string) => void;
   error?: string;
   variant?: "title" | "subtitle";
+  maxLength?: number;
 }
 
 export const EditableTextField = ({
@@ -22,6 +23,7 @@ export const EditableTextField = ({
   onChange,
   error,
   variant = "title",
+  maxLength,
 }: EditableTextFieldProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(value || defaultValue);
@@ -72,9 +74,7 @@ export const EditableTextField = ({
       <div className={styles.editingContainer}>
         {error && <p className={styles.errorText}>{error}</p>}
         <div
-          className={`${styles.editableContainer} ${
-            error ? styles.displayError : ""
-          }`}
+          className={styles.editableContainer}
           onClick={() => setIsEditing(true)}
           role="button"
           tabIndex={0}
@@ -112,12 +112,15 @@ export const EditableTextField = ({
         rows={1}
         value={editValue}
         onChange={(e) => {
-          const nextValue = e.target.value;
+          const nextValue = maxLength
+            ? e.target.value.slice(0, maxLength)
+            : e.target.value;
           setEditValue(nextValue);
           onChange?.(nextValue);
         }}
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
+        maxLength={maxLength}
         className={`${styles.editTextarea} ${
           variant === "title" ? styles.titleVariant : styles.subtitleVariant
         } ${error ? styles.editInputError : ""}`}

@@ -4,6 +4,7 @@ import { Button } from "@/components/Button/Button";
 import { TacticBoard } from "@/components/TacticBoard";
 import { TacticBoardHandle } from "@/components/TacticBoard/TacticBoard";
 import { EditableTextField } from "@/components/TextField";
+import { CREATE_PLAY_LIMITS } from "@/modules/shared/domain/consts";
 import { Play } from "@/types/Play";
 import { useTranslations } from "next-intl";
 import { useActionState, useRef, useState } from "react";
@@ -55,6 +56,7 @@ export const CreateContent = () => {
           placeholder={t("title.placeholder")}
           onChange={handleTitleChange}
           error={state.errors?.title}
+          maxLength={CREATE_PLAY_LIMITS.title.max}
         />
 
         <EditableTextField
@@ -65,6 +67,7 @@ export const CreateContent = () => {
           onChange={handleDescriptionChange}
           error={state.errors?.description}
           variant="subtitle"
+          maxLength={CREATE_PLAY_LIMITS.description.max}
         />
       </div>
 

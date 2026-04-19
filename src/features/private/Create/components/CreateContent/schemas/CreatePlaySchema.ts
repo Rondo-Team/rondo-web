@@ -1,3 +1,4 @@
+import { CREATE_PLAY_LIMITS } from "@/modules/shared/domain/consts";
 import { FieldElementType } from "@/types/FieldElementType";
 import z from "zod";
 
@@ -30,11 +31,17 @@ export const CreatePlaySchema = (t: (arg: string) => string) =>
     title: z
       .string({ error: t("title.empty") })
       .trim()
-      .min(1, { error: t("title.empty") }),
+      .min(CREATE_PLAY_LIMITS.title.min, { error: t("title.tooShort") })
+      .max(CREATE_PLAY_LIMITS.title.max, { error: t("title.tooLong") }),
     description: z
       .string({ error: t("description.empty") })
       .trim()
-      .min(1, { error: t("description.empty") }),
+      .min(CREATE_PLAY_LIMITS.description.min, {
+        error: t("description.tooShort"),
+      })
+      .max(CREATE_PLAY_LIMITS.description.max, {
+        error: t("description.tooLong"),
+      }),
     tags: z
       .string()
       .optional()

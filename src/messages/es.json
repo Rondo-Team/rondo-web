@@ -78,10 +78,14 @@
         "invalid": "El identificador de la jugada no es valido."
       },
       "title": {
-        "empty": "El titulo es obligatorio."
+        "empty": "El titulo es obligatorio.",
+        "tooShort": "El título debe tener al menos 2 caracteres.",
+        "tooLong": "El título no puede superar los 30 caracteres."
       },
       "description": {
-        "empty": "La descripcion es obligatoria."
+        "empty": "La descripcion es obligatoria.",
+        "tooShort": "La descripción debe tener al menos 10 caracteres.",
+        "tooLong": "La descripción no puede superar los 500 caracteres."
       },
       "play": {
         "empty": "Debes crear al menos un paso en la jugada.",
