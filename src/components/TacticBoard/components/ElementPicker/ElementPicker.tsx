@@ -4,16 +4,28 @@ import { FieldElementType } from "@/types/FieldElementType";
 import styles from "./ElementPicker.module.css";
 
 type ElementPickerProps = {
-  onSelect: (pieceType: FieldElementType) => void;
+  boardMode: "idle" | "placing" | "deleting";
+  pendingType: FieldElementType | null;
+  onStartPlacing: (pieceType: FieldElementType) => void;
+  onToggleDelete: () => void;
 };
 
-export const ElementPicker = ({ onSelect }: ElementPickerProps) => {
+export const ElementPicker = ({
+  boardMode,
+  pendingType,
+  onStartPlacing,
+  onToggleDelete,
+}: ElementPickerProps) => {
   return (
     <div className={styles.palette}>
       <Button
         type="button"
-        variant="secondary"
-        onClick={() => onSelect(FieldElementType.TEAMMATE)}
+        variant={
+          boardMode === "placing" && pendingType === FieldElementType.TEAMMATE
+            ? "primary"
+            : "secondary"
+        }
+        onClick={() => onStartPlacing(FieldElementType.TEAMMATE)}
       >
         <div className={styles.buttonContent}>
           <FieldElement type={FieldElementType.TEAMMATE} />
@@ -22,23 +34,40 @@ export const ElementPicker = ({ onSelect }: ElementPickerProps) => {
       </Button>
       <Button
         type="button"
-        variant="secondary"
-        onClick={() => onSelect(FieldElementType.RIVAL)}
+        variant={
+          boardMode === "placing" && pendingType === FieldElementType.RIVAL
+            ? "primary"
+            : "secondary"
+        }
+        onClick={() => onStartPlacing(FieldElementType.RIVAL)}
       >
         <div className={styles.buttonContent}>
           <FieldElement type={FieldElementType.RIVAL} />
           <p>Add rival</p>
         </div>
       </Button>
-
       <Button
         type="button"
-        variant="secondary"
-        onClick={() => onSelect(FieldElementType.BALL)}
+        variant={
+          boardMode === "placing" && pendingType === FieldElementType.BALL
+            ? "primary"
+            : "secondary"
+        }
+        onClick={() => onStartPlacing(FieldElementType.BALL)}
       >
         <div className={styles.buttonContent}>
           <FieldElement type={FieldElementType.BALL} size="large" />
           <p>Add ball</p>
+        </div>
+      </Button>
+      <Button
+        type="button"
+        variant={boardMode === "deleting" ? "primary" : "secondary"}
+        onClick={onToggleDelete}
+      >
+        <div className={styles.buttonContent}>
+          <span className={styles.deleteIcon}>✕</span>
+          <p>Delete element</p>
         </div>
       </Button>
     </div>
