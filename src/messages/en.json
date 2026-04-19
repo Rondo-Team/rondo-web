@@ -72,6 +72,25 @@
     },
     "registerFailed": "Something went wrong with registration. Please try again."
   },
+  "createPage": {
+    "createForm": {
+      "id": {
+        "invalid": "The play identifier is not valid."
+      },
+      "title": {
+        "empty": "The title is required."
+      },
+      "description": {
+        "empty": "The description is required."
+      },
+      "play": {
+        "empty": "You must create at least one step in the play.",
+        "invalid": "There was an error processing the play."
+      }
+    },
+    "createSuccess": "Strategy created successfully.",
+    "createFailed": "Error while creating the strategy."
+  },
   "navBar": {
     "navSections": {
       "home": "Home",

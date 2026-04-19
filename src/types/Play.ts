@@ -1,17 +1,16 @@
-export type Play = {
-  play: {
-    steps: {
-      elements: {
-        id: string;
-        x: number;
-        y: number;
-        elementType: ElementType;
-      }[];
-    }[];
-  }[];
+import { FieldElementType } from "./FieldElementType";
+
+export type PlayElement = {
+  id: string;
+  elementType: FieldElementType;
+  x: number;
+  y: number;
 };
 
-enum ElementType {
-  BALL = "BALL",
-  PLAYER = "PLAYER",
-}
+export type PlayStep = {
+  elements: PlayElement[];
+};
+
+export type Play = {
+  steps: PlayStep[];
+};

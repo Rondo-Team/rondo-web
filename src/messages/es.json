@@ -72,6 +72,25 @@
     },
     "registerFailed": "Algo salió mal durante el registro. Por favor, inténtalo de nuevo."
   },
+  "createPage": {
+    "createForm": {
+      "id": {
+        "invalid": "El identificador de la jugada no es valido."
+      },
+      "title": {
+        "empty": "El titulo es obligatorio."
+      },
+      "description": {
+        "empty": "La descripcion es obligatoria."
+      },
+      "play": {
+        "empty": "Debes crear al menos un paso en la jugada.",
+        "invalid": "Error al procesar la jugada."
+      }
+    },
+    "createSuccess": "Estrategia creada exitosamente.",
+    "createFailed": "Error al crear la estrategia."
+  },
   "navBar": {
     "navSections": {
       "home": "Inicio",
