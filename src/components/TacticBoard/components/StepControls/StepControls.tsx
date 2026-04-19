@@ -1,20 +1,18 @@
 import { Button } from "@/components/Button/Button";
+import { PlayStep } from "@/types/Play";
 import { StepButton } from "./components/StepButton";
 import styles from "./StepControls.module.css";
 
-type Step = {
-  id: string;
-};
-
 type StepControlsProps = {
-  steps: Step[];
+  steps: PlayStep[];
   activeStepIndex: number;
   isPlaying: boolean;
   playStepIndex: number;
   onGoToStep: (index: number) => void;
-  onCreateStep: () => void;
-  onDeleteStep: () => void;
+  onCreateStep?: () => void;
+  onDeleteStep?: () => void;
   onPlayToggle: () => void;
+  readOnly?: boolean;
 };
 
 export const StepControls = ({
@@ -26,26 +24,31 @@ export const StepControls = ({
   onCreateStep,
   onDeleteStep,
   onPlayToggle,
+  readOnly = false,
 }: StepControlsProps) => {
   return (
     <div className={styles.stepControls}>
       <div className={styles.stepActions}>
-        <Button
-          type="button"
-          variant="secondary"
-          onClick={onCreateStep}
-          disabled={isPlaying}
-        >
-          Add step
-        </Button>
-        <Button
-          type="button"
-          variant="tertiary"
-          onClick={onDeleteStep}
-          disabled={steps.length === 1 || isPlaying}
-        >
-          Delete step
-        </Button>
+        {!readOnly && (
+          <>
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={onCreateStep}
+              disabled={isPlaying}
+            >
+              Add step
+            </Button>
+            <Button
+              type="button"
+              variant="tertiary"
+              onClick={onDeleteStep}
+              disabled={steps.length === 1 || isPlaying}
+            >
+              Delete step
+            </Button>
+          </>
+        )}
         <Button
           type="button"
           variant="primary"
@@ -62,7 +65,7 @@ export const StepControls = ({
 
           return (
             <StepButton
-              key={step.id}
+              key={index}
               type="button"
               variant={isStepActive || isStepPlaying ? "active" : "default"}
               onClick={() => onGoToStep(index)}
