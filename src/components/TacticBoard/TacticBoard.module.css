@@ -29,6 +29,14 @@
   cursor: grabbing;
 }
 
+.pieceReadOnly {
+  cursor: auto;
+}
+
+.pieceReadOnly:active {
+  cursor: auto;
+}
+
 .pieceAnimated {
   transition:
     left 700ms ease,
@@ -38,6 +46,22 @@
 .boardDragging,
 .boardDragging * {
   cursor: grabbing !important;
+}
+
+.overlayPlacing {
+  cursor: crosshair;
+}
+
+.overlayPlacing .piece {
+  cursor: crosshair;
+}
+
+.pieceDeleteMode {
+  cursor: pointer;
+}
+
+.pieceDeleteMode:active {
+  cursor: pointer;
 }
 
 .pieceLabel {

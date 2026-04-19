@@ -1,0 +1,104 @@
+.tagsSection {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  color: #000;
+}
+
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.addTagButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 7px 10px;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.3);
+  font-size: small;
+  width: fit-content;
+  border-radius: 15px;
+  background: transparent;
+  color: #000;
+  cursor: pointer;
+}
+
+.addTagButton svg {
+  width: 10px;
+  height: 10px;
+}
+
+.addTagButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.editableTagInput {
+  padding: 7px 10px;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.3);
+  font-size: small;
+  font-family: inherit;
+  line-height: 16px;
+  box-sizing: border-box;
+  height: 32px;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 15px;
+  background: transparent;
+  color: #000;
+}
+
+.editableTagInput:focus {
+  outline: none;
+}
+
+.hiddenMeasure {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: pre;
+  padding: 7px 10px;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.3);
+  font-size: small;
+  font-family: inherit;
+  line-height: 16px;
+  box-sizing: border-box;
+  height: 32px;
+  border-radius: 15px;
+}
+
+.tagWithRemove {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.removeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: transparent;
+  color: #858585;
+  padding: 6px;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: color 0.1s ease;
+}
+
+.removeButton:hover {
+  color: #000000;
+}
