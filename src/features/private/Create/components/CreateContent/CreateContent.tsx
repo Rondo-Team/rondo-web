@@ -82,7 +82,6 @@ export const CreateContent = () => {
 
       <TagsInput name="tags" />
       <div className={styles.submitButtons}>
-        <input name="intent" type="hidden" readOnly />
         <Button type="submit" name="intent" value="post" disabled={isPending}>
           {t("submit.post")}
         </Button>

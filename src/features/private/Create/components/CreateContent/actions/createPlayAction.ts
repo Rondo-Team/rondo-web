@@ -4,6 +4,7 @@ import {
   CreatePlayActionDTO,
   CreatePlaySchema,
 } from "@/features/private/Create/components/CreateContent/schemas/CreatePlaySchema";
+import { createDraftUseCase } from "@/modules/draft/DraftModule";
 import { createPostUseCase } from "@/modules/post/PostModule";
 import { FormActionState } from "@/modules/shared/infrastructure/FormActionState";
 import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
@@ -20,7 +21,8 @@ export async function createPlayAction(
 ): Promise<CreatePlayFormActionState | never> {
   const t = await getTranslations("createPage");
   const tForm = await getTranslations("createPage.createForm");
-  const intent = formData.get("intent");
+  const intentValue = formData.getAll("intent").at(-1);
+  const intent = typeof intentValue === "string" ? intentValue : null;
 
   const [values, validationErrors] = validateFormData(
     CreatePlaySchema(tForm),
@@ -37,22 +39,42 @@ export async function createPlayAction(
 
   const id = uuidv4();
 
-  const error = await createPostUseCase
-    .run(id, values.title, values.description, values.tags, values.play)
-    .catch(() => {
+  switch (intent) {
+    case "post": {
+      const postError = await createPostUseCase
+        .run(id, values.title, values.description, values.tags, values.play)
+        .catch(() => {
+          return {
+            errors: {},
+            message: t("createFailed"),
+            success: false,
+          } as CreatePlayFormActionState;
+        });
+
+      if (postError) return postError;
+      redirect(`${AppSectionsRoutes.POST}/${id}`);
+    }
+
+    case "draft": {
+      const draftError = await createDraftUseCase
+        .run(id, values.title, values.description, values.play)
+        .catch(() => {
+          return {
+            errors: {},
+            message: t("createFailed"),
+            success: false,
+          } as CreatePlayFormActionState;
+        });
+
+      if (draftError) return draftError;
+      redirect(`${AppSectionsRoutes.DRAFT}/${id}`);
+    }
+
+    default:
       return {
         errors: {},
         message: t("createFailed"),
         success: false,
       } as CreatePlayFormActionState;
-    });
-
-  if (error) return error;
-
-  if (intent === "draft") {
-    // TODO: implement draft saving
-    return { success: true, message: t("draftSaved") };
   }
-
-  redirect(`${AppSectionsRoutes.POST}/${id}`);
 }
