@@ -78,14 +78,22 @@
         "invalid": "The play identifier is not valid."
       },
       "title": {
-        "empty": "The title is required."
+        "empty": "The title is required.",
+        "placeholder": "My New Strategy"
       },
       "description": {
-        "empty": "The description is required."
+        "empty": "The description is required.",
+        "placeholder": "Place your description here!"
+      },
+      "step": {
+        "empty": "Step must have at least one element"
       },
       "play": {
         "empty": "You must create at least one step in the play.",
-        "invalid": "There was an error processing the play."
+        "invalid": "Play is not valid."
+      },
+      "submit": {
+        "post": "Create Post"
       }
     },
     "createSuccess": "Strategy created successfully.",

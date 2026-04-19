@@ -14,7 +14,7 @@ const PlayStepSchema = (t: (arg: string) => string) =>
     elements: z
       .array(PlayElementSchema(t), { error: t("play.invalid") })
       .min(1, {
-        error: t("play.invalid"),
+        error: t("step.empty"),
       }),
   });
 
