@@ -5,17 +5,20 @@ import { TacticBoard } from "@/components/TacticBoard";
 import { TacticBoardHandle } from "@/components/TacticBoard/TacticBoard";
 import { EditableTextField } from "@/components/TextField";
 import { Play } from "@/types/Play";
+import { useTranslations } from "next-intl";
 import { useActionState, useRef, useState } from "react";
 import { createPlayAction } from "./actions/createPlayAction";
 import { TagsInput } from "./components/TagsInput/TagsInput";
 import styles from "./CreateContent.module.css";
 
 export const CreateContent = () => {
+  const t = useTranslations("createPage.createForm");
+
   const [state, formAction, isPending] = useActionState(createPlayAction, {});
   const tacticBoardRef = useRef<TacticBoardHandle>(null);
   const playInputRef = useRef<HTMLInputElement>(null);
 
-  const [title, setTitle] = useState("My New Strategy");
+  const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const handleTitleChange = (value: string) => {
@@ -49,7 +52,7 @@ export const CreateContent = () => {
           name="title"
           value={title}
           type="text"
-          placeholder="Ej: Contraataque rápido"
+          placeholder={t("title.placeholder")}
           onChange={handleTitleChange}
           error={state.errors?.title}
         />
@@ -58,7 +61,7 @@ export const CreateContent = () => {
           name="description"
           value={description}
           type="textarea"
-          placeholder="Describe la estrategia..."
+          placeholder={t("description.placeholder")}
           onChange={handleDescriptionChange}
           error={state.errors?.description}
           variant="subtitle"
@@ -76,7 +79,7 @@ export const CreateContent = () => {
 
       <TagsInput name="tags" />
       <Button type="submit" disabled={isPending}>
-        Crear estrategia
+        {t("submit.post")}
       </Button>
     </form>
   );
