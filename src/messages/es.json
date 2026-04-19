@@ -90,10 +90,15 @@
       "play": {
         "empty": "Debes crear al menos un paso en la jugada.",
         "invalid": "Error al procesar la jugada."
+      },
+      "submit": {
+        "post": "Crear publicación",
+        "draft": "Guardar borrador"
       }
     },
     "createSuccess": "Estrategia creada exitosamente.",
-    "createFailed": "Error al crear la estrategia."
+    "createFailed": "Error al crear la estrategia.",
+    "draftSaved": "Borrador guardado correctamente."
   },
   "navBar": {
     "navSections": {

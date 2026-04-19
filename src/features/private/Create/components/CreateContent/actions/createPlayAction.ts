@@ -20,6 +20,7 @@ export async function createPlayAction(
 ): Promise<CreatePlayFormActionState | never> {
   const t = await getTranslations("createPage");
   const tForm = await getTranslations("createPage.createForm");
+  const intent = formData.get("intent");
 
   const [values, validationErrors] = validateFormData(
     CreatePlaySchema(tForm),
@@ -47,5 +48,11 @@ export async function createPlayAction(
     });
 
   if (error) return error;
+
+  if (intent === "draft") {
+    // TODO: implement draft saving
+    return { success: true, message: t("draftSaved") };
+  }
+
   redirect(`${AppSectionsRoutes.POST}/${id}`);
 }

@@ -97,11 +97,13 @@
         "invalid": "Play is not valid."
       },
       "submit": {
-        "post": "Create Post"
+        "post": "Create Post",
+        "draft": "Save Draft"
       }
     },
     "createSuccess": "Strategy created successfully.",
-    "createFailed": "Error while creating the strategy."
+    "createFailed": "Error while creating the strategy.",
+    "draftSaved": "Draft saved successfully."
   },
   "navBar": {
     "navSections": {

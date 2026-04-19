@@ -81,9 +81,21 @@ export const CreateContent = () => {
       </div>
 
       <TagsInput name="tags" />
-      <Button type="submit" disabled={isPending}>
-        {t("submit.post")}
-      </Button>
+      <div className={styles.submitButtons}>
+        <input name="intent" type="hidden" readOnly />
+        <Button type="submit" name="intent" value="post" disabled={isPending}>
+          {t("submit.post")}
+        </Button>
+        <Button
+          type="submit"
+          name="intent"
+          value="draft"
+          disabled={isPending}
+          variant="secondary"
+        >
+          {t("submit.draft")}
+        </Button>
+      </div>
     </form>
   );
 };
