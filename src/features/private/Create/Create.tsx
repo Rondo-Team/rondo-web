@@ -1,5 +1,5 @@
-import { TacticBoard } from "@/components/TacticBoard";
+import { CreateContent } from "@/features/private/Create/components/CreateContent";
 
 export const Create = () => {
-  return <TacticBoard />;
+  return <CreateContent />;
 };

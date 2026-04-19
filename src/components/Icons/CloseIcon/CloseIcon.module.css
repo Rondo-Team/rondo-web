@@ -1,0 +1,24 @@
+.iconContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+}
+
+.crossBar {
+  position: absolute;
+  width: 10px;
+  height: 1.5px;
+  border-radius: 999px;
+  background-color: currentColor;
+}
+
+.crossBar:first-child {
+  transform: rotate(45deg);
+}
+
+.crossBar:last-child {
+  transform: rotate(-45deg);
+}
