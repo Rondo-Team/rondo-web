@@ -41,3 +41,8 @@
   height: 0;
   margin: 0;
 }
+
+.submitButtons {
+  display: flex;
+  gap: 10px;
+}
