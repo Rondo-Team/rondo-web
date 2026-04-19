@@ -1,5 +1,7 @@
 import { serverHttpClient } from "@/api/http/client/ServerHttpClient";
 import { PostRepository } from "@/modules/post/domain/repositories/PostRepository";
+import { CreatePostRequestDTO } from "@/modules/post/infrastructure/dtos/CreatePostRequestDTO";
+import { CreatePostResponseDTO } from "@/modules/post/infrastructure/dtos/CreatePostResponseDTO";
 import { GetCommunityHighlightsRequestDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsRequestDTO";
 import { GetCommunityHighlightsResponseDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsResponseDTO";
 import { GetTrendingPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetTrendingPostResponseDTO";
@@ -20,5 +22,13 @@ export class HttpPostRepository implements PostRepository {
         { params: req },
       );
     return getCommunityHighlightsMapper(result);
+  }
+
+  async create(body: CreatePostRequestDTO) {
+    console.dir(body, { depth: null });
+    await serverHttpClient.post<CreatePostResponseDTO, CreatePostRequestDTO>(
+      "/api/v1/posts",
+      body,
+    );
   }
 }
