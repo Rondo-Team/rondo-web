@@ -25,7 +25,6 @@ export class HttpPostRepository implements PostRepository {
   }
 
   async create(body: CreatePostRequestDTO) {
-    console.dir(body, { depth: null });
     await serverHttpClient.post<CreatePostResponseDTO, CreatePostRequestDTO>(
       "/api/v1/posts",
       body,
