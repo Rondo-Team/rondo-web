@@ -2,8 +2,8 @@ import { CustomMiddleware } from "@/middlewares/chain";
 import { cookies } from "next/headers";
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
-const publicRoutes = ["/login"];
-const privateRoutes = ["/home"];
+const publicRoutes = ["/login", "/register"];
+const privateRoutes = ["/home", "/create"];
 
 export function authMiddleware(customMiddleware: CustomMiddleware) {
   return async (
