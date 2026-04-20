@@ -1,5 +1,6 @@
 import { CreatePost } from "@/modules/post/application/use-cases/CreatePost";
 import { GetCommunityHighlights } from "@/modules/post/application/use-cases/GetCommunityHighlights";
+import { GetPostById } from "@/modules/post/application/use-cases/GetPostById";
 import { GetTrendingPost } from "@/modules/post/application/use-cases/GetTrendingPost";
 import { HttpPostRepository } from "@/modules/post/infrastructure/repositories/HttpPostRepository";
 import { Token } from "@/modules/shared/domain/Token";
@@ -14,9 +15,11 @@ container.bind(Token.POST_REPOSITORY).to(HttpPostRepository);
 container.bind(GetTrendingPost).toSelf();
 container.bind(GetCommunityHighlights).toSelf();
 container.bind(CreatePost).toSelf();
+container.bind(GetPostById).toSelf();
 
 export const getTrendingPostUseCase = container.get(GetTrendingPost);
 export const getCommunityHighlightsUseCase = container.get(
   GetCommunityHighlights,
 );
 export const createPostUseCase = container.get(CreatePost);
+export const getPostByIdUseCase = container.get(GetPostById);
