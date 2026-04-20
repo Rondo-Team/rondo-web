@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
 const publicRoutes = ["/login", "/register"];
-const privateRoutes = ["/home", "/create"];
+const privateRoutes = ["/home", "/create", "/post"];
 
 export function authMiddleware(customMiddleware: CustomMiddleware) {
   return async (
