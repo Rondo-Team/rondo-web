@@ -4,8 +4,11 @@ import { CreatePostRequestDTO } from "@/modules/post/infrastructure/dtos/CreateP
 import { CreatePostResponseDTO } from "@/modules/post/infrastructure/dtos/CreatePostResponseDTO";
 import { GetCommunityHighlightsRequestDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsRequestDTO";
 import { GetCommunityHighlightsResponseDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsResponseDTO";
+import { GetPostByIdRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostByIdRequestDTO";
+import { GetPostByIdResponseDTO } from "@/modules/post/infrastructure/dtos/GetPostByIdResponseDTO";
 import { GetTrendingPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetTrendingPostResponseDTO";
 import { getCommunityHighlightsMapper } from "@/modules/post/infrastructure/mappers/getCommunityHighlightsMapper";
+import { getPostMapper } from "@/modules/post/infrastructure/mappers/getPostMapper";
 import { getTrendingPostMapper } from "@/modules/post/infrastructure/mappers/getTrendingPostMapper";
 
 export class HttpPostRepository implements PostRepository {
@@ -29,5 +32,12 @@ export class HttpPostRepository implements PostRepository {
       "/api/v1/posts",
       body,
     );
+  }
+
+  async getPostById(req: GetPostByIdRequestDTO) {
+    const result = await serverHttpClient.get<GetPostByIdResponseDTO>(
+      `/api/v1/posts/${req.id}`,
+    );
+    return getPostMapper(result);
   }
 }
