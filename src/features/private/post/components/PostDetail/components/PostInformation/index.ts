@@ -1,0 +1,1 @@
+export { PostInformation } from "./PostInformation";
