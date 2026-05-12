@@ -1,20 +1,36 @@
 import { serverHttpClient } from "@/api/http/client/ServerHttpClient";
 import { PostRepository } from "@/modules/post/domain/repositories/PostRepository";
+import { CommentPostRequestDTO } from "@/modules/post/infrastructure/dtos/CommentPostRequestDTO";
+import { CommentPostResponseDTO } from "@/modules/post/infrastructure/dtos/CommentPostResponseDTO";
 import { CreatePostRequestDTO } from "@/modules/post/infrastructure/dtos/CreatePostRequestDTO";
 import { CreatePostResponseDTO } from "@/modules/post/infrastructure/dtos/CreatePostResponseDTO";
+import { DeletePostRequestDTO } from "@/modules/post/infrastructure/dtos/DeletePostRequestDTO";
+import { DeletePostResponseDTO } from "@/modules/post/infrastructure/dtos/DeletePostResponseDTO";
 import { GetCommunityHighlightsRequestDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsRequestDTO";
 import { GetCommunityHighlightsResponseDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsResponseDTO";
 import { GetLikeByUserAndPostRequestDTO } from "@/modules/post/infrastructure/dtos/GetLikeByUserAndPostRequestDTO";
 import { GetLikeByUserAndPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetLikeByUserAndPostResponseDTO";
 import { GetPostByIdRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostByIdRequestDTO";
 import { GetPostByIdResponseDTO } from "@/modules/post/infrastructure/dtos/GetPostByIdResponseDTO";
+import { GetPostCommentsRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostCommentsRequestDTO";
+import { GetPostCommentsResponseDTO } from "@/modules/post/infrastructure/dtos/GetPostCommentsResponseDTO";
 import { GetTrendingPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetTrendingPostResponseDTO";
+import { GetUserCommentLikesByPostRequestDTO } from "@/modules/post/infrastructure/dtos/GetUserCommentLikesByPostRequestDTO";
+import { GetUserCommentLikesByPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetUserCommentLikesByPostResponseDTO";
+import { LikeCommentRequestDTO } from "@/modules/post/infrastructure/dtos/LikeCommentRequestDTO";
+import { LikeCommentResponseDTO } from "@/modules/post/infrastructure/dtos/LikeCommentResponseDTO";
 import { LikePostRequestDTO } from "@/modules/post/infrastructure/dtos/LikePostRequestDTO";
 import { LikePostResponseDTO } from "@/modules/post/infrastructure/dtos/LikePostResponseDTO";
+import { ReplyPostRequestDTO } from "@/modules/post/infrastructure/dtos/ReplyPostRequestDTO";
+import { ReplyPostResponseDTO } from "@/modules/post/infrastructure/dtos/ReplyPostResponseDTO";
+import { UnLikeCommentRequestDTO } from "@/modules/post/infrastructure/dtos/UnLikeCommentRequestDTO";
+import { UnLikeCommentResponseDTO } from "@/modules/post/infrastructure/dtos/UnLikeCommentResponseDTO";
 import { UnLikePostRequestDTO } from "@/modules/post/infrastructure/dtos/UnLikePostRequestDTO";
 import { UnLikePostResponseDTO } from "@/modules/post/infrastructure/dtos/UnLikePostResponseDTO";
+import { getCommentLikesMapper } from "@/modules/post/infrastructure/mappers/getCommentLikesMapper";
 import { getCommunityHighlightsMapper } from "@/modules/post/infrastructure/mappers/getCommunityHighlightsMapper";
 import { getFavouriteMapper } from "@/modules/post/infrastructure/mappers/getFavouriteMapper";
+import { getPostCommentsMapper } from "@/modules/post/infrastructure/mappers/getPostCommentsMapper";
 import { getPostMapper } from "@/modules/post/infrastructure/mappers/getPostMapper";
 import { getTrendingPostMapper } from "@/modules/post/infrastructure/mappers/getTrendingPostMapper";
 
@@ -65,6 +81,55 @@ export class HttpPostRepository implements PostRepository {
   async unLikePost(req: UnLikePostRequestDTO) {
     await serverHttpClient.delete<UnLikePostResponseDTO, UnLikePostRequestDTO>(
       `/api/v1/post-favourites/${req.id}`,
+    );
+  }
+
+  async getPostComments(req: GetPostCommentsRequestDTO) {
+    const comments = await serverHttpClient.get<GetPostCommentsResponseDTO>(
+      `/api/v1/comment/post/${req.id}`,
+    );
+    return getPostCommentsMapper(comments);
+  }
+
+  async commentPost(req: CommentPostRequestDTO) {
+    await serverHttpClient.post<CommentPostResponseDTO, CommentPostRequestDTO>(
+      "/api/v1/comment",
+      req,
+    );
+  }
+
+  async replyComment(req: ReplyPostRequestDTO) {
+    await serverHttpClient.post<ReplyPostResponseDTO, ReplyPostRequestDTO>(
+      "/api/v1/comment/reply",
+      req,
+    );
+  }
+
+  async likeComment(req: LikeCommentRequestDTO) {
+    await serverHttpClient.post<LikeCommentResponseDTO, LikeCommentRequestDTO>(
+      "/api/v1/comment-favourites",
+      req,
+    );
+  }
+
+  async unLikeComment(req: UnLikeCommentRequestDTO) {
+    await serverHttpClient.delete<
+      UnLikeCommentResponseDTO,
+      UnLikeCommentRequestDTO
+    >(`/api/v1/comment-favourites/${req.id}`);
+  }
+
+  async getUserCommentLikesByPost(req: GetUserCommentLikesByPostRequestDTO) {
+    const commentLikes = await serverHttpClient.get<
+      GetUserCommentLikesByPostResponseDTO,
+      GetUserCommentLikesByPostRequestDTO
+    >("/api/v1/comment-favourites", { params: req });
+    return getCommentLikesMapper(commentLikes);
+  }
+
+  async deletePost(req: DeletePostRequestDTO) {
+    await serverHttpClient.delete<DeletePostResponseDTO, DeletePostRequestDTO>(
+      `/api/v1/posts/${req.id}`,
     );
   }
 }

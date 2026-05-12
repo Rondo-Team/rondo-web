@@ -1,5 +1,6 @@
 import { CommentPost } from "@/modules/post/application/use-cases/CommentPost";
 import { CreatePost } from "@/modules/post/application/use-cases/CreatePost";
+import { DeletePost } from "@/modules/post/application/use-cases/DeletePost";
 import { GetCommunityHighlights } from "@/modules/post/application/use-cases/GetCommunityHighlights";
 import { GetLikeByUserAndPost } from "@/modules/post/application/use-cases/GetLikeByUserAndPost";
 import { GetPostById } from "@/modules/post/application/use-cases/GetPostById";
@@ -28,6 +29,13 @@ container.bind(GetPostById).toSelf();
 container.bind(LikePost).toSelf();
 container.bind(GetLikeByUserAndPost).toSelf();
 container.bind(UnLikePost).toSelf();
+container.bind(GetPostComments).toSelf();
+container.bind(CommentPost).toSelf();
+container.bind(ReplyComment).toSelf();
+container.bind(LikeComment).toSelf();
+container.bind(UnLikeComment).toSelf();
+container.bind(GetUserCommentLikesByPost).toSelf();
+container.bind(DeletePost).toSelf();
 
 export const getTrendingPostUseCase = container.get(GetTrendingPost);
 export const getCommunityHighlightsUseCase = container.get(
@@ -38,3 +46,12 @@ export const getPostByIdUseCase = container.get(GetPostById);
 export const likePostUseCase = container.get(LikePost);
 export const getLikeByUserAndPostUseCase = container.get(GetLikeByUserAndPost);
 export const unLikePostUseCase = container.get(UnLikePost);
+export const getPostCommentsUseCase = container.get(GetPostComments);
+export const commentPostUseCase = container.get(CommentPost);
+export const replyCommentUseCase = container.get(ReplyComment);
+export const likeCommentUseCase = container.get(LikeComment);
+export const unLikeCommmentUseCase = container.get(UnLikeComment);
+export const getUserCommentLikesByPostUseCase = container.get(
+  GetUserCommentLikesByPost,
+);
+export const deletePostUseCase = container.get(DeletePost);
