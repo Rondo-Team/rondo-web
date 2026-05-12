@@ -1,26 +1,11 @@
-.postTags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 5px;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.detailContainer {
+.postDetailContainer {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 64px;
 }
 
-.buttonContent {
+.postComments {
   display: flex;
-  gap: 10px;
-}
-
-.favouritesStats {
-  gap: 4px;
-  display: flex;
-  p {
-    font-weight: bold;
-  }
+  flex-direction: column;
+  gap: 24px;
 }

@@ -1,0 +1,85 @@
+.commentsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rootCommentsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.commentComposer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commentTextarea {
+  padding: 5px 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: normal;
+  color: inherit;
+  margin: 0;
+  display: block;
+  width: 100%;
+  resize: none;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.commentTextarea:focus {
+  outline: none;
+}
+
+.commentTextarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.replyIndented {
+  padding-left: 18px;
+}
+
+.replyComment {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.repliesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.cappedRepliesContainer {
+  margin-left: -18px;
+}
+
+.repliesToggle {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.repliesToggle:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.repliesToggleDisabled {
+  cursor: default;
+}
+
+.repliesToggleDisabled:hover {
+  color: rgba(0, 0, 0, 0.7);
+}

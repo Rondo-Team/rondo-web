@@ -14,5 +14,6 @@ export type GetPostByIdResponseDTO = {
     username: string;
     name: string;
     profilePicture: string;
+    id: string;
   };
 };

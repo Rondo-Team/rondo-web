@@ -14,5 +14,6 @@ export interface PostDetail {
     username: string;
     name: string;
     profilePicture: string;
+    id: string;
   };
 }
