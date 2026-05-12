@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 170px;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 5;
+
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+.actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.confirmationText {
+  font-size: xx-large;
+  font-weight: bold;
+}

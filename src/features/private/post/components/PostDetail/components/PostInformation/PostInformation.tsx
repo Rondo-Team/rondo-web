@@ -2,13 +2,16 @@
 
 import { Button } from "@/components/Button/Button";
 import { ButtonSkeleton } from "@/components/Button/Skeleton/ButtonSkeleton";
+import { DeleteConfirmation } from "@/components/DeleteConfirmation";
 import { HeartIcon } from "@/components/Icons/HeartIcon";
 import { TacticBoard } from "@/components/TacticBoard";
 import { Tag } from "@/components/Tag";
-import { TitleSubtitle } from "@/components/TitleSubtitle";
 import { UserProfile } from "@/components/UserProfile";
+import { deletePost } from "@/features/private/post/components/PostDetail/components/PostInformation/queries/deletePost";
 import { PostDetail } from "@/modules/post/domain/value-object/PostDetail";
 import { PostFavourite } from "@/modules/post/domain/value-object/PostFavourite";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./PostInformation.module.css";
 import { getLikeByUserAndPost } from "./queries/getLikeByUserAndPost";
@@ -17,9 +20,13 @@ import { unLikePost } from "./queries/unLikePost";
 
 interface PostInformationProps {
   post: PostDetail;
+  userOwnsPost: boolean;
 }
 
-export const PostInformation = ({ post }: PostInformationProps) => {
+export const PostInformation = ({
+  post,
+  userOwnsPost,
+}: PostInformationProps) => {
   const [markedAsFavourited, setMarkedAsFavourite] = useState(false);
   const [postFavourite, setPostFavourite] = useState<PostFavourite | null>(
     null,
@@ -87,34 +94,52 @@ export const PostInformation = ({ post }: PostInformationProps) => {
     setIsUpdatingFavourite(false);
   };
 
+  const handleConfirmDelete = async () => {
+    await deletePost(post.id);
+    redirect("/home");
+  };
+
   return (
     <div className={styles.detailContainer}>
-      <TitleSubtitle title={post.title} subtitle={post.description} />
+      <div className={styles.shortActions}>
+        <h1 className={styles.postTitle}>{post.title}</h1>
+        <div className={styles.actionsContainer}>
+          {isLoadingFavourite ? (
+            <div className={styles.buttonContent}>
+              <ButtonSkeleton />
+            </div>
+          ) : (
+            <Button
+              variant="secondary"
+              onClick={handleFavouriteToggle}
+              disabled={isUpdatingFavourite}
+            >
+              <div className={styles.buttonContent}>
+                <div className={styles.favouritesStats}>
+                  <HeartIcon filled={markedAsFavourited} />
+                  <p>{favouritesCount}</p>
+                </div>
+              </div>
+            </Button>
+          )}
+          {userOwnsPost && (
+            <>
+              <Button variant="secondary">
+                <Link href={`/edit/post/${post.id}`}>Edit</Link>
+              </Button>
+              <DeleteConfirmation onConfirm={handleConfirmDelete} />
+            </>
+          )}
+        </div>
+      </div>
+      <p className={styles.postDescription}>{post.description}</p>
+
       <UserProfile name={post.user.name} username={post.user.username} />
       <div className={styles.postTags}>
         {post.tags.map((tag) => (
           <Tag text={tag} key={tag} />
         ))}
       </div>
-      {isLoadingFavourite ? (
-        <div className={styles.buttonContent}>
-          <ButtonSkeleton />
-        </div>
-      ) : (
-        <Button onClick={handleFavouriteToggle} disabled={isUpdatingFavourite}>
-          <div className={styles.buttonContent}>
-            <div className={styles.favouritesStats}>
-              <HeartIcon filled={markedAsFavourited} />
-              <p>{favouritesCount}</p>
-            </div>
-            <p>
-              {markedAsFavourited
-                ? "Remove from favourites"
-                : "Mark as favourite"}
-            </p>
-          </div>
-        </Button>
-      )}
       <TacticBoard readOnly play={post.play} />
     </div>
   );
