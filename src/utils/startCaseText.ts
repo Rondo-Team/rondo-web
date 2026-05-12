@@ -1,4 +1,4 @@
-export function formatText(text: string) {
+export function startCaseText(text: string) {
   const words = text.trim().split(/\s+/).filter(Boolean);
 
   return words
