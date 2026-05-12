@@ -1,14 +1,13 @@
 "use server";
 
 import { likePostUseCase } from "@/modules/post/PostModule";
-import { getUserIdFromCookie } from "@/utils/getUserIdFromCookie";
+import { v4 as uuidv4 } from "uuid";
 
 export const likePost = async (postId: string) => {
   try {
-    const userId = await getUserIdFromCookie();
-    if (!userId) return null;
+    const id = uuidv4();
 
-    return await likePostUseCase.run(userId, postId);
+    return await likePostUseCase.run(id, postId);
   } catch {
     return null;
   }
