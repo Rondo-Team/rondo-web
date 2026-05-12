@@ -1,0 +1,120 @@
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commentBasicInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.commentContentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.commentContent {
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.clampedContent {
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.commentFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.commentActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.commentLikes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.inlineAction {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
+  font: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.likeAction {
+  color: rgba(0, 0, 0, 1);
+}
+
+.inlineAction:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.inlineAction:not(:disabled):hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.replyComposer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.replyTextarea {
+  padding: 5px 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: normal;
+  color: inherit;
+  margin: 0;
+  display: block;
+  width: 100%;
+  resize: none;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.replyTextarea:focus {
+  outline: none;
+}
+
+.replyTextarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.createdAt {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 10px;
+  opacity: 0.5;
+  font-style: italic;
+  padding: 2px;
+}
