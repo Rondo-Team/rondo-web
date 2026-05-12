@@ -1,4 +1,4 @@
-import { formatText } from "@/utils/formatText";
+import { startCaseText } from "@/utils/startCaseText";
 import styles from "./StatusPill.module.css";
 
 interface StatusPillProps {
@@ -7,7 +7,7 @@ interface StatusPillProps {
 }
 
 export const StatusPill = ({ text, type }: StatusPillProps) => {
-  const formattedText = formatText(text);
+  const formattedText = startCaseText(text);
   return (
     <div className={`${styles.pillContainer} ${styles[type]}`}>
       <p className={styles.pillText}>{formattedText}</p>
