@@ -9,3 +9,9 @@
   flex-direction: column;
   gap: 24px;
 }
+
+.postProposals {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
