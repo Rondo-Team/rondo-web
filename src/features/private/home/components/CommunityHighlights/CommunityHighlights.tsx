@@ -18,7 +18,7 @@ export const CommunityHighlights = async () => {
           <CommunityHighlightsContent />
         </Suspense>
         <Button>
-          <Link href={AppSectionsRoutes.DISCOVER}>{t("discover")}</Link>
+          <Link href={AppSectionsRoutes.COMMUNITY}>{t("discover")}</Link>
         </Button>
       </div>
     </div>
