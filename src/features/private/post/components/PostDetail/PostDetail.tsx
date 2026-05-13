@@ -1,5 +1,6 @@
 import { PostComments } from "@/features/private/post/components/PostDetail/components/PostComments";
 import { PostInformation } from "@/features/private/post/components/PostDetail/components/PostInformation";
+import { PostProposals } from "@/features/private/post/components/PostDetail/components/PostProposals";
 import { getPostById } from "@/features/private/post/components/PostDetail/queries/getPostById";
 import { getUserIdFromCookie } from "@/utils/getUserIdFromCookie";
 import styles from "./PostDetail.module.css";
@@ -18,6 +19,10 @@ export const PostDetail = async ({ id }: PostDetailPropos) => {
       <div className={styles.postComments}>
         <h1>Comments ({post.commentsCount})</h1>
         <PostComments postId={post.id} />
+      </div>
+      <div className={styles.postProposals}>
+        <h1>Proposals ({post.proposalsCount})</h1>
+        <PostProposals postId={post.id} />
       </div>
     </div>
   );

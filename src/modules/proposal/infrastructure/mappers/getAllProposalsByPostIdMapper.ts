@@ -1,8 +1,8 @@
 import { ProposalResume } from "@/modules/proposal/domain/value-objects/ProposalResume";
-import { GetAllProposalByUserIdResponseDTO } from "@/modules/proposal/infrastructure/dtos/GetAllProposalsByUserIdResponseDTO";
+import { GetAllProposalByPostIdResponseDTO } from "@/modules/proposal/infrastructure/dtos/GetAllProposalsByPostIdResponseDTO";
 
-export const getAllProposalsByUserIdMapper = (
-  dto: GetAllProposalByUserIdResponseDTO,
+export const getAllProposalsByPostIdMapper = (
+  dto: GetAllProposalByPostIdResponseDTO,
 ): ProposalResume[] => {
   return dto.map((proposal) => ({
     id: proposal.id,

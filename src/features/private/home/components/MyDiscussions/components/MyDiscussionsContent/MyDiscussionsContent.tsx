@@ -29,7 +29,7 @@ export const MyDiscussionsContent = async () => {
         createdAt={t("createdAt", {
           timeAgo: formatRelativeDate(new Date(proposal.createdAt), locale),
         })}
-        postTitle={t("proposedFor", {
+        basicInfo={t("proposedFor", {
           parentPost: proposal.postTitle,
         })}
         status={proposal.status}
