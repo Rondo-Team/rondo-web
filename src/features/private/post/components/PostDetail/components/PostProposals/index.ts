@@ -1,0 +1,1 @@
+export { PostProposals } from "./PostProposals";

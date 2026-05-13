@@ -4,14 +4,14 @@ import styles from "./ProposalLargeCard.module.css";
 
 interface ProposalLargeCardProps {
   title: string;
-  postTitle: string;
+  basicInfo: string;
   status: ProposalStatus;
   createdAt: string;
 }
 
 export const ProposalLargeCard = ({
   title,
-  postTitle,
+  basicInfo,
   status,
   createdAt,
 }: ProposalLargeCardProps) => {
@@ -19,7 +19,7 @@ export const ProposalLargeCard = ({
     <div className={styles.proposalLargeCardContainer}>
       <div className={styles.proposalLargeCardTitleSubtitle}>
         <h1 className={styles.proposalLargeCardTitle}>{title}</h1>
-        <p className={styles.proposalLargeCardDescription}>{postTitle}</p>
+        <p className={styles.proposalLargeCardDescription}>{basicInfo}</p>
       </div>
       <div className={styles.proposalLargeCardTitleMetrics}>
         <StatusPill
