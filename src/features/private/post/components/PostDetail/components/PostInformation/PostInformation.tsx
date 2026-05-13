@@ -122,6 +122,14 @@ export const PostInformation = ({
               </div>
             </Button>
           )}
+          <Button variant="primary">
+            <div className={styles.buttonContent}>
+              <Link href={`/create/proposal/${post.id}`}>
+                Open for proposal
+              </Link>
+            </div>
+          </Button>
+
           {userOwnsPost && (
             <>
               <Button variant="secondary">
