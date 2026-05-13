@@ -8,6 +8,7 @@ export const getAllProposalsByUserIdMapper = (
     id: proposal.id,
     title: proposal.title,
     postTitle: proposal.post.title,
+    username: proposal.user.username,
     createdAt: proposal.createdAt,
     status: proposal.status,
   }));
