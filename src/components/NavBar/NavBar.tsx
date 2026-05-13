@@ -31,10 +31,10 @@ export const NavBar = ({ name, username }: NavBarProps) => {
     <nav className={styles.navBar}>
       <Link href={AppSectionsRoutes.HOME} className={styles.rondoComposition}>
         <Image
-          src="/rondo-icon.webp"
+          src="/rondo-icon.png"
           alt="Rondo Icon"
-          width={50}
-          height={50}
+          width={25}
+          height={25}
           className={styles.rondoImage}
         />
         <h2>Rondo</h2>
