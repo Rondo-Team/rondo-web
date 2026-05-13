@@ -4,9 +4,14 @@ import styles from "./SearchBar.module.css";
 interface SearchBarProps {
   placeholder: string;
   onChange: (term: string) => void;
+  defaultValue: string;
 }
 
-export const SearchBar = ({ placeholder, onChange }: SearchBarProps) => {
+export const SearchBar = ({
+  placeholder,
+  onChange,
+  defaultValue,
+}: SearchBarProps) => {
   return (
     <div className={styles.inputContainer}>
       <div className={styles.textFieldContainer}>
@@ -19,6 +24,7 @@ export const SearchBar = ({ placeholder, onChange }: SearchBarProps) => {
           onChange={(e) => {
             onChange(e.target.value);
           }}
+          defaultValue={defaultValue}
         />
       </div>
     </div>

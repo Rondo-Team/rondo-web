@@ -18,7 +18,11 @@ export const CommunitySearch = () => {
   // Faltaria todavia añadir aqui los filtros, y que se vean reflejados en la url.
   return (
     <div>
-      <SearchBar placeholder="Search for posts" onChange={handleSearch} />
+      <SearchBar
+        placeholder="Search for posts"
+        onChange={handleSearch}
+        defaultValue={searchParams.get(SearchPostQueryParams.QUERY?.toString())}
+      />
     </div>
   );
 };
