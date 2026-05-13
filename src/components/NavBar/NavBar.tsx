@@ -64,7 +64,7 @@ export const NavBar = ({ name, username }: NavBarProps) => {
           {t("navSections.create")}
         </Link>
         <Link
-          href={AppSectionsRoutes.DISCOVER}
+          href={AppSectionsRoutes.COMMUNITY}
           className={styles.navLinksText}
           onClick={closeMenu}
         >
