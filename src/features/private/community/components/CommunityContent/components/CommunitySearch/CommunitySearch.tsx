@@ -1,8 +1,10 @@
 "use client";
 import { SearchBar } from "@/components/SearchBar";
-import { SearchPostQueryParams } from "@/types/SearchPostQueryParams";
+import { SearchFilters } from "@/features/private/community/components/CommunityContent/components/CommunitySearch/components/SearchFilters";
+import { SearchPostQueryParams } from "@/types/PostSearching/SearchPostQueryParams";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
+import styles from "./CommunitySearch.module.css";
 
 export const CommunitySearch = () => {
   const searchParams = useSearchParams();
@@ -18,7 +20,7 @@ export const CommunitySearch = () => {
 
   // Faltaria todavia añadir aqui los filtros, y que se vean reflejados en la url.
   return (
-    <div>
+    <div className={styles.searchContainer}>
       <SearchBar
         placeholder="Search for posts"
         onChange={handleSearch}
@@ -26,6 +28,7 @@ export const CommunitySearch = () => {
           searchParams.get(SearchPostQueryParams.QUERY?.toString()) ?? ""
         }
       />
+      <SearchFilters />
     </div>
   );
 };

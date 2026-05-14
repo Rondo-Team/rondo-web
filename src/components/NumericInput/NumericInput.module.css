@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 5px;
+  border-radius: 15px;
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+}
+
+.container:hover {
+  border-color: #9d9d9d;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0;
+}
+
+.stepButton {
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: #222222;
+  cursor: pointer;
+  font-size: smaller;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.stepButton:hover:not(:disabled) {
+  background: transparent;
+  color: #000000;
+}
+
+.stepButton:disabled {
+  color: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.numberInput {
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-size: smaller;
+  color: #222222;
+}
+
+.numberInput:focus {
+  outline: none;
+}
+
+.numberInput::-webkit-outer-spin-button,
+.numberInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

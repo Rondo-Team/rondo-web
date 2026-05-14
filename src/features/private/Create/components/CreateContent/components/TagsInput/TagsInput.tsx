@@ -5,15 +5,32 @@ import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./TagsInput.module.css";
 
 interface TagsInputProps {
-  name: string;
+  name?: string;
+  value?: string[];
+  onChange?: (tags: string[]) => void;
+  addButtonLabel?: string;
 }
 
-export const TagsInput = ({ name }: TagsInputProps) => {
-  const [tags, setTags] = useState<string[]>([]);
+export const TagsInput = ({
+  name,
+  value,
+  onChange,
+  addButtonLabel = "Add Tag",
+}: TagsInputProps) => {
+  const [internalTags, setInternalTags] = useState<string[]>([]);
   const [isAddingTag, setIsAddingTag] = useState(false);
   const [newTagValue, setNewTagValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const measureRef = useRef<HTMLSpanElement>(null);
+  const tags = value ?? internalTags;
+
+  const updateTags = (nextTags: string[]) => {
+    if (value === undefined) {
+      setInternalTags(nextTags);
+    }
+
+    onChange?.(nextTags);
+  };
 
   useLayoutEffect(() => {
     if (!isAddingTag || !inputRef.current || !measureRef.current) {
@@ -56,12 +73,12 @@ export const TagsInput = ({ name }: TagsInputProps) => {
       return;
     }
 
-    setTags((prevTags) => [sanitizedTag, ...prevTags]);
+    updateTags([sanitizedTag, ...tags]);
     handleCancelNewTag();
   };
 
   const handleRemoveTag = (tagToRemove: string) => {
-    setTags((prevTags) => prevTags.filter((tag) => tag !== tagToRemove));
+    updateTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
   return (
@@ -112,11 +129,11 @@ export const TagsInput = ({ name }: TagsInputProps) => {
           onClick={handleStartAddingTag}
           disabled={isAddingTag}
         >
-          Add Tag <PlusIcon />
+          {addButtonLabel} <PlusIcon />
         </button>
       </div>
 
-      <input type="hidden" name={name} value={tags.join(",")} />
+      {name && <input type="hidden" name={name} value={tags.join(",")} />}
     </div>
   );
 };
