@@ -3,12 +3,14 @@ import { CommunityHighlight } from "@/modules/post/domain/value-object/Community
 import { PostComment } from "@/modules/post/domain/value-object/PostComment";
 import { PostDetail } from "@/modules/post/domain/value-object/PostDetail";
 import { PostFavourite } from "@/modules/post/domain/value-object/PostFavourite";
+import { PostResume } from "@/modules/post/domain/value-object/PostResume";
 import { TrendingPost } from "@/modules/post/domain/value-object/TrendingPost";
 import { CommentPostRequestDTO } from "@/modules/post/infrastructure/dtos/CommentPostRequestDTO";
 import { CreatePostRequestDTO } from "@/modules/post/infrastructure/dtos/CreatePostRequestDTO";
 import { DeletePostRequestDTO } from "@/modules/post/infrastructure/dtos/DeletePostRequestDTO";
 import { GetCommunityHighlightsRequestDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsRequestDTO";
 import { GetLikeByUserAndPostRequestDTO } from "@/modules/post/infrastructure/dtos/GetLikeByUserAndPostRequestDTO";
+import { GetPostsByCriteriaRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostByCriteriaRequestDTO";
 import { GetPostByIdRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostByIdRequestDTO";
 import { GetPostCommentsRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostCommentsRequestDTO";
 import { GetUserCommentLikesByPostRequestDTO } from "@/modules/post/infrastructure/dtos/GetUserCommentLikesByPostRequestDTO";
@@ -40,4 +42,7 @@ export interface PostRepository {
     req: GetLikeByUserAndPostRequestDTO,
   ) => Promise<PostFavourite>;
   deletePost: (req: DeletePostRequestDTO) => Promise<void>;
+  getPostsByCriteria: (
+    req: GetPostsByCriteriaRequestDTO,
+  ) => Promise<PaginatedResponse<PostResume>>;
 }
