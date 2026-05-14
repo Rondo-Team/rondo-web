@@ -1,0 +1,28 @@
+.toggleButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: smaller;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 15px;
+  cursor: pointer;
+  color: #222222;
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  font-family: inherit;
+}
+
+.toggleButton:not(:disabled):hover {
+  background: #f2f2f2;
+  border-color: #9d9d9d;
+  transition: 0.1s;
+}
+
+.toggleButton:disabled {
+  color: #6d6d6d;
+  background: #f6f6f6;
+  border: 1px solid #dddddd;
+  cursor: not-allowed;
+}
