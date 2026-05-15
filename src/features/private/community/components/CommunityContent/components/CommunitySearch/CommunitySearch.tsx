@@ -22,7 +22,7 @@ export const CommunitySearch = () => {
   return (
     <div className={styles.searchContainer}>
       <SearchBar
-        placeholder="Search for posts"
+        placeholder="Search by post name, description, username..."
         onChange={handleSearch}
         defaultValue={
           searchParams.get(SearchPostQueryParams.QUERY?.toString()) ?? ""
