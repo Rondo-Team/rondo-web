@@ -1,0 +1,28 @@
+.sortingContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.filtersText {
+  font-size: small;
+}
+
+.filtersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+}
+
+.likesFilter {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.filterOptions {
+  display: flex;
+  gap: 5px;
+}

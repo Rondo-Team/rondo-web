@@ -1,0 +1,15 @@
+.communityContentContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+
+
+.postAndPagination {
+  display: flex;
+  flex-direction: column;
+  gap:16px
+}

@@ -1,0 +1,52 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.textField {
+  width: 100%;
+  padding: 10px 10px 10px 42px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  background-color: white;
+  color: #000000;
+  font-size: medium;
+  outline: none; /* Quita el borde azul del focus */
+  box-shadow: none; /* Quita sombras raras */
+  appearance: none; /* Estilo por defecto */
+  -webkit-appearance: none; /* Chrome / Safari */
+  -moz-appearance: none;
+}
+
+.textField:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.6); /* o el estilo que quieras */
+}
+
+.textField::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.textFieldContainer {
+  position: relative;
+  width: 100%;
+}
+
+.iconInsideInput {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  color: rgb(138, 138, 138);
+  transition: color 0.15s ease;
+  pointer-events: none;
+}
+
+.textFieldContainer:focus-within .iconInsideInput {
+  color: #000000;
+}

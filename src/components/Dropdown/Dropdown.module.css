@@ -1,0 +1,82 @@
+.wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  font-size: small;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 15px;
+  cursor: pointer;
+  color: #222222;
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  font-family: inherit;
+}
+
+.trigger:not(:disabled):hover {
+  background: #f2f2f2;
+  border-color: #9d9d9d;
+  transition: 0.1s;
+}
+
+.trigger:disabled {
+  color: #6d6d6d;
+  background: #f6f6f6;
+  border: 1px solid #dddddd;
+  cursor: not-allowed;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 100;
+  min-width: 100%;
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  border-radius: 12px;
+  padding: 4px;
+  animation: fadeIn 0.1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.option {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: smaller;
+  font-family: inherit;
+  text-align: left;
+  color: #222222;
+  background: transparent;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.option:hover {
+  background: #f2f2f2;
+  transition: 0.1s;
+}
+
+.optionSelected {
+  color: #000000;
+  font-weight: 600;
+}

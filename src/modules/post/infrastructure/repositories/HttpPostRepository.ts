@@ -10,6 +10,8 @@ import { GetCommunityHighlightsRequestDTO } from "@/modules/post/infrastructure/
 import { GetCommunityHighlightsResponseDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsResponseDTO";
 import { GetLikeByUserAndPostRequestDTO } from "@/modules/post/infrastructure/dtos/GetLikeByUserAndPostRequestDTO";
 import { GetLikeByUserAndPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetLikeByUserAndPostResponseDTO";
+import { GetPostsByCriteriaRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostByCriteriaRequestDTO";
+import { GetPostsByCriteriaResponseDTO } from "@/modules/post/infrastructure/dtos/GetPostByCriteriaResponseDTO";
 import { GetPostByIdRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostByIdRequestDTO";
 import { GetPostByIdResponseDTO } from "@/modules/post/infrastructure/dtos/GetPostByIdResponseDTO";
 import { GetPostCommentsRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostCommentsRequestDTO";
@@ -32,6 +34,8 @@ import { getCommunityHighlightsMapper } from "@/modules/post/infrastructure/mapp
 import { getFavouriteMapper } from "@/modules/post/infrastructure/mappers/getFavouriteMapper";
 import { getPostCommentsMapper } from "@/modules/post/infrastructure/mappers/getPostCommentsMapper";
 import { getPostMapper } from "@/modules/post/infrastructure/mappers/getPostMapper";
+import { getPostsByCriteriaMapper } from "@/modules/post/infrastructure/mappers/getPostsByCriteriaMapper";
+import { getPostsByCriteriaRequestMapper } from "@/modules/post/infrastructure/mappers/getPostsByCriteriaRequestMapper";
 import { getTrendingPostMapper } from "@/modules/post/infrastructure/mappers/getTrendingPostMapper";
 
 export class HttpPostRepository implements PostRepository {
@@ -41,6 +45,8 @@ export class HttpPostRepository implements PostRepository {
     );
     return getTrendingPostMapper(result);
   }
+
+  // this should be a getPostsByCriteria
   async getCommunityHighlights(req: GetCommunityHighlightsRequestDTO) {
     const result =
       await serverHttpClient.get<GetCommunityHighlightsResponseDTO>(
@@ -131,5 +137,15 @@ export class HttpPostRepository implements PostRepository {
     await serverHttpClient.delete<DeletePostResponseDTO, DeletePostRequestDTO>(
       `/api/v1/posts/${req.id}`,
     );
+  }
+
+  async getPostsByCriteria(req: GetPostsByCriteriaRequestDTO) {
+    const parsedReq = getPostsByCriteriaRequestMapper(req);
+    const result = await serverHttpClient.get<
+      GetPostsByCriteriaResponseDTO,
+      GetPostsByCriteriaRequestDTO
+    >("/api/v1/posts", { params: parsedReq });
+
+    return getPostsByCriteriaMapper(result);
   }
 }

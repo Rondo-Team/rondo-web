@@ -33,8 +33,8 @@ export const NavBar = ({ name, username }: NavBarProps) => {
         <Image
           src="/rondo-icon.webp"
           alt="Rondo Icon"
-          width={50}
-          height={50}
+          width={25}
+          height={25}
           className={styles.rondoImage}
         />
         <h2>Rondo</h2>
@@ -64,7 +64,7 @@ export const NavBar = ({ name, username }: NavBarProps) => {
           {t("navSections.create")}
         </Link>
         <Link
-          href={AppSectionsRoutes.DISCOVER}
+          href={AppSectionsRoutes.COMMUNITY}
           className={styles.navLinksText}
           onClick={closeMenu}
         >

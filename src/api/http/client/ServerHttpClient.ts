@@ -4,11 +4,16 @@ import { NextCookieService } from "@/modules/shared/infrastructure/services/Next
 import { HttpMethod } from "@/types/HttpMethod";
 import { parseCookie } from "@/utils/parseCookie";
 
+type QueryParams = Record<
+  string,
+  string | number | boolean | Array<string | number | boolean> | undefined
+>;
+
 type RequestOptions<T = unknown> = {
   method?: HttpMethod;
   body?: T;
   headers?: Record<string, string>;
-  params?: Record<string, string | number | boolean>;
+  params?: QueryParams;
 };
 
 class ServerHttpClient {
@@ -19,17 +24,28 @@ class ServerHttpClient {
     this.cookieService = new NextCookieService(); // Pass through dependency injection
   }
 
-  private buildUrl(
-    endpoint: string,
-    params?: Record<string, string | number | boolean>,
-  ) {
+  private buildUrl(endpoint: string, params?: QueryParams) {
     const url = new URL(`${this.baseUrl}${endpoint}`);
     if (params) {
-      Object.entries(params).forEach(([key, value]) => {
+      const cleanedParams = this.clean(params);
+      Object.entries(cleanedParams).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+          value.forEach((item) => {
+            url.searchParams.append(key, String(item));
+          });
+          return;
+        }
+
         url.searchParams.append(key, String(value));
       });
     }
     return url.toString();
+  }
+
+  private clean(params: QueryParams) {
+    return Object.fromEntries(
+      Object.entries(params).filter(([, value]) => value !== undefined),
+    ) as QueryParams;
   }
 
   private async getHeaders(aditionalHeaders?: Record<string, string>) {
