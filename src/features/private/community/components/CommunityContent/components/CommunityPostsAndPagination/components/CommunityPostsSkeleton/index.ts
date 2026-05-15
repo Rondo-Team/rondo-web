@@ -1,0 +1,1 @@
+export { CommunityPostsSkeleton } from "./CommunityPostsSkeleton";
