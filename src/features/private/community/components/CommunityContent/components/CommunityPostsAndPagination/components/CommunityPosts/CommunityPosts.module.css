@@ -1,0 +1,35 @@
+.postsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: start;
+  gap: 16px;
+}
+
+@media (max-width: 800px) {
+  .postsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .postsContainer {
+    grid-template-columns: 1fr;
+  }
+}.postsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: start;
+  gap: 16px;
+}
+
+@media (max-width: 800px) {
+  .postsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .postsContainer {
+    grid-template-columns: 1fr;
+  }
+}
