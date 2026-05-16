@@ -6,8 +6,8 @@ import styles from "./ProposalsContainer.module.css";
 
 export const ProposalsContainer = async () => {
   const proposals = await getUserProposals();
-  if (!proposals) return <div>Could not fetch drafts</div>;
-  if (proposals.length === 0) return <div>You dont have drafts yet</div>;
+  if (!proposals) return <div>Could not fetch proposals</div>;
+  if (proposals.length === 0) return <div>You dont have proposals yet</div>;
   return (
     <div className={styles.proposalsContainer}>
       {proposals.map((proposal) => (
