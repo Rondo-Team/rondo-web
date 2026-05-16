@@ -6,6 +6,7 @@ import { GetLikeByUserAndPost } from "@/modules/post/application/use-cases/GetLi
 import { GetPostById } from "@/modules/post/application/use-cases/GetPostById";
 import { GetPostComments } from "@/modules/post/application/use-cases/GetPostComments";
 import { GetPostsByCriteria } from "@/modules/post/application/use-cases/GetPostsByCriteria";
+import { GetPostsByUserId } from "@/modules/post/application/use-cases/GetPostsByUserId";
 import { GetTrendingPost } from "@/modules/post/application/use-cases/GetTrendingPost";
 import { GetUserCommentLikesByPost } from "@/modules/post/application/use-cases/GetUserCommentLikesByPost";
 import { LikeComment } from "@/modules/post/application/use-cases/LikeComment";
@@ -38,6 +39,7 @@ container.bind(UnLikeComment).toSelf();
 container.bind(GetUserCommentLikesByPost).toSelf();
 container.bind(DeletePost).toSelf();
 container.bind(GetPostsByCriteria).toSelf();
+container.bind(GetPostsByUserId).toSelf();
 
 export const getTrendingPostUseCase = container.get(GetTrendingPost);
 export const getCommunityHighlightsUseCase = container.get(
@@ -58,3 +60,4 @@ export const getUserCommentLikesByPostUseCase = container.get(
 );
 export const deletePostUseCase = container.get(DeletePost);
 export const getPostsByCriteriaUseCase = container.get(GetPostsByCriteria);
+export const getPostsByUserIdUseCase = container.get(GetPostsByUserId);

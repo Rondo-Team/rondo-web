@@ -1,0 +1,1 @@
+export { DraftsContainerSkeleton } from "./DraftsContainerSkeleton";
