@@ -1,1 +1,1 @@
-export { DraftsContainer } from "./ProposalsContainer";
+export { ProposalsContainer } from "./ProposalsContainer";
