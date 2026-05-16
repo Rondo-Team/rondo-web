@@ -1,0 +1,1 @@
+export { PostsContainerSkeleton } from "./PostsContainerSkeleton";

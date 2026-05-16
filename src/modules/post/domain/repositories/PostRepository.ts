@@ -13,6 +13,7 @@ import { GetLikeByUserAndPostRequestDTO } from "@/modules/post/infrastructure/dt
 import { GetPostsByCriteriaRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostByCriteriaRequestDTO";
 import { GetPostByIdRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostByIdRequestDTO";
 import { GetPostCommentsRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostCommentsRequestDTO";
+import { GetPostsByUserIdRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostsByUserIdRequestDTO";
 import { GetUserCommentLikesByPostRequestDTO } from "@/modules/post/infrastructure/dtos/GetUserCommentLikesByPostRequestDTO";
 import { LikeCommentRequestDTO } from "@/modules/post/infrastructure/dtos/LikeCommentRequestDTO";
 import { LikePostRequestDTO } from "@/modules/post/infrastructure/dtos/LikePostRequestDTO";
@@ -28,6 +29,7 @@ export interface PostRepository {
   ) => Promise<PaginatedResponse<CommunityHighlight>>;
   create: (body: CreatePostRequestDTO) => Promise<void>;
   getPostById: (req: GetPostByIdRequestDTO) => Promise<PostDetail>;
+  getPostsByUserId: (req: GetPostsByUserIdRequestDTO) => Promise<PostResume[]>;
   likePost: (body: LikePostRequestDTO) => Promise<void>;
   unLikePost: (body: UnLikePostRequestDTO) => Promise<void>;
   getPostComments: (req: GetPostCommentsRequestDTO) => Promise<PostComment[]>;
