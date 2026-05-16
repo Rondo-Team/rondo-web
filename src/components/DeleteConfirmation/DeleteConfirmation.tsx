@@ -1,28 +1,22 @@
 "use client";
 
 import { Button } from "@/components/Button/Button";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import styles from "./DeleteConfirmation.module.css";
 
 interface DeleteConfirmationProps {
   onConfirm: () => void;
   disabled?: boolean;
-  deleteLabel?: string;
-  confirmationText?: string;
-  cancelLabel?: string;
-  confirmLabel?: string;
 }
 
 export const DeleteConfirmation = ({
   onConfirm,
   disabled = false,
-  deleteLabel = "Delete",
-  confirmationText = "This action will delete permanently your post.",
-  cancelLabel = "Cancel",
-  confirmLabel = "Confirm",
 }: DeleteConfirmationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const t = useTranslations("postPage.actions.delete");
 
   useEffect(() => {
     if (!isOpen) return;
@@ -59,17 +53,17 @@ export const DeleteConfirmation = ({
   return (
     <div className={styles.wrapper} ref={containerRef}>
       <Button variant="tertiary" onClick={handleToggle} disabled={disabled}>
-        {deleteLabel}
+        {t("deleteLabel")}
       </Button>
       {isOpen && (
         <div className={styles.menu}>
-          <p className={styles.confirmationText}>{confirmationText}</p>
+          <p className={styles.confirmationText}>{t("confirmationText")}</p>
           <div className={styles.actions}>
             <Button variant="secondary" onClick={handleCancel}>
-              {cancelLabel}
+              {t("cancelLabel")}
             </Button>
             <Button variant="tertiary" onClick={handleConfirm}>
-              {confirmLabel}
+              {t("confirmLabel")}
             </Button>
           </div>
         </div>

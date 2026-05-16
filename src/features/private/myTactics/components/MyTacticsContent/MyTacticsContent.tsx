@@ -4,15 +4,17 @@ import { DraftsContainerSkeleton } from "@/features/private/myTactics/components
 import { PostsContainer } from "@/features/private/myTactics/components/MyTacticsContent/components/PostsContainer";
 import { PostsContainerSkeleton } from "@/features/private/myTactics/components/MyTacticsContent/components/PostsContainer/PostsContainerSkeleton/PostsContainerSkeleton";
 import { ProposalsContainer } from "@/features/private/myTactics/components/MyTacticsContent/components/ProposalsContainer/ProposalsContainer";
+import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import styles from "./MyTacticsContent.module.css";
 
-export const MyTacticsContent = () => {
+export const MyTacticsContent = async () => {
+  const t = await getTranslations("myTactics");
   return (
     <div className={styles.myTacticsContainer}>
       <Accordion
-        title="My drafts"
-        description="Your plays in progress, ready to edit and publish."
+        title={t("drafts.title")}
+        description={t("drafts.description")}
       >
         <div className={styles.accordionContent}>
           <Suspense fallback={<DraftsContainerSkeleton />}>
@@ -22,8 +24,8 @@ export const MyTacticsContent = () => {
       </Accordion>
 
       <Accordion
-        title="My proposals"
-        description="Check your reviews to another plays"
+        title={t("proposals.title")}
+        description={t("proposals.description")}
       >
         <div className={styles.accordionContent}>
           <Suspense fallback={<PostsContainerSkeleton />}>
@@ -33,8 +35,8 @@ export const MyTacticsContent = () => {
       </Accordion>
 
       <Accordion
-        title="My tactics"
-        description="Your plays in progress, ready to edit and publish."
+        title={t("tactics.title")}
+        description={t("tactics.description")}
         defaultOpen
       >
         <div className={styles.accordionContent}>

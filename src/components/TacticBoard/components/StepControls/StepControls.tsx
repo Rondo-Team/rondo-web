@@ -1,5 +1,6 @@
 import { Button } from "@/components/Button/Button";
 import { PlayStep } from "@/types/Play";
+import { useTranslations } from "next-intl";
 import { StepButton } from "./components/StepButton";
 import styles from "./StepControls.module.css";
 
@@ -26,6 +27,7 @@ export const StepControls = ({
   onPlayToggle,
   readOnly = false,
 }: StepControlsProps) => {
+  const t = useTranslations("createPage.createForm.tacticBoard.stepControls");
   return (
     <div className={styles.stepControls}>
       <div className={styles.stepActions}>
@@ -37,7 +39,7 @@ export const StepControls = ({
               onClick={onCreateStep}
               disabled={isPlaying}
             >
-              Add step
+              {t("addStep")}
             </Button>
             <Button
               type="button"
@@ -45,7 +47,7 @@ export const StepControls = ({
               onClick={onDeleteStep}
               disabled={steps.length === 1 || isPlaying}
             >
-              Delete step
+              {t("deleteStep")}
             </Button>
           </>
         )}
@@ -55,7 +57,7 @@ export const StepControls = ({
           onClick={onPlayToggle}
           disabled={steps.length < 2}
         >
-          {isPlaying ? "Stop" : "Play"}
+          {isPlaying ? t("stop") : t("play")}
         </Button>
       </div>
       <div className={styles.stepList}>
@@ -70,7 +72,7 @@ export const StepControls = ({
               variant={isStepActive || isStepPlaying ? "active" : "default"}
               onClick={() => onGoToStep(index)}
             >
-              {`Step ${index + 1}`}
+              {`${t("step")} ${index + 1}`}
             </StepButton>
           );
         })}

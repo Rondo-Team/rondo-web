@@ -2,6 +2,7 @@
 
 import { Comment } from "@/components/Comment";
 import { PostComment } from "@/modules/post/domain/value-object/PostComment";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import styles from "./CommentsContainer.module.css";
@@ -158,6 +159,7 @@ export const CommentsContainer = ({
   onUnLikeCommentSubmit,
   commentFavouriteIdByCommentId,
 }: CommentsContainerProps) => {
+  const t = useTranslations("postPage.comments");
   const router = useRouter();
   const newCommentTextareaRef = useRef<HTMLTextAreaElement>(null);
   const [newCommentText, setNewCommentText] = useState("");
@@ -238,7 +240,7 @@ export const CommentsContainer = ({
           value={newCommentText}
           onChange={(event) => setNewCommentText(event.target.value)}
           onKeyDown={handleCommentKeyDown}
-          placeholder="Write a comment"
+          placeholder={t("newComment")}
           className={styles.commentTextarea}
           rows={1}
           disabled={isSubmittingComment}

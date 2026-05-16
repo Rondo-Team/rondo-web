@@ -3,6 +3,7 @@ import { PostInformation } from "@/features/private/post/components/PostDetail/c
 import { PostProposals } from "@/features/private/post/components/PostDetail/components/PostProposals";
 import { getPostById } from "@/features/private/post/components/PostDetail/queries/getPostById";
 import { getUserIdFromCookie } from "@/utils/getUserIdFromCookie";
+import { getTranslations } from "next-intl/server";
 import styles from "./PostDetail.module.css";
 
 interface PostDetailPropos {
@@ -10,6 +11,7 @@ interface PostDetailPropos {
 }
 
 export const PostDetail = async ({ id }: PostDetailPropos) => {
+  const t = await getTranslations("postPage");
   const post = await getPostById(id);
   if (!post) return <div>could not fetch post</div>;
   const userOwnsPost = post.user.id === (await getUserIdFromCookie());
@@ -17,11 +19,11 @@ export const PostDetail = async ({ id }: PostDetailPropos) => {
     <div className={styles.postDetailContainer}>
       <PostInformation post={post} userOwnsPost={userOwnsPost} />
       <div className={styles.postComments}>
-        <h1>Comments ({post.commentsCount})</h1>
+        <h1>{`${t("comments.title")} (${post.commentsCount})`}</h1>
         <PostComments postId={post.id} />
       </div>
       <div className={styles.postProposals}>
-        <h1>Proposals ({post.proposalsCount})</h1>
+        <h1>{`${t("proposals.title")} (${post.proposalsCount})`}</h1>
         <PostProposals postId={post.id} />
       </div>
     </div>
