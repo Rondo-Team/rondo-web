@@ -237,5 +237,25 @@
       "title": "My tactics",
       "description": "Your plays in progress, ready to edit and publish."
     }
+  },
+  "components": {
+    "post": {
+      "largeCard": {
+        "seeMore": "See more!"
+      },
+      "mediumCard": {
+        "seeDetails": "See details"
+      }
+    },
+    "proposal": {
+      "mediumCard": {
+        "seeDetails": "See details"
+      }
+    },
+    "draft": {
+      "mediumCard": {
+        "seeDetails": "See details"
+      }
+    }
   }
 }

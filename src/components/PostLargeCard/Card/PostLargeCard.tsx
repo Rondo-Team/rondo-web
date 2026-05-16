@@ -1,6 +1,7 @@
 import { PostStats } from "@/components/PostStats";
 import { Tag } from "@/components/Tag";
 import { UserProfile } from "@/components/UserProfile";
+import { useTranslations } from "next-intl";
 import styles from "./PostLargeCard.module.css";
 
 interface PostLargeCardProps {
@@ -25,6 +26,7 @@ export const PostLargeCard = ({
   username,
   tags,
 }: PostLargeCardProps) => {
+  const t = useTranslations("components.post.largeCard");
   return (
     <div className={styles.postLargeCardContainer}>
       <div className={styles.postInformation}>
@@ -45,7 +47,7 @@ export const PostLargeCard = ({
       </div>
       <div className={styles.footerContainer}>
         <UserProfile name={author} username={username} />
-        <p className={styles.seeMoreText}>See more!</p>
+        <p className={styles.seeMoreText}>{t("seeMore")}</p>
       </div>
     </div>
   );
