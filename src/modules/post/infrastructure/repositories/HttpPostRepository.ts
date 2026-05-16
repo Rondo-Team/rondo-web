@@ -16,6 +16,8 @@ import { GetPostByIdRequestDTO } from "@/modules/post/infrastructure/dtos/GetPos
 import { GetPostByIdResponseDTO } from "@/modules/post/infrastructure/dtos/GetPostByIdResponseDTO";
 import { GetPostCommentsRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostCommentsRequestDTO";
 import { GetPostCommentsResponseDTO } from "@/modules/post/infrastructure/dtos/GetPostCommentsResponseDTO";
+import { GetPostsByUserIdRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostsByUserIdRequestDTO";
+import { GetPostsByUserIdResponseDTO } from "@/modules/post/infrastructure/dtos/GetPostsByUserIdResponseDTO";
 import { GetTrendingPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetTrendingPostResponseDTO";
 import { GetUserCommentLikesByPostRequestDTO } from "@/modules/post/infrastructure/dtos/GetUserCommentLikesByPostRequestDTO";
 import { GetUserCommentLikesByPostResponseDTO } from "@/modules/post/infrastructure/dtos/GetUserCommentLikesByPostResponseDTO";
@@ -36,6 +38,7 @@ import { getPostCommentsMapper } from "@/modules/post/infrastructure/mappers/get
 import { getPostMapper } from "@/modules/post/infrastructure/mappers/getPostMapper";
 import { getPostsByCriteriaMapper } from "@/modules/post/infrastructure/mappers/getPostsByCriteriaMapper";
 import { getPostsByCriteriaRequestMapper } from "@/modules/post/infrastructure/mappers/getPostsByCriteriaRequestMapper";
+import { getPostsByUserIdMapper } from "@/modules/post/infrastructure/mappers/getPostsByUserIdMapper";
 import { getTrendingPostMapper } from "@/modules/post/infrastructure/mappers/getTrendingPostMapper";
 
 export class HttpPostRepository implements PostRepository {
@@ -147,5 +150,14 @@ export class HttpPostRepository implements PostRepository {
     >("/api/v1/posts", { params: parsedReq });
 
     return getPostsByCriteriaMapper(result);
+  }
+
+  async getPostsByUserId(req: GetPostsByUserIdRequestDTO) {
+    const result = await serverHttpClient.get<
+      GetPostsByUserIdResponseDTO,
+      GetPostsByUserIdRequestDTO
+    >(`/api/v1/posts/all/${req.userId}`);
+
+    return getPostsByUserIdMapper(result);
   }
 }

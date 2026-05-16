@@ -1,0 +1,1 @@
+export { MyTacticsContent } from "./MyTacticsContent";
