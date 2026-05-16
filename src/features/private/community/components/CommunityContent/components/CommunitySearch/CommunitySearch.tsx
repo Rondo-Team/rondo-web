@@ -2,11 +2,13 @@
 import { SearchBar } from "@/components/SearchBar";
 import { SearchFilters } from "@/features/private/community/components/CommunityContent/components/CommunitySearch/components/SearchFilters";
 import { SearchPostQueryParams } from "@/types/PostSearching/SearchPostQueryParams";
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import styles from "./CommunitySearch.module.css";
 
 export const CommunitySearch = () => {
+  const t = useTranslations("communityPage");
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -22,7 +24,7 @@ export const CommunitySearch = () => {
   return (
     <div className={styles.searchContainer}>
       <SearchBar
-        placeholder="Search by post name, description, username..."
+        placeholder={t("search.placeholder")}
         onChange={handleSearch}
         defaultValue={
           searchParams.get(SearchPostQueryParams.QUERY?.toString()) ?? ""

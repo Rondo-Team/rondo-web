@@ -1,6 +1,7 @@
 import { Button } from "@/components/Button/Button";
 import { FieldElement } from "@/components/TacticBoard/components/FieldElement";
 import { FieldElementType } from "@/types/FieldElementType";
+import { useTranslations } from "next-intl";
 import styles from "./ElementPicker.module.css";
 
 type ElementPickerProps = {
@@ -16,6 +17,7 @@ export const ElementPicker = ({
   onStartPlacing,
   onToggleDelete,
 }: ElementPickerProps) => {
+  const t = useTranslations("createPage.createForm.tacticBoard.elementControls");
   return (
     <div className={styles.palette}>
       <Button
@@ -29,7 +31,7 @@ export const ElementPicker = ({
       >
         <div className={styles.buttonContent}>
           <FieldElement type={FieldElementType.TEAMMATE} />
-          <p>Add teammate</p>
+          <p>{t("addTeammate")}</p>
         </div>
       </Button>
       <Button
@@ -43,7 +45,7 @@ export const ElementPicker = ({
       >
         <div className={styles.buttonContent}>
           <FieldElement type={FieldElementType.RIVAL} />
-          <p>Add rival</p>
+          <p>{t("addRival")}</p>
         </div>
       </Button>
       <Button
@@ -57,7 +59,7 @@ export const ElementPicker = ({
       >
         <div className={styles.buttonContent}>
           <FieldElement type={FieldElementType.BALL} size="large" />
-          <p>Add ball</p>
+          <p>{t("addBall")}</p>
         </div>
       </Button>
       <Button
@@ -67,7 +69,7 @@ export const ElementPicker = ({
       >
         <div className={styles.buttonContent}>
           <span className={styles.deleteIcon}>✕</span>
-          <p>Delete element</p>
+          <p>{t("deleteElement")}</p>
         </div>
       </Button>
     </div>

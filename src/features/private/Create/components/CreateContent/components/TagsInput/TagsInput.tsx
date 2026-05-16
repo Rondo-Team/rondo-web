@@ -15,7 +15,7 @@ export const TagsInput = ({
   name,
   value,
   onChange,
-  addButtonLabel = "Add Tag",
+  addButtonLabel,
 }: TagsInputProps) => {
   const [internalTags, setInternalTags] = useState<string[]>([]);
   const [isAddingTag, setIsAddingTag] = useState(false);

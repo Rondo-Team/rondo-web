@@ -6,6 +6,7 @@ import { PostMinCreationDate } from "@/types/PostSearching/PostMinCreationDate";
 import { PostSortingOptions } from "@/types/PostSearching/PostSortingOptions";
 import { PostSortingOrder } from "@/types/PostSearching/PostSortingOrder";
 import { SearchPostQueryParams } from "@/types/PostSearching/SearchPostQueryParams";
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import styles from "./SearchFilters.module.css";
@@ -13,6 +14,7 @@ import styles from "./SearchFilters.module.css";
 type SortOrder = "asc" | "desc";
 
 export const SearchFilters = () => {
+  const t = useTranslations("communityPage.sortingOptions");
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -67,18 +69,27 @@ export const SearchFilters = () => {
   return (
     <div className={styles.filtersContainer}>
       <div className={styles.sortingContainer}>
-        <div className={styles.filtersText}>Sort by</div>
+        <div className={styles.filtersText}>{t("sortBy.title")}</div>
         <Dropdown
           options={[
-            { label: "Creation date", value: PostSortingOptions.CREATION_DATE },
-            { label: "Alphabetical order", value: PostSortingOptions.TITLE },
-            { label: "Most liked", value: PostSortingOptions.FAVOURITES_COUNT },
             {
-              label: "Most commented",
+              label: t("sortBy.fieldDropdown.creationDate"),
+              value: PostSortingOptions.CREATION_DATE,
+            },
+            {
+              label: t("sortBy.fieldDropdown.alphabeticalOrder"),
+              value: PostSortingOptions.TITLE,
+            },
+            {
+              label: t("sortBy.fieldDropdown.mostLiked"),
+              value: PostSortingOptions.FAVOURITES_COUNT,
+            },
+            {
+              label: t("sortBy.fieldDropdown.mostCommented"),
               value: PostSortingOptions.COMMENTS_COUNT,
             },
             {
-              label: "Most proposals made",
+              label: t("sortBy.fieldDropdown.mostProposals"),
               value: PostSortingOptions.PROPOSALS_COUNT,
             },
           ]}
@@ -87,11 +98,11 @@ export const SearchFilters = () => {
         />
         <TwoOptionsToggle
           firstOption={{
-            label: "Ascendant",
+            label: t("sortBy.order.ascendant"),
             value: PostSortingOrder.ASCENDANT,
           }}
           secondOption={{
-            label: "Descendant",
+            label: t("sortBy.order.descendant"),
             value: PostSortingOrder.DESCENDANT,
           }}
           value={sortOrder}
@@ -100,16 +111,28 @@ export const SearchFilters = () => {
         />
         <Dropdown
           options={[
-            { label: "Lifetime", value: PostMinCreationDate.LIFETIME },
-            { label: "Last two days", value: PostMinCreationDate.LAST_2_DAYS },
-            { label: "Last week", value: PostMinCreationDate.LAST_WEEK },
-            { label: "Last month", value: PostMinCreationDate.LAST_MONTH },
             {
-              label: "Last 3 months",
+              label: t("sortBy.datesDropdown.lifetime"),
+              value: PostMinCreationDate.LIFETIME,
+            },
+            {
+              label: t("sortBy.datesDropdown.lastTwoDays"),
+              value: PostMinCreationDate.LAST_2_DAYS,
+            },
+            {
+              label: t("sortBy.datesDropdown.lastWeek"),
+              value: PostMinCreationDate.LAST_WEEK,
+            },
+            {
+              label: t("sortBy.datesDropdown.lastMonth"),
+              value: PostMinCreationDate.LAST_MONTH,
+            },
+            {
+              label: t("sortBy.datesDropdown.lastThreeMonths"),
               value: PostMinCreationDate.LAST_3_MONTHS,
             },
             {
-              label: "Last year",
+              label: t("sortBy.datesDropdown.lastYear"),
               value: PostMinCreationDate.LAST_YEAR,
             },
           ]}
@@ -121,7 +144,7 @@ export const SearchFilters = () => {
         <TagsInput
           value={tags}
           onChange={handleTagsChange}
-          addButtonLabel="Add tag filter"
+          addButtonLabel={t("filters.addTags")}
         />
       </div>
     </div>

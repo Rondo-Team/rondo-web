@@ -10,6 +10,7 @@ import { UserProfile } from "@/components/UserProfile";
 import { deletePost } from "@/features/private/post/components/PostDetail/components/PostInformation/queries/deletePost";
 import { PostDetail } from "@/modules/post/domain/value-object/PostDetail";
 import { PostFavourite } from "@/modules/post/domain/value-object/PostFavourite";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -34,6 +35,7 @@ export const PostInformation = ({
   const [favouritesCount, setFavouritesCount] = useState(post.favouritesCount);
   const [isLoadingFavourite, setIsLoadingFavourite] = useState(true);
   const [isUpdatingFavourite, setIsUpdatingFavourite] = useState(false);
+  const t = useTranslations("postPage.actions");
 
   useEffect(() => {
     let isMounted = true;
@@ -125,7 +127,7 @@ export const PostInformation = ({
           <Button variant="primary">
             <div className={styles.buttonContent}>
               <Link href={`/create/proposal/${post.id}`}>
-                Open for proposal
+                {t("openForProposal")}
               </Link>
             </div>
           </Button>
@@ -133,7 +135,7 @@ export const PostInformation = ({
           {userOwnsPost && (
             <>
               <Button variant="secondary">
-                <Link href={`/edit/post/${post.id}`}>Edit</Link>
+                <Link href={`/edit/post/${post.id}`}>{t("edit")}</Link>
               </Button>
               <DeleteConfirmation onConfirm={handleConfirmDelete} />
             </>
