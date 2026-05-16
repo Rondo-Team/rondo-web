@@ -237,5 +237,25 @@
       "title": "Mis tácticas",
       "description": "Tus jugadas en progreso, listas para editar y publicar."
     }
+  },
+  "components": {
+    "post": {
+      "largeCard": {
+        "seeMore": "¡Ver más!"
+      },
+      "mediumCard": {
+        "seeDetails": "Ver detalles"
+      }
+    },
+    "proposal": {
+      "mediumCard": {
+        "seeDetails": "Ver detalles"
+      }
+    },
+    "draft": {
+      "mediumCard": {
+        "seeDetails": "Ver detalles"
+      }
+    }
   }
 }

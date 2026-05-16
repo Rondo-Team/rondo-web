@@ -1,5 +1,6 @@
 import { PostStats } from "@/components/PostStats";
 import { UserProfile } from "@/components/UserProfile";
+import { useTranslations } from "next-intl";
 import styles from "./PostMediumCard.module.css";
 
 interface PostMediumCardProps {
@@ -22,6 +23,7 @@ export const PostMediumCard = ({
   author,
   username,
 }: PostMediumCardProps) => {
+  const t = useTranslations("components.post.mediumCard");
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardInfo}>
@@ -37,7 +39,7 @@ export const PostMediumCard = ({
           commentsCount={comments}
           proposalsCount={proposals}
         />
-        <p className={styles.seeMoreText}>See details</p>
+        <p className={styles.seeMoreText}>{t("seeDetails")}</p>
       </div>
     </div>
   );
