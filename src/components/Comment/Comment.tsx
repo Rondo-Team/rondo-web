@@ -3,6 +3,7 @@
 import { ChevronDownIcon } from "@/components/Icons/ChevronDownIcon";
 import { HeartIcon } from "@/components/Icons/HeartIcon";
 import { UserProfile } from "@/components/UserProfile";
+import { useTranslations } from "next-intl";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./Comment.module.css";
 
@@ -44,6 +45,7 @@ export const Comment = ({
   onRepliesToggle,
   className,
 }: CommentProps) => {
+  const t = useTranslations("postPage.comments");
   const contentRef = useRef<HTMLParagraphElement>(null);
   const replyTextareaRef = useRef<HTMLTextAreaElement>(null);
   const [isContentExpanded, setIsContentExpanded] = useState(false);
@@ -148,7 +150,7 @@ export const Comment = ({
             className={styles.inlineAction}
             onClick={() => setIsContentExpanded((prev) => !prev)}
           >
-            {isContentExpanded ? "See less" : "See more"}
+            {isContentExpanded ? t("seeLess") : t("seeMore")}
           </button>
         ) : null}
       </div>
@@ -171,7 +173,7 @@ export const Comment = ({
             onClick={handleReplyToggle}
             disabled={isSubmittingReply}
           >
-            Reply
+            {t("reply")}
           </button>
         </div>
         {repliesCount > 0 ? (
@@ -181,7 +183,10 @@ export const Comment = ({
             onClick={onRepliesToggle}
           >
             <span>
-              {repliesCount} {repliesCount === 1 ? "reply" : "replies"}
+              {repliesCount}{" "}
+              {repliesCount === 1
+                ? t("singleReplyCount")
+                : t("multipleReplyCount")}
             </span>
             <ChevronDownIcon expanded={areRepliesExpanded} />
           </button>
@@ -194,7 +199,7 @@ export const Comment = ({
             value={replyText}
             onChange={(event) => setReplyText(event.target.value)}
             onKeyDown={handleReplyKeyDown}
-            placeholder="Write your reply"
+            placeholder={t("replyPlaceholder")}
             className={styles.replyTextarea}
             rows={1}
             disabled={isSubmittingReply}

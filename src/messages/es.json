@@ -79,17 +79,40 @@
       },
       "title": {
         "empty": "El titulo es obligatorio.",
+        "placeholder": "Mi nueva estrategia",
         "tooShort": "El título debe tener al menos 2 caracteres.",
         "tooLong": "El título no puede superar los 30 caracteres."
       },
       "description": {
         "empty": "La descripcion es obligatoria.",
+        "placeholder": "Escribe aquí tu descripción",
         "tooShort": "La descripción debe tener al menos 10 caracteres.",
         "tooLong": "La descripción no puede superar los 500 caracteres."
+      },
+      "step": {
+        "empty": "El paso debe tener al menos un elemento"
       },
       "play": {
         "empty": "Debes crear al menos un paso en la jugada.",
         "invalid": "Error al procesar la jugada."
+      },
+      "tacticBoard": {
+        "elementControls": {
+          "addTeammate": "Añadir compañero",
+          "addRival": "Añadir rival",
+          "addBall": "Añadir balón",
+          "deleteElement": "Eliminar elemento"
+        },
+        "stepControls": {
+          "addStep": "Añadir paso",
+          "deleteStep": "Eliminar paso",
+          "stop": "Detener",
+          "play": "Reproducir",
+          "step": "Paso"
+        }
+      },
+      "tagsInput": {
+        "add": "Añadir etiqueta"
       },
       "submit": {
         "post": "Crear publicación",
@@ -141,6 +164,98 @@
       "comments": "Comentarios realizados en publicaciones",
       "proposals": "Propuestas realizadas en publicaciones",
       "error": "Ups. No pudimos cargar tu información"
+    }
+  },
+  "postPage": {
+    "actions": {
+      "openForProposal": "Abrir para propuesta",
+      "edit": "Editar",
+      "delete": {
+        "deleteLabel": "Eliminar",
+        "confirmationText": "Esta accion eliminara permanentemente tu publicación.",
+        "cancelLabel": "Cancelar",
+        "confirmLabel": "Confirmar"
+      }
+    },
+    "comments": {
+      "title": "Comentarios",
+      "newComment": "Escribe un nuevo comentario",
+      "seeMore": "Ver más",
+      "seeLess": "Ver menos",
+      "reply": "Responder",
+      "singleReplyCount": "respuesta",
+      "multipleReplyCount": "respuestas",
+      "newReply": "Escribe tu respuesta",
+      "replyPlaceholder": "Escribe tu respuesta"
+    },
+    "proposals": {
+      "title": "Propuestas"
+    }
+  },
+  "communityPage": {
+    "search": {
+      "placeholder": "Busca por nombre de publicación, descripción, nombre de usuario..."
+    },
+    "sortingOptions": {
+      "sortBy": {
+        "title": "Ordenar por",
+        "fieldDropdown": {
+          "creationDate": "Fecha de creación",
+          "alphabeticalOrder": "Orden alfabético",
+          "mostLiked": "Más gustados",
+          "mostCommented": "Más comentados",
+          "mostProposals": "Más propuestas realizadas"
+        },
+        "order": {
+          "ascendant": "Ascendente",
+          "descendant": "Descendente"
+        },
+        "datesDropdown": {
+          "lifetime": "Siempre",
+          "lastTwoDays": "Últimos dos días",
+          "lastWeek": "Última semana",
+          "lastMonth": "Último mes",
+          "lastThreeMonths": "Últimos 3 meses",
+          "lastYear": "Último año"
+        }
+      },
+      "filters": {
+        "addTags": "Añadir filtro de etiqueta"
+      }
+    }
+  },
+  "myTactics": {
+    "drafts": {
+      "title": "Mis borradores",
+      "description": "Tus jugadas en progreso, listas para editar y publicar."
+    },
+    "proposals": {
+      "title": "Mis propuestas",
+      "description": "Revisa tus aportaciones a otras jugadas."
+    },
+    "tactics": {
+      "title": "Mis tácticas",
+      "description": "Tus jugadas en progreso, listas para editar y publicar."
+    }
+  },
+  "components": {
+    "post": {
+      "largeCard": {
+        "seeMore": "¡Ver más!"
+      },
+      "mediumCard": {
+        "seeDetails": "Ver detalles"
+      }
+    },
+    "proposal": {
+      "mediumCard": {
+        "seeDetails": "Ver detalles"
+      }
+    },
+    "draft": {
+      "mediumCard": {
+        "seeDetails": "Ver detalles"
+      }
     }
   }
 }

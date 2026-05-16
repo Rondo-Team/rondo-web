@@ -80,7 +80,7 @@ export const CreateContent = () => {
         <TacticBoard ref={tacticBoardRef} onPlayChange={handlePlayChange} />
       </div>
 
-      <TagsInput name="tags" />
+      <TagsInput name="tags" addButtonLabel={t("tagsInput.add")} />
       <div className={styles.submitButtons}>
         <Button type="submit" name="intent" value="post" disabled={isPending}>
           {t("submit.post")}

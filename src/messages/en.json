@@ -96,6 +96,24 @@
         "empty": "You must create at least one step in the play.",
         "invalid": "Play is not valid."
       },
+      "tacticBoard": {
+        "elementControls": {
+          "addTeammate": "Add teammate",
+          "addRival": "Add rival",
+          "addBall": "Add ball",
+          "deleteElement": "Delete Element"
+        },
+        "stepControls": {
+          "addStep": "Add step",
+          "deleteStep": "Delete step",
+          "stop": "Stop",
+          "play": "Play",
+          "step": "Step"
+        }
+      },
+      "tagsInput": {
+        "add": "Add new tag"
+      },
       "submit": {
         "post": "Create Post",
         "draft": "Save Draft"
@@ -146,6 +164,98 @@
       "comments": "Comments made on posts",
       "proposals": "Proposals made on posts!",
       "error": "Oops! We couldn't fetch your information"
+    }
+  },
+  "postPage": {
+    "actions": {
+      "openForProposal": "Open for proposal",
+      "edit": "Edit",
+      "delete": {
+        "deleteLabel": "Delete",
+        "confirmationText": "This action will delete permanently your post.",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Confirm"
+      }
+    },
+    "comments": {
+      "title": "Comments",
+      "newComment": "Write a new comment",
+      "seeMore": "See more",
+      "seeLess": "See less",
+      "reply": "Reply",
+      "singleReplyCount": "reply",
+      "multipleReplyCount": "replies",
+      "newReply": "Write your reply",
+      "replyPlaceholder": "Write your reply"
+    },
+    "proposals": {
+      "title": "Proposals"
+    }
+  },
+  "communityPage": {
+    "search": {
+      "placeholder": "Search by post name, description, username..."
+    },
+    "sortingOptions": {
+      "sortBy": {
+        "title": "Sort by",
+        "fieldDropdown": {
+          "creationDate": "Creation date",
+          "alphabeticalOrder": "Alphabetical order",
+          "mostLiked": "Most liked",
+          "mostCommented": "Most commented",
+          "mostProposals": "Most proposals made"
+        },
+        "order": {
+          "ascendant": "Ascendant",
+          "descendant": "Descendant"
+        },
+        "datesDropdown": {
+          "lifetime": "Lifetime",
+          "lastTwoDays": "Last two days",
+          "lastWeek": "Last week",
+          "lastMonth": "Last month",
+          "lastThreeMonths": "Last 3 months",
+          "lastYear": "Last year"
+        }
+      },
+      "filters": {
+        "addTags": "Add tag filter"
+      }
+    }
+  },
+  "myTactics": {
+    "drafts": {
+      "title": "My drafts",
+      "description": "Your plays in progress, ready to edit and publish."
+    },
+    "proposals": {
+      "title": "My proposals",
+      "description": "Check your reviews to another plays."
+    },
+    "tactics": {
+      "title": "My tactics",
+      "description": "Your plays in progress, ready to edit and publish."
+    }
+  },
+  "components": {
+    "post": {
+      "largeCard": {
+        "seeMore": "See more!"
+      },
+      "mediumCard": {
+        "seeDetails": "See details"
+      }
+    },
+    "proposal": {
+      "mediumCard": {
+        "seeDetails": "See details"
+      }
+    },
+    "draft": {
+      "mediumCard": {
+        "seeDetails": "See details"
+      }
     }
   }
 }
