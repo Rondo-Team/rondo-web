@@ -1,2 +1,2 @@
-export { PostMediumCard } from "./Card/DraftMediumCard";
-export { PostMediumCardSkeleton } from "./Skeleton/DraftMediumCardSkeleton";
+export { DraftMediumCard } from "./Card/DraftMediumCard";
+export { DraftMediumCardSkeleton } from "./Skeleton/DraftMediumCardSkeleton";
