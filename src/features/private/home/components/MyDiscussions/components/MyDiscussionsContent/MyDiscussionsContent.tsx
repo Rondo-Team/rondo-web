@@ -27,7 +27,7 @@ export const MyDiscussionsContent = async () => {
       <ProposalLargeCard
         title={proposal.title}
         createdAt={t("createdAt", {
-          timeAgo: formatRelativeDate(proposal.createdAt, locale),
+          timeAgo: formatRelativeDate(new Date(proposal.createdAt), locale),
         })}
         basicInfo={t("proposedFor", {
           parentPost: proposal.postTitle,

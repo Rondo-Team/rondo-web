@@ -8,7 +8,6 @@ import styles from "./LoginForm.module.css";
 
 export const LoginForm = () => {
   const [state, formAction, isPending] = useActionState(loginAction, {});
-  console.log("State", state);
 
   const t = useTranslations("loginPage.loginForm");
 

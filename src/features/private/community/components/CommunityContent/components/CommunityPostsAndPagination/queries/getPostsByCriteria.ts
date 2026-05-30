@@ -22,7 +22,6 @@ export const getPostsByCriteria = async (
       minFavourites,
     );
   } catch (err) {
-    console.log(err);
     return null;
   }
 };

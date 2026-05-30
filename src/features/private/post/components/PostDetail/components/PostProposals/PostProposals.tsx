@@ -20,7 +20,7 @@ export const PostProposals = async ({ postId }: PostProposalsProps) => {
     <div className={styles.proposalsContainer}>
       {proposals.map((proposal) => {
         const formattedDate = capitalizeText(
-          formatRelativeDate(proposal.createdAt, locale),
+          formatRelativeDate(new Date(proposal.createdAt), locale),
         );
         return (
           <ProposalLargeCard

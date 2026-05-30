@@ -38,7 +38,6 @@ export const CommunityPostsAndPagination = async ({
   if (posts.items.length === 0) {
     return <div>Could not find posts</div>;
   }
-  console.log("posts data:", JSON.stringify(posts));
 
   return (
     <div className={styles.postAndPagination}>

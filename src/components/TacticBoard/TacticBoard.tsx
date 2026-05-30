@@ -166,11 +166,6 @@ export const TacticBoard = forwardRef<TacticBoardHandle, TacticBoardProps>(
     }, [isPlaying, playStepIndex, steps.length]);
 
     useEffect(() => {
-      const play: Play = { steps };
-      console.log("Play:", play);
-    }, [steps]);
-
-    useEffect(() => {
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === "Escape") {
           setBoardMode("idle");

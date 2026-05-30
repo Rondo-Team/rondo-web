@@ -77,8 +77,6 @@ class ServerHttpClient {
         body: body ? JSON.stringify(body) : undefined,
       });
 
-      console.log("RESPONSE", response);
-
       console.log("setting cookies");
       const cookiesArray = response.headers.getSetCookie();
 

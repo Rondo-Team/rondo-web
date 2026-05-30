@@ -20,7 +20,7 @@ export const QuickAccessContent = async () => {
           <QuickAccessCard
             title={play.title}
             openedAt={t("openedAt", {
-              timeAgo: formatRelativeDate(play.openedAt, locale),
+              timeAgo: formatRelativeDate(new Date(play.openedAt), locale),
             })}
           />
         </Link>

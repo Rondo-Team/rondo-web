@@ -58,7 +58,7 @@ export const PostComments = async ({ postId }: PostCommentsProps) => {
 
   const commentsWithFormattedDate = comments.map((comment) => ({
     ...comment,
-    createdAt: capitalizeText(formatRelativeDate(comment.createdAt, locale)),
+    createdAt: capitalizeText(formatRelativeDate(new Date(comment.createdAt), locale)),
   }));
   return (
     <CommentsContainer

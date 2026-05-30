@@ -8,7 +8,6 @@ import styles from "./RegisterForm.module.css";
 
 export const RegisterForm = () => {
   const [state, formAction, isPending] = useActionState(registerAction, {});
-  console.log("State", state);
 
   const t = useTranslations("registerPage.registerForm");
 
