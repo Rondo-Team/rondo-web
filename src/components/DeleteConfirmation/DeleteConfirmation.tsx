@@ -8,11 +8,13 @@ import styles from "./DeleteConfirmation.module.css";
 interface DeleteConfirmationProps {
   onConfirm: () => void;
   disabled?: boolean;
+  confirmationText: string;
 }
 
 export const DeleteConfirmation = ({
   onConfirm,
   disabled = false,
+  confirmationText,
 }: DeleteConfirmationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -57,7 +59,7 @@ export const DeleteConfirmation = ({
       </Button>
       {isOpen && (
         <div className={styles.menu}>
-          <p className={styles.confirmationText}>{t("confirmationText")}</p>
+          <p className={styles.confirmationText}>{confirmationText}</p>
           <div className={styles.actions}>
             <Button variant="secondary" onClick={handleCancel}>
               {t("cancelLabel")}

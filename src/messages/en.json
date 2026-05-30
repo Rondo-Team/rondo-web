@@ -192,6 +192,17 @@
       "title": "Proposals"
     }
   },
+  "draftPage": {
+    "actions": {
+      "edit": "Edit",
+      "delete": {
+        "deleteLabel": "Delete",
+        "confirmationText": "This action will delete permanently your draft.",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Confirm"
+      }
+    }
+  },
   "communityPage": {
     "search": {
       "placeholder": "Search by post name, description, username..."

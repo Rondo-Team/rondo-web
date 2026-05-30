@@ -137,7 +137,10 @@ export const PostInformation = ({
               <Button variant="secondary">
                 <Link href={`/edit/post/${post.id}`}>{t("edit")}</Link>
               </Button>
-              <DeleteConfirmation onConfirm={handleConfirmDelete} />
+              <DeleteConfirmation
+                onConfirm={handleConfirmDelete}
+                confirmationText={t("delete.confirmationText")}
+              />
             </>
           )}
         </div>
