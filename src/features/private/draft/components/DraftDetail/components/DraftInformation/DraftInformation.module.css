@@ -1,0 +1,35 @@
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shortActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.actionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.draftTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.draftDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
