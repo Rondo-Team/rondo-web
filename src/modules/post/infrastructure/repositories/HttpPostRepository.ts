@@ -6,6 +6,9 @@ import { CreatePostRequestDTO } from "@/modules/post/infrastructure/dtos/CreateP
 import { CreatePostResponseDTO } from "@/modules/post/infrastructure/dtos/CreatePostResponseDTO";
 import { DeletePostRequestDTO } from "@/modules/post/infrastructure/dtos/DeletePostRequestDTO";
 import { DeletePostResponseDTO } from "@/modules/post/infrastructure/dtos/DeletePostResponseDTO";
+import { EditPostRequestDTO } from "@/modules/post/infrastructure/dtos/EditPostRequestDTO";
+import { EditPostRequestParamsDTO } from "@/modules/post/infrastructure/dtos/EditPostRequestParamsDTO";
+import { EditPostResponseDTO } from "@/modules/post/infrastructure/dtos/EditPostResponseDTO";
 import { GetCommunityHighlightsRequestDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsRequestDTO";
 import { GetCommunityHighlightsResponseDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsResponseDTO";
 import { GetLikeByUserAndPostRequestDTO } from "@/modules/post/infrastructure/dtos/GetLikeByUserAndPostRequestDTO";
@@ -159,5 +162,12 @@ export class HttpPostRepository implements PostRepository {
     >(`/api/v1/posts/all/${req.userId}`);
 
     return getPostsByUserIdMapper(result);
+  }
+
+  async editPost(req: EditPostRequestParamsDTO, body: EditPostRequestDTO) {
+    await serverHttpClient.patch<EditPostResponseDTO, EditPostRequestDTO>(
+      `/api/v1/posts/${req.id}`,
+      body,
+    );
   }
 }
