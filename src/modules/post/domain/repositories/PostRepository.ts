@@ -8,6 +8,8 @@ import { TrendingPost } from "@/modules/post/domain/value-object/TrendingPost";
 import { CommentPostRequestDTO } from "@/modules/post/infrastructure/dtos/CommentPostRequestDTO";
 import { CreatePostRequestDTO } from "@/modules/post/infrastructure/dtos/CreatePostRequestDTO";
 import { DeletePostRequestDTO } from "@/modules/post/infrastructure/dtos/DeletePostRequestDTO";
+import { EditPostRequestDTO } from "@/modules/post/infrastructure/dtos/EditPostRequestDTO";
+import { EditPostRequestParamsDTO } from "@/modules/post/infrastructure/dtos/EditPostRequestParamsDTO";
 import { GetCommunityHighlightsRequestDTO } from "@/modules/post/infrastructure/dtos/GetCommunityHighlightsRequestDTO";
 import { GetLikeByUserAndPostRequestDTO } from "@/modules/post/infrastructure/dtos/GetLikeByUserAndPostRequestDTO";
 import { GetPostsByCriteriaRequestDTO } from "@/modules/post/infrastructure/dtos/GetPostByCriteriaRequestDTO";
@@ -47,4 +49,8 @@ export interface PostRepository {
   getPostsByCriteria: (
     req: GetPostsByCriteriaRequestDTO,
   ) => Promise<PaginatedResponse<PostResume>>;
+  editPost: (
+    req: EditPostRequestParamsDTO,
+    body: EditPostRequestDTO,
+  ) => Promise<void>;
 }
