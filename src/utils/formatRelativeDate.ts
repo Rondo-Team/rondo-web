@@ -35,8 +35,8 @@ export const formatRelativeDate = (
     }).format(0, "second");
   }
 
-  const now = new Date();
-  const secondsDiff = (parsedDate.getTime() - now.getTime()) / SECOND_IN_MS;
+  const nowMs = Date.now();
+  const secondsDiff = (parsedDate.getTime() - nowMs) / SECOND_IN_MS;
   const formatter = new Intl.RelativeTimeFormat(locale, {
     numeric: "auto",
   });
