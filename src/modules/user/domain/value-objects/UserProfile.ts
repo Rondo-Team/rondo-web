@@ -10,7 +10,7 @@ export interface UserProfile {
   proposalsCount: number;
   favouritePostsCount: number;
   commentsCount: number;
-  createdAt: Date;
-  usernameChangedAt: Date;
+  createdAt: string;
+  usernameChangedAt: string;
   recentlyViewedContent: UserRecentPlays;
 }

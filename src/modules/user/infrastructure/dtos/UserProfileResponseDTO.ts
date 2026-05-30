@@ -14,6 +14,6 @@ export type UserProfileResponseDTO = {
     id: string;
     type: string;
     title: string;
-    openedAt: Date;
+    openedAt: string;
   }[];
 };

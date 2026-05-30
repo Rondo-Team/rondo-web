@@ -5,7 +5,7 @@ export interface PostResume {
   favouritesCount: number;
   commentsCount: number;
   proposalsCount: number;
-  createdAt: Date;
+  createdAt: string;
   user: {
     username: string;
     name: string;

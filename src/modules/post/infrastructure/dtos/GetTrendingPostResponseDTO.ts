@@ -7,7 +7,7 @@ export type GetTrendingPostResponseDTO = {
   favouritesCount: number;
   commentsCount: number;
   proposalsCount: number;
-  createdAt: Date;
+  createdAt: string;
   tags: string[];
   play: Play;
   user: {

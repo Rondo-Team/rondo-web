@@ -15,13 +15,13 @@ export const getUserProfileMapper = (
     proposalsCount: dto.proposalsCount,
     favouritePostsCount: dto.favouritePostsCount,
     commentsCount: dto.commentsCount,
-    createdAt: new Date(dto.createdAt),
-    usernameChangedAt: new Date(dto.createdAt),
+    createdAt: dto.createdAt,
+    usernameChangedAt: dto.createdAt,
     recentlyViewedContent: dto.recentlyViewedContent.map((item) => ({
       id: item.id,
       type: item.type as RecentlyViewedItemTypes,
       openedAt: item.openedAt,
-      title: item.title
+      title: item.title,
     })),
   };
 };

@@ -5,7 +5,7 @@ export type GetPostsByUserIdResponseDTO = {
   favouritesCount: number;
   commentsCount: number;
   proposalsCount: number;
-  createdAt: Date;
+  createdAt: string;
   user: {
     username: string;
     name: string;

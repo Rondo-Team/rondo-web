@@ -4,7 +4,7 @@ export interface DraftDetail {
   id: string;
   title: string;
   description: string;
-  createdAt: Date;
+  createdAt: string;
   play: Play;
   userId: string;
 }

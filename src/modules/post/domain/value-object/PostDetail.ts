@@ -7,7 +7,7 @@ export interface PostDetail {
   favouritesCount: number;
   commentsCount: number;
   proposalsCount: number;
-  createdAt: Date;
+  createdAt: string;
   tags: string[];
   play: Play;
   user: {
