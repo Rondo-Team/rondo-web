@@ -18,9 +18,25 @@ const UNITS: Array<{ unit: RelativeUnit; seconds: number }> = [
   { unit: "second", seconds: 1 },
 ];
 
-export const formatRelativeDate = (date: Date, locale: string) => {
+export const formatRelativeDate = (
+  date: Date | string | number | null | undefined,
+  locale: string,
+) => {
+  if (date === null || date === undefined) {
+    return new Intl.RelativeTimeFormat(locale, {
+      numeric: "auto",
+    }).format(0, "second");
+  }
+
+  const parsedDate = date instanceof Date ? date : new Date(date);
+  if (Number.isNaN(parsedDate.getTime())) {
+    return new Intl.RelativeTimeFormat(locale, {
+      numeric: "auto",
+    }).format(0, "second");
+  }
+
   const now = new Date();
-  const secondsDiff = (date.getTime() - now.getTime()) / SECOND_IN_MS;
+  const secondsDiff = (parsedDate.getTime() - now.getTime()) / SECOND_IN_MS;
   const formatter = new Intl.RelativeTimeFormat(locale, {
     numeric: "auto",
   });
