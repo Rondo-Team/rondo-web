@@ -14,6 +14,7 @@ import { LikePost } from "@/modules/post/application/use-cases/LikePost";
 import { ReplyComment } from "@/modules/post/application/use-cases/ReplyComment";
 import { UnLikeComment } from "@/modules/post/application/use-cases/UnLikeComment";
 import { UnLikePost } from "@/modules/post/application/use-cases/UnLikePost";
+import { UpdatePost } from "@/modules/post/application/use-cases/UpdatePost";
 import { HttpPostRepository } from "@/modules/post/infrastructure/repositories/HttpPostRepository";
 import { Token } from "@/modules/shared/domain/Token";
 import { Container } from "inversify";
@@ -40,6 +41,7 @@ container.bind(GetUserCommentLikesByPost).toSelf();
 container.bind(DeletePost).toSelf();
 container.bind(GetPostsByCriteria).toSelf();
 container.bind(GetPostsByUserId).toSelf();
+container.bind(UpdatePost).toSelf();
 
 export const getTrendingPostUseCase = container.get(GetTrendingPost);
 export const getCommunityHighlightsUseCase = container.get(
@@ -61,3 +63,4 @@ export const getUserCommentLikesByPostUseCase = container.get(
 export const deletePostUseCase = container.get(DeletePost);
 export const getPostsByCriteriaUseCase = container.get(GetPostsByCriteria);
 export const getPostsByUserIdUseCase = container.get(GetPostsByUserId);
+export const updatePostUseCase = container.get(UpdatePost);
