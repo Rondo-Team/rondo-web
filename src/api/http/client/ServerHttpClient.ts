@@ -70,13 +70,14 @@ class ServerHttpClient {
     const { method, body, headers: aditionalHeaders, params } = options;
     const url = this.buildUrl(endpoint, params);
     const headers = await this.getHeaders(aditionalHeaders);
-
     try {
       const response = await fetch(url, {
         method,
         headers,
         body: body ? JSON.stringify(body) : undefined,
       });
+
+      console.log("RESPONSE", response);
 
       console.log("setting cookies");
       const cookiesArray = response.headers.getSetCookie();
