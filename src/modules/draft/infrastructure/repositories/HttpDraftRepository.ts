@@ -4,6 +4,8 @@ import { CreateDraftRequestDTO } from "@/modules/draft/infrastructure/dtos/Creat
 import { CreateDraftResponseDTO } from "@/modules/draft/infrastructure/dtos/CreateDraftResponseDTO";
 import { DeleteDraftByIdRequestDTO } from "@/modules/draft/infrastructure/dtos/DeleteDraftByIdRequestDTO";
 import { DeleteDraftByIdResponseDTO } from "@/modules/draft/infrastructure/dtos/DeleteDraftByIdResponseDTO";
+import { EditDraftRequestDTO } from "@/modules/draft/infrastructure/dtos/EditDraftRequestDTO";
+import { EditDraftRequestParamsDTO } from "@/modules/draft/infrastructure/dtos/EditDraftRequestParamsDTO";
 import { GetDraftByIdRequestDTO } from "@/modules/draft/infrastructure/dtos/GetDraftByIdRequestDTO";
 import { GetDraftByIdResponseDTO } from "@/modules/draft/infrastructure/dtos/GetDraftByIdResponseDTO";
 import { GetDraftsByUserResponseDTO } from "@/modules/draft/infrastructure/dtos/GetDraftsByUserResponseDTO";
@@ -35,5 +37,12 @@ export class HttpDraftRepository implements DraftRepository {
     await serverHttpClient.delete<DeleteDraftByIdResponseDTO>(
       `/api/v1/drafts/${req.id}`,
     );
+  }
+
+  async editDraft(
+    params: EditDraftRequestParamsDTO,
+    body: EditDraftRequestDTO,
+  ) {
+    await serverHttpClient.patch(`/api/v1/drafts/${params.id}`, body);
   }
 }
