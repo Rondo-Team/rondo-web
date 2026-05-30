@@ -249,6 +249,104 @@
       "description": "Your plays in progress, ready to edit and publish."
     }
   },
+  "editPage": {
+    "post": {
+      "id": {
+        "invalid": "The post identifier is not valid."
+      },
+      "title": {
+        "empty": "The title is required.",
+        "placeholder": "My New Strategy",
+        "tooShort": "The title must be at least 2 characters long.",
+        "tooLong": "The title cannot exceed 30 characters."
+      },
+      "description": {
+        "empty": "The description is required.",
+        "placeholder": "Place your description here!",
+        "tooShort": "The description must be at least 10 characters long.",
+        "tooLong": "The description cannot exceed 500 characters."
+      },
+      "step": {
+        "empty": "Step must have at least one element"
+      },
+      "play": {
+        "empty": "You must create at least one step in the play.",
+        "invalid": "Play is not valid."
+      },
+      "tacticBoard": {
+        "elementControls": {
+          "addTeammate": "Add teammate",
+          "addRival": "Add rival",
+          "addBall": "Add ball",
+          "deleteElement": "Delete Element"
+        },
+        "stepControls": {
+          "addStep": "Add step",
+          "deleteStep": "Delete step",
+          "stop": "Stop",
+          "play": "Play",
+          "step": "Step"
+        }
+      },
+      "tagsInput": {
+        "add": "Add new tag"
+      },
+      "submit": {
+        "save": "Save changes",
+        "cancel": "Cancel"
+      },
+      "updateSuccess": "Strategy updated successfully.",
+      "updateFailed": "Error while updating the strategy."
+    },
+    "draft": {
+      "id": {
+        "invalid": "The draft identifier is not valid."
+      },
+      "title": {
+        "empty": "The title is required.",
+        "placeholder": "My New Strategy",
+        "tooShort": "The title must be at least 2 characters long.",
+        "tooLong": "The title cannot exceed 30 characters."
+      },
+      "description": {
+        "empty": "The description is required.",
+        "placeholder": "Place your description here!",
+        "tooShort": "The description must be at least 10 characters long.",
+        "tooLong": "The description cannot exceed 500 characters."
+      },
+      "step": {
+        "empty": "Step must have at least one element"
+      },
+      "play": {
+        "empty": "You must create at least one step in the play.",
+        "invalid": "Play is not valid."
+      },
+      "tacticBoard": {
+        "elementControls": {
+          "addTeammate": "Add teammate",
+          "addRival": "Add rival",
+          "addBall": "Add ball",
+          "deleteElement": "Delete Element"
+        },
+        "stepControls": {
+          "addStep": "Add step",
+          "deleteStep": "Delete step",
+          "stop": "Stop",
+          "play": "Play",
+          "step": "Step"
+        }
+      },
+      "tagsInput": {
+        "add": "Add new tag"
+      },
+      "submit": {
+        "save": "Save changes",
+        "cancel": "Cancel"
+      },
+      "updateSuccess": "Draft updated successfully.",
+      "updateFailed": "Error while updating the draft."
+    }
+  },
   "components": {
     "post": {
       "largeCard": {
