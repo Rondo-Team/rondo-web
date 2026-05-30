@@ -192,6 +192,17 @@
       "title": "Propuestas"
     }
   },
+  "draftPage": {
+    "actions": {
+      "edit": "Editar",
+      "delete": {
+        "deleteLabel": "Eliminat",
+        "confirmationText": "Esta accion eliminara permanentemente tu borrador-",
+        "cancelLabel": "Cancelar",
+        "confirmLabel": "Confirmar"
+      }
+    }
+  },
   "communityPage": {
     "search": {
       "placeholder": "Busca por nombre de publicación, descripción, nombre de usuario..."
