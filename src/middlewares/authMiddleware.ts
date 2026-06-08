@@ -1,9 +1,16 @@
 import { CustomMiddleware } from "@/middlewares/chain";
+import { refreshSessionUseCase } from "@/modules/auth/AuthModule";
 import { cookies } from "next/headers";
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
 const publicRoutes = ["/login", "/register"];
-const privateRoutes = ["/home", "/create", "/post", "/community", "/my-tactics"];
+const privateRoutes = [
+  "/home",
+  "/create",
+  "/post",
+  "/community",
+  "/my-tactics",
+];
 
 export function authMiddleware(customMiddleware: CustomMiddleware) {
   return async (
@@ -33,7 +40,12 @@ export function authMiddleware(customMiddleware: CustomMiddleware) {
     }
 
     if (isPrivateRoute && !accessToken) {
-      return NextResponse.redirect(new URL("/login", request.url));
+      try {
+        await refreshSessionUseCase.run();
+        return response;
+      } catch {
+        return NextResponse.redirect(new URL("/login", request.url));
+      }
     }
 
     return customMiddleware(request, event, response);

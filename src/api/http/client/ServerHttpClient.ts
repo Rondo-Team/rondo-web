@@ -54,11 +54,28 @@ class ServerHttpClient {
       ...aditionalHeaders,
     };
 
-    // Seteamos la cookie en los headers
-    const cookie = await this.cookieService.getCookie(
+    // Seteamos las cookies en los headers
+    const accessTokenCookie = await this.cookieService.getCookie(
       CookieTokens.ACCESS_TOKEN,
     );
-    if (cookie) headers["Cookie"] = `${CookieTokens.ACCESS_TOKEN}=${cookie}`;
+
+    const refreshTokenCookie = await this.cookieService.getCookie(
+      CookieTokens.REFRESH_TOKEN,
+    );
+
+    const cookieParts: string[] = [];
+
+    if (accessTokenCookie) {
+      cookieParts.push(`${CookieTokens.ACCESS_TOKEN}=${accessTokenCookie}`);
+    }
+
+    if (refreshTokenCookie) {
+      cookieParts.push(`${CookieTokens.REFRESH_TOKEN}=${refreshTokenCookie}`);
+    }
+
+    if (cookieParts.length > 0) {
+      headers["Cookie"] = cookieParts.join("; ");
+    }
 
     return headers;
   }
