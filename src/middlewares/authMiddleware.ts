@@ -18,14 +18,10 @@ export function authMiddleware(customMiddleware: CustomMiddleware) {
     event: NextFetchEvent,
     response: NextResponse,
   ) => {
-    console.log("🔥 auth middleware ejecutado");
-
     const pathname = request.nextUrl.pathname.replace(/^\/(en|es)/, "");
 
     const accessToken = (await cookies()).get("accessToken");
     const refreshToken = (await cookies()).get("refreshToken");
-
-    console.log("tokens:", accessToken, refreshToken);
 
     const isPublicRoute = publicRoutes.some((route) =>
       pathname.startsWith(route),

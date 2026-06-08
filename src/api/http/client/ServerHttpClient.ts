@@ -9,11 +9,17 @@ type QueryParams = Record<
   string | number | boolean | Array<string | number | boolean> | undefined
 >;
 
+export enum RequestIntent {
+  QUERY = "query",
+  REFRESH = "refresh",
+}
+
 type RequestOptions<T = unknown> = {
   method?: HttpMethod;
   body?: T;
   headers?: Record<string, string>;
   params?: QueryParams;
+  intent?: RequestIntent;
 };
 
 class ServerHttpClient {
@@ -21,7 +27,7 @@ class ServerHttpClient {
   private cookieService: CookieService;
   constructor() {
     this.baseUrl = process.env.API_URL || "localhost:3000";
-    this.cookieService = new NextCookieService(); // Pass through dependency injection
+    this.cookieService = new NextCookieService();
   }
 
   private buildUrl(endpoint: string, params?: QueryParams) {
@@ -48,45 +54,70 @@ class ServerHttpClient {
     ) as QueryParams;
   }
 
-  private async getHeaders(aditionalHeaders?: Record<string, string>) {
+  private async getHeaders(
+    refreshing: boolean,
+    aditionalHeaders?: Record<string, string>,
+  ) {
     const headers: Record<string, string> = {
       "Content-Type": "application/json",
       ...aditionalHeaders,
     };
 
-    // Seteamos las cookies en los headers
+    const cookieString = await this.buildCookieString(refreshing);
+
+    if (cookieString) {
+      headers["Cookie"] = cookieString;
+    }
+
+    return headers;
+  }
+
+  private async buildCookieString(refreshing: boolean) {
+    const cookieParts: string[] = [];
+
     const accessTokenCookie = await this.cookieService.getCookie(
       CookieTokens.ACCESS_TOKEN,
     );
-
-    const refreshTokenCookie = await this.cookieService.getCookie(
-      CookieTokens.REFRESH_TOKEN,
-    );
-
-    const cookieParts: string[] = [];
 
     if (accessTokenCookie) {
       cookieParts.push(`${CookieTokens.ACCESS_TOKEN}=${accessTokenCookie}`);
     }
 
-    if (refreshTokenCookie) {
-      cookieParts.push(`${CookieTokens.REFRESH_TOKEN}=${refreshTokenCookie}`);
+    if (refreshing) {
+      const refreshTokenCookie = await this.cookieService.getCookie(
+        CookieTokens.REFRESH_TOKEN,
+      );
+      if (refreshTokenCookie) {
+        cookieParts.push(`${CookieTokens.REFRESH_TOKEN}=${refreshTokenCookie}`);
+      }
     }
 
     if (cookieParts.length > 0) {
-      headers["Cookie"] = cookieParts.join("; ");
+      return cookieParts.join("; ");
     }
+    return null;
+  }
 
-    return headers;
+  private wantsToRefresh(intent?: RequestIntent) {
+    return intent === RequestIntent.REFRESH;
   }
 
   async request<TResponse = unknown, TBody = unknown>(
     endpoint: string,
     options: RequestOptions<TBody>,
   ): Promise<TResponse> {
-    const { method, body, headers: aditionalHeaders, params } = options;
+    const {
+      method,
+      body,
+      headers: aditionalHeaders,
+      params,
+      intent = RequestIntent.QUERY,
+    } = options;
     const url = this.buildUrl(endpoint, params);
-    const headers = await this.getHeaders(aditionalHeaders);
+    const headers = await this.getHeaders(
+      this.wantsToRefresh(intent),
+      aditionalHeaders,
+    );
     try {
       const response = await fetch(url, {
         method,
