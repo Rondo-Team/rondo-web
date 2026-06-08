@@ -40,9 +40,18 @@ export function authMiddleware(customMiddleware: CustomMiddleware) {
     }
 
     if (isPrivateRoute && !accessToken) {
+      if (!refreshToken) {
+        return NextResponse.redirect(new URL("/login", request.url));
+      }
+
       try {
         await refreshSessionUseCase.run();
-        return response;
+        return NextResponse.redirect(
+          new URL(
+            request.nextUrl.pathname + request.nextUrl.search,
+            request.url,
+          ),
+        );
       } catch {
         return NextResponse.redirect(new URL("/login", request.url));
       }
