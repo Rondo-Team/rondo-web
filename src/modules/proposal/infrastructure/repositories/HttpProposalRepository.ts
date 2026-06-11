@@ -1,5 +1,7 @@
 import { serverHttpClient } from "@/api/http/client/ServerHttpClient";
 import { ProposalRepository } from "@/modules/proposal/domain/repositories/ProposalRepository";
+import { CreateProposalRequestDTO } from "@/modules/proposal/infrastructure/dtos/CreateProposalRequestDTO";
+import { CreateProposalResponseDTO } from "@/modules/proposal/infrastructure/dtos/CreateProposalResponseDTO";
 import { GetAllProposalsByPostIdRequestDTO } from "@/modules/proposal/infrastructure/dtos/GetAllProposalsByPostIdRequestDTO";
 import { GetAllProposalByPostIdResponseDTO } from "@/modules/proposal/infrastructure/dtos/GetAllProposalsByPostIdResponseDTO";
 import { GetAllProposalByUserIdRequestDTO } from "@/modules/proposal/infrastructure/dtos/GetAllProposalsByUserIdRequestDTO";
@@ -22,5 +24,12 @@ export class HttpProposalRepository implements ProposalRepository {
         `/api/v1/proposal/post/${req.postId}`,
       );
     return getAllProposalsByPostIdMapper(result);
+  }
+
+  async create(body: CreateProposalRequestDTO) {
+    await serverHttpClient.post<
+      CreateProposalResponseDTO,
+      CreateProposalRequestDTO
+    >(`/api/v1/proposal`, body);
   }
 }
