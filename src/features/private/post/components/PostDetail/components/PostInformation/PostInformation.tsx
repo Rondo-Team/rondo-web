@@ -10,6 +10,7 @@ import { UserProfile } from "@/components/UserProfile";
 import { deletePost } from "@/features/private/post/components/PostDetail/components/PostInformation/queries/deletePost";
 import { PostDetail } from "@/modules/post/domain/value-object/PostDetail";
 import { PostFavourite } from "@/modules/post/domain/value-object/PostFavourite";
+import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -126,7 +127,7 @@ export const PostInformation = ({
           )}
           <Button variant="primary">
             <div className={styles.buttonContent}>
-              <Link href={`/create/proposal/${post.id}`}>
+              <Link href={`${AppSectionsRoutes.POST}/${post.id}/propose`}>
                 {t("openForProposal")}
               </Link>
             </div>

@@ -123,6 +123,53 @@
     "createFailed": "Error while creating the strategy.",
     "draftSaved": "Draft saved successfully."
   },
+  "createProposal": {
+    "createForm": {
+      "id": {
+        "invalid": "The play identifier is not valid."
+      },
+      "title": {
+        "empty": "The title is required.",
+        "placeholder": "My New Strategy",
+        "tooShort": "The title must be at least 2 characters long.",
+        "tooLong": "The title cannot exceed 30 characters."
+      },
+      "proposingFor": "Proposing on original post \"{originalPost}\"",
+      "description": {
+        "empty": "The description is required.",
+        "placeholder": "Place your description here!",
+        "tooShort": "The description must be at least 10 characters long.",
+        "tooLong": "The description cannot exceed 500 characters."
+      },
+      "step": {
+        "empty": "Step must have at least one element"
+      },
+      "play": {
+        "empty": "You must create at least one step in the play.",
+        "invalid": "Play is not valid."
+      },
+      "tacticBoard": {
+        "elementControls": {
+          "addTeammate": "Add teammate",
+          "addRival": "Add rival",
+          "addBall": "Add ball",
+          "deleteElement": "Delete Element"
+        },
+        "stepControls": {
+          "addStep": "Add step",
+          "deleteStep": "Delete step",
+          "stop": "Stop",
+          "play": "Play",
+          "step": "Step"
+        }
+      },
+      "submit": {
+        "proposal": "Create Proposal"
+      }
+    },
+    "createSuccess": "Proposal created successfully.",
+    "createFailed": "Error while creating the proposal."
+  },
   "navBar": {
     "navSections": {
       "home": "Home",
