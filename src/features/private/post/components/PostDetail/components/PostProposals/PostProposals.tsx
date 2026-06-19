@@ -1,8 +1,10 @@
 import { ProposalLargeCard } from "@/components/ProposalLargeCard";
 import { getAllProposalsByPostId } from "@/features/private/post/components/PostDetail/components/PostProposals/queries/getAllProposalsByPostId";
+import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
 import { capitalizeText } from "@/utils/capitalizeText";
 import { formatRelativeDate } from "@/utils/formatRelativeDate";
 import { getLocale } from "next-intl/server";
+import Link from "next/link";
 import styles from "./PostProposals.module.css";
 
 interface PostProposalsProps {
@@ -23,13 +25,17 @@ export const PostProposals = async ({ postId }: PostProposalsProps) => {
           formatRelativeDate(new Date(proposal.createdAt), locale),
         );
         return (
-          <ProposalLargeCard
-            createdAt={formattedDate}
-            basicInfo={proposal.username}
-            status={proposal.status}
-            title={proposal.title}
+          <Link
+            href={`${AppSectionsRoutes.PROPOSAL}/${proposal.id}`}
             key={proposal.id}
-          />
+          >
+            <ProposalLargeCard
+              createdAt={formattedDate}
+              basicInfo={proposal.username}
+              status={proposal.status}
+              title={proposal.title}
+            />
+          </Link>
         );
       })}
     </div>

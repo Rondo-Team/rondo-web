@@ -5,8 +5,10 @@ import { TacticBoard } from "@/components/TacticBoard";
 import { TacticBoardHandle } from "@/components/TacticBoard/TacticBoard";
 import { EditableTextField } from "@/components/TextField";
 import { createProposalAction } from "@/features/private/proposal/CreateProposal/components/CreateProposalContent/actions/createProposalAction";
+import { Link } from "@/i18n/navigation";
 import { PostDetail } from "@/modules/post/domain/value-object/PostDetail";
 import { CREATE_PROPOSAL_LIMITS } from "@/modules/shared/domain/consts";
+import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
 import { Play } from "@/types/Play";
 import { useTranslations } from "next-intl";
 import { useActionState, useRef, useState } from "react";
@@ -80,8 +82,16 @@ export const CreateProposalContent = ({ post }: CreateProposalContentProps) => {
       </div>
 
       <p className={styles.originalPost}>
-        {t("proposingFor", {
-          originalPost: post.title,
+        {t.rich("proposingFor", {
+          postTitle: post.title,
+          originalPost: (chunks: React.ReactNode) => (
+            <Link
+              href={`${AppSectionsRoutes.POST}/${post.id}`}
+              className={styles.originalPostLink}
+            >
+              {chunks}
+            </Link>
+          ),
         })}
       </p>
 

@@ -57,3 +57,8 @@
   opacity: 1;
   font-style: italic;
 }
+
+.originalPostLink {
+  color: inherit;
+  text-decoration: underline;
+}

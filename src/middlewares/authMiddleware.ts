@@ -1,15 +1,17 @@
 import { CustomMiddleware } from "@/middlewares/chain";
 import { refreshSessionUseCase } from "@/modules/auth/AuthModule";
+import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
 import { cookies } from "next/headers";
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
 const publicRoutes = ["/login", "/register"];
 const privateRoutes = [
-  "/home",
-  "/create",
-  "/post",
-  "/community",
-  "/my-tactics",
+  AppSectionsRoutes.HOME,
+  AppSectionsRoutes.CREATE,
+  AppSectionsRoutes.POST,
+  AppSectionsRoutes.COMMUNITY,
+  AppSectionsRoutes.MY_TACTICS,
+  AppSectionsRoutes.PROPOSAL,
 ];
 
 export function authMiddleware(customMiddleware: CustomMiddleware) {
