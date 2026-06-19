@@ -1,7 +1,6 @@
 import { Play } from "@/types/Play";
-import { ProposalStatus } from "@/types/ProposalStatus";
 
-export interface ProposalDetail {
+export type GetProposalByIdResponseDTO = {
   id: string;
   user: {
     username: string;
@@ -18,5 +17,5 @@ export interface ProposalDetail {
   description: string;
   createdAt: string;
   play: Play;
-  status: ProposalStatus;
-}
+  status: string;
+};
