@@ -130,14 +130,14 @@
       },
       "title": {
         "empty": "The title is required.",
-        "placeholder": "My New Strategy",
+        "placeholder": "My New Proposal",
         "tooShort": "The title must be at least 2 characters long.",
         "tooLong": "The title cannot exceed 30 characters."
       },
-      "proposingFor": "Proposing on original post \"{originalPost}\"",
+      "proposingFor": "Proposing on original post <originalPost>{postTitle}</originalPost>",
       "description": {
         "empty": "The description is required.",
-        "placeholder": "Place your description here!",
+        "placeholder": "Place your proposal description here!",
         "tooShort": "The description must be at least 10 characters long.",
         "tooLong": "The description cannot exceed 500 characters."
       },
@@ -392,6 +392,19 @@
       },
       "updateSuccess": "Draft updated successfully.",
       "updateFailed": "Error while updating the draft."
+    }
+  },
+  "proposalPage": {
+    "proposedFor": "Proposed for <originalPost>{postTitle}</originalPost>",
+    "actions": {
+      "acceptChanges": "Accept Changes",
+      "declineChanges": "Decline Changes",
+      "edit": "Edit",
+      "delete": {
+        "label": "Delete",
+        "confirmationText": "This action will delete permanently your proposal.",
+        "confirmLabel": "Confirm"
+      }
     }
   },
   "components": {

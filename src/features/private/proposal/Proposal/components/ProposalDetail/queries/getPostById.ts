@@ -2,7 +2,6 @@ import { getPostByIdUseCase } from "@/modules/post/PostModule";
 
 export const getPostById = async (id: string) => {
   try {
-    console.log("Post ID:", id);
     return await getPostByIdUseCase.run(id);
   } catch {
     return null;

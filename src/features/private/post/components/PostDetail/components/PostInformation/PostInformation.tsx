@@ -99,7 +99,7 @@ export const PostInformation = ({
 
   const handleConfirmDelete = async () => {
     await deletePost(post.id);
-    redirect("/home");
+    redirect(AppSectionsRoutes.HOME);
   };
 
   return (

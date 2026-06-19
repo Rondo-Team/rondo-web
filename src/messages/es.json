@@ -123,6 +123,53 @@
     "createFailed": "Error al crear la estrategia.",
     "draftSaved": "Borrador guardado correctamente."
   },
+  "createProposal": {
+    "createForm": {
+      "id": {
+        "invalid": "El identificador de la jugada no es valido."
+      },
+      "title": {
+        "empty": "El titulo es obligatorio.",
+        "placeholder": "Mi nueva estrategia",
+        "tooShort": "El título debe tener al menos 2 caracteres.",
+        "tooLong": "El título no puede superar los 30 caracteres."
+      },
+      "proposingFor": "Proponiendo sobre la publicación original <originalPost>{postTitle}</originalPost>",
+      "description": {
+        "empty": "La descripcion es obligatoria.",
+        "placeholder": "Escribe aquí tu descripción",
+        "tooShort": "La descripción debe tener al menos 10 caracteres.",
+        "tooLong": "La descripción no puede superar los 500 caracteres."
+      },
+      "step": {
+        "empty": "El paso debe tener al menos un elemento"
+      },
+      "play": {
+        "empty": "Debes crear al menos un paso en la jugada.",
+        "invalid": "Error al procesar la jugada."
+      },
+      "tacticBoard": {
+        "elementControls": {
+          "addTeammate": "Añadir compañero",
+          "addRival": "Añadir rival",
+          "addBall": "Añadir balón",
+          "deleteElement": "Eliminar elemento"
+        },
+        "stepControls": {
+          "addStep": "Añadir paso",
+          "deleteStep": "Eliminar paso",
+          "stop": "Detener",
+          "play": "Reproducir",
+          "step": "Paso"
+        }
+      },
+      "submit": {
+        "proposal": "Crear propuesta"
+      }
+    },
+    "createSuccess": "Propuesta creada exitosamente.",
+    "createFailed": "Error al crear la propuesta."
+  },
   "navBar": {
     "navSections": {
       "home": "Inicio",
@@ -346,6 +393,9 @@
       "updateSuccess": "Borrador actualizado correctamente.",
       "updateFailed": "Error al actualizar el borrador."
     }
+  },
+  "proposalPage": {
+    "proposedFor": "Propuesto para <originalPost>{postTitle}</originalPost>"
   },
   "components": {
     "post": {
