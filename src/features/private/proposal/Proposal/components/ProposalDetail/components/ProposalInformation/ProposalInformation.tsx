@@ -5,15 +5,15 @@ import { DeleteConfirmation } from "@/components/DeleteConfirmation";
 import { StatusPill } from "@/components/StatusPill";
 import { TacticBoard } from "@/components/TacticBoard";
 import { UserProfile } from "@/components/UserProfile";
-import { acceptProposal } from "@/features/private/proposal/Proposal/components/ProposalDetail/components/queries/acceptProposal";
-import { declineProposal } from "@/features/private/proposal/Proposal/components/ProposalDetail/components/queries/declineProposal";
-import { deleteProposalById } from "@/features/private/proposal/Proposal/components/ProposalDetail/components/queries/deleteProposalById";
+import { acceptProposal } from "@/features/private/proposal/Proposal/components/ProposalDetail/components/ProposalInformation/queries/acceptProposal";
+import { declineProposal } from "@/features/private/proposal/Proposal/components/ProposalDetail/components/ProposalInformation/queries/declineProposal";
+import { deleteProposalById } from "@/features/private/proposal/Proposal/components/ProposalDetail/components/ProposalInformation/queries/deleteProposalById";
 import { ProposalDetail } from "@/modules/proposal/domain/value-objects/ProposalDetail";
 import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
 import { ProposalStatus } from "@/types/ProposalStatus";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import styles from "./ProposalInformation.module.css";
 
 interface ProposalInformationProps {
@@ -28,6 +28,7 @@ export const ProposalInformation = ({
   userOwnsProposal,
 }: ProposalInformationProps) => {
   const t = useTranslations("proposalPage");
+  const router = useRouter();
 
   const handleAcceptChanges = async () => {
     await acceptProposal(proposal.id);
@@ -36,6 +37,7 @@ export const ProposalInformation = ({
 
   const handleDeclineChanges = async () => {
     await declineProposal(proposal.id);
+    router.refresh();
   };
 
   const handleDeleteProposal = async () => {
