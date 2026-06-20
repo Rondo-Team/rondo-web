@@ -1,6 +1,6 @@
 import { getPostById } from "@/features/private/edit/post/queries/getPostById";
-import { PostComments } from "@/features/private/post/components/PostDetail/components/PostComments";
-import { ProposalInformation } from "@/features/private/proposal/Proposal/components/ProposalDetail/components";
+import { ProposalHistory } from "@/features/private/proposal/Proposal/components/ProposalDetail/components/ProposalHistory";
+import { ProposalInformation } from "@/features/private/proposal/Proposal/components/ProposalDetail/components/ProposalInformation";
 import { getProposalById } from "@/features/private/proposal/Proposal/components/ProposalDetail/queries/getProposalById";
 import { getUserIdFromCookie } from "@/utils/getUserIdFromCookie";
 import { getTranslations } from "next-intl/server";
@@ -17,8 +17,8 @@ export const ProposalDetail = async ({ id }: ProposalDetailPropos) => {
 
   const post = await getPostById(proposal.post.id);
 
-  console.log("POST", post)
-  console.log("PROPOSAL", proposal)
+  console.log("POST", post);
+  console.log("PROPOSAL", proposal);
 
   const userId = await getUserIdFromCookie();
   const userOwnsPost = post?.user.id === userId;
@@ -31,11 +31,7 @@ export const ProposalDetail = async ({ id }: ProposalDetailPropos) => {
         userOwnsPost={userOwnsPost}
         userOwnsProposal={userOwnsProposal}
       />
-      {/*Proposal History*/ }
-      <div className={styles.postComments}>
-        <h1>{`${t("comments.title")}`}</h1>
-        {/* <PostComments postId={proposal.id} /> */}
-      </div>
+      <ProposalHistory proposalId={proposal.id} />
     </div>
   );
 };
