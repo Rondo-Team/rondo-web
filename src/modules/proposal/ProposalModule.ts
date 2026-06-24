@@ -2,9 +2,12 @@ import { AcceptProposal } from "@/modules/proposal/application/use-cases/AcceptP
 import { CreateProposal } from "@/modules/proposal/application/use-cases/CreateProposal";
 import { DeclineProposal } from "@/modules/proposal/application/use-cases/DeclineProposal";
 import { DeleteProposalById } from "@/modules/proposal/application/use-cases/DeleteProposalById";
+import { UpdateProposal } from "@/modules/proposal/application/use-cases/EditProposal";
 import { GetAllProposalsByPostId } from "@/modules/proposal/application/use-cases/GetAllProposalsByPostId";
 import { GetAllProposalsByUserId } from "@/modules/proposal/application/use-cases/GetAllProposalsByUserId";
 import { GetProposalById } from "@/modules/proposal/application/use-cases/GetProposalById";
+import { GetProposalHistoryEntries } from "@/modules/proposal/application/use-cases/GetProposalHistoryEntries";
+import { ReplyProposal } from "@/modules/proposal/application/use-cases/ReplyProposal";
 import { HttpProposalRepository } from "@/modules/proposal/infrastructure/repositories/HttpProposalRepository";
 import { Token } from "@/modules/shared/domain/Token";
 import { Container } from "inversify";
@@ -22,6 +25,9 @@ container.bind(GetProposalById).toSelf();
 container.bind(DeleteProposalById).toSelf();
 container.bind(AcceptProposal).toSelf();
 container.bind(DeclineProposal).toSelf();
+container.bind(GetProposalHistoryEntries).toSelf();
+container.bind(ReplyProposal).toSelf();
+container.bind(UpdateProposal).toSelf();
 
 export const getAllProposalsByUserIdUseCase = container.get(
   GetAllProposalsByUserId,
@@ -34,3 +40,8 @@ export const getProposalByIdUseCase = container.get(GetProposalById);
 export const deleteProposalByIdUseCase = container.get(DeleteProposalById);
 export const acceptProposalUseCase = container.get(AcceptProposal);
 export const declineProposalUseCase = container.get(DeclineProposal);
+export const getProposalHistoryEntriesUseCase = container.get(
+  GetProposalHistoryEntries,
+);
+export const replyProposalUseCase = container.get(ReplyProposal);
+export const updateProposalUseCase = container.get(UpdateProposal);

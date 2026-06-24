@@ -1,0 +1,26 @@
+.historyEntrie {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.intentText {
+  font-style: italic;
+}
+
+.username {
+  font-weight: 600;
+}
+
+.message {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.timeAgo {
+  margin-left: 8px;
+  font-size: 10px;
+  opacity: 0.5;
+  font-style: italic;
+  white-space: nowrap;
+}

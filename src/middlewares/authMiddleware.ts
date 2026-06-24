@@ -12,6 +12,7 @@ const privateRoutes = [
   AppSectionsRoutes.COMMUNITY,
   AppSectionsRoutes.MY_TACTICS,
   AppSectionsRoutes.PROPOSAL,
+  AppSectionsRoutes.EDIT
 ];
 
 export function authMiddleware(customMiddleware: CustomMiddleware) {

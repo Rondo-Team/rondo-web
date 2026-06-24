@@ -1,0 +1,36 @@
+.proposalHistoryContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.composer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.textarea {
+  padding: 5px 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  color: inherit;
+  margin: 0;
+  display: block;
+  width: 100%;
+  resize: none;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.textarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
