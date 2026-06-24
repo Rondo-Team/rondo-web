@@ -7,4 +7,5 @@ export enum AppSectionsRoutes {
   DRAFT = "/draft",
   USER = "/user",
   PROPOSAL = "/proposal",
+  EDIT = "/edit"
 }

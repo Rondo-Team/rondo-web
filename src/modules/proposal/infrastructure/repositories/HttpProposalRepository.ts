@@ -8,15 +8,24 @@ import { DeclineProposalRequestDTO } from "@/modules/proposal/infrastructure/dto
 import { DeclineProposalResponseDTO } from "@/modules/proposal/infrastructure/dtos/DeclineProposalResponseDTO";
 import { DeleteProposalByIdRequestDTO } from "@/modules/proposal/infrastructure/dtos/DeleteProposalByIdRequestDTO";
 import { DeleteProposalByIdResponseDTO } from "@/modules/proposal/infrastructure/dtos/DeleteProposalByIdResponseDTO";
+import { EditProposalRequestDTO } from "@/modules/proposal/infrastructure/dtos/EditProposalRequestDTO";
+import { EditProposalRequestParamsDTO } from "@/modules/proposal/infrastructure/dtos/EditProposalRequestParamsDTO";
+import { EditProposalResponseDTO } from "@/modules/proposal/infrastructure/dtos/EditProposalResponseDTO";
 import { GetAllProposalsByPostIdRequestDTO } from "@/modules/proposal/infrastructure/dtos/GetAllProposalsByPostIdRequestDTO";
 import { GetAllProposalByPostIdResponseDTO } from "@/modules/proposal/infrastructure/dtos/GetAllProposalsByPostIdResponseDTO";
 import { GetAllProposalByUserIdRequestDTO } from "@/modules/proposal/infrastructure/dtos/GetAllProposalsByUserIdRequestDTO";
 import { GetAllProposalByUserIdResponseDTO } from "@/modules/proposal/infrastructure/dtos/GetAllProposalsByUserIdResponseDTO";
 import { GetProposalByIdRequestDTO } from "@/modules/proposal/infrastructure/dtos/GetProposalByIdRequestDTO";
 import { GetProposalByIdResponseDTO } from "@/modules/proposal/infrastructure/dtos/GetProposalByIdResponseDTO";
+import { GetProposalHistoryEntriesRequestDTO } from "@/modules/proposal/infrastructure/dtos/GetProposalHistoryEntriesRequesDTO";
+import { GetProposalHistoryEntriesResponseDTO } from "@/modules/proposal/infrastructure/dtos/GetProposalHistoryEntriesResponseDTO";
+import { ReplyProposalRequestDTO } from "@/modules/proposal/infrastructure/dtos/ReplyProposalRequestDTO";
+import { ReplyProposalRequestParamsDTO } from "@/modules/proposal/infrastructure/dtos/ReplyProposalRequestParamsDTO";
+import { ReplyProposalResponseDTO } from "@/modules/proposal/infrastructure/dtos/ReplyProposalResponseDTO";
 import { getAllProposalsByPostIdMapper } from "@/modules/proposal/infrastructure/mappers/getAllProposalsByPostIdMapper";
 import { getAllProposalsByUserIdMapper } from "@/modules/proposal/infrastructure/mappers/getAllProposalsByUserIdMapper";
 import { getProposalByIdMapper } from "@/modules/proposal/infrastructure/mappers/getProposalByIdMapper";
+import { getProposalHistoryEntriesMapper } from "@/modules/proposal/infrastructure/mappers/getProposalHistoryEntriesMapper";
 
 export class HttpProposalRepository implements ProposalRepository {
   async getAllProposalsByUserId(req: GetAllProposalByUserIdRequestDTO) {
@@ -69,5 +78,30 @@ export class HttpProposalRepository implements ProposalRepository {
       DeclineProposalResponseDTO,
       DeclineProposalRequestDTO
     >(`/api/v1/proposal/${req.id}/decline`);
+  }
+
+  async getProposalHistoryEntries(req: GetProposalHistoryEntriesRequestDTO) {
+    const historyEntries = await serverHttpClient.get<
+      GetProposalHistoryEntriesResponseDTO,
+      GetProposalHistoryEntriesRequestDTO
+    >(`/api/v1/proposal/${req.id}/history`);
+    return getProposalHistoryEntriesMapper(historyEntries);
+  }
+
+  async reply(
+    req: ReplyProposalRequestParamsDTO,
+    body: ReplyProposalRequestDTO,
+  ) {
+    await serverHttpClient.post<
+      ReplyProposalResponseDTO,
+      ReplyProposalRequestDTO
+    >(`/api/v1/proposal/${req.id}/reply`, body);
+  }
+
+  async edit(req: EditProposalRequestParamsDTO, body: EditProposalRequestDTO) {
+    await serverHttpClient.patch<
+      EditProposalResponseDTO,
+      EditProposalRequestDTO
+    >(`/api/v1/proposal/${req.id}`, body);
   }
 }

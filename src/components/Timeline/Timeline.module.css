@@ -1,0 +1,54 @@
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+.marker {
+  position: relative;
+  flex-shrink: 0;
+  width: 10px;
+  height: 1.5em;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marker::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  z-index: 1;
+}
+
+.item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 10.5px;
+  left: 5px;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: #e0e0e0;
+}
+
+.itemContent {
+  flex: 1;
+  min-width: 0;
+}

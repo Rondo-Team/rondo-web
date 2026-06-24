@@ -78,11 +78,13 @@ export const ProposalInformation = ({
           )}
           {userOwnsProposal && (
             <>
-              <Button variant="secondary">
-                <Link href={`/edit/proposal/${proposal.id}`}>
-                  {t("actions.edit")}
-                </Link>
-              </Button>
+              {proposal.status !== ProposalStatus.CLOSED && (
+                <Button variant="secondary">
+                  <Link href={`/edit/proposal/${proposal.id}`}>
+                    {t("actions.edit")}
+                  </Link>
+                </Button>
+              )}
               <DeleteConfirmation
                 onConfirm={handleDeleteProposal}
                 confirmationText={t("actions.delete.confirmationText")}

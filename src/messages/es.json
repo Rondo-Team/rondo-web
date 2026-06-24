@@ -392,10 +392,69 @@
       },
       "updateSuccess": "Borrador actualizado correctamente.",
       "updateFailed": "Error al actualizar el borrador."
+    },
+    "proposal": {
+      "id": {
+        "invalid": "El identificador de la propuesta no es válido."
+      },
+      "title": {
+        "empty": "El título es obligatorio.",
+        "placeholder": "Mi nueva propuesta",
+        "tooShort": "El título debe tener al menos 2 caracteres.",
+        "tooLong": "El título no puede superar los 30 caracteres."
+      },
+      "description": {
+        "empty": "La descripción es obligatoria.",
+        "placeholder": "Escribe aquí tu descripción",
+        "tooShort": "La descripción debe tener al menos 10 caracteres.",
+        "tooLong": "La descripción no puede superar los 500 caracteres."
+      },
+      "proposingFor": "Proponiendo en la publicación original <originalPost>{postTitle}</originalPost>",
+      "step": {
+        "empty": "El paso debe tener al menos un elemento"
+      },
+      "play": {
+        "empty": "Debes crear al menos un paso en la jugada.",
+        "invalid": "Error al procesar la jugada."
+      },
+      "tacticBoard": {
+        "elementControls": {
+          "addTeammate": "Añadir compañero",
+          "addRival": "Añadir rival",
+          "addBall": "Añadir balón",
+          "deleteElement": "Eliminar elemento"
+        },
+        "stepControls": {
+          "addStep": "Añadir paso",
+          "deleteStep": "Eliminar paso",
+          "stop": "Detener",
+          "play": "Reproducir",
+          "step": "Paso"
+        }
+      },
+      "tagsInput": {
+        "add": "Añadir etiqueta"
+      },
+      "submit": {
+        "save": "Guardar cambios",
+        "cancel": "Cancelar"
+      },
+      "updateSuccess": "Propuesta actualizada correctamente.",
+      "updateFailed": "Error al actualizar la propuesta."
     }
   },
   "proposalPage": {
-    "proposedFor": "Propuesto para <originalPost>{postTitle}</originalPost>"
+    "title": "Historial de cambios",
+
+    "proposedFor": "Propuesto para <originalPost>{postTitle}</originalPost>",
+    "history": {
+      "newMessage": "Escribe una respuesta...",
+      "messageIntent": "<user>{username}</user> ha respondido \"{message}\"",
+      "createIntent": "<user>{username}</user> ha creado la propuesta.",
+      "editIntent": "<user>{username}</user> ha hecho cambios en la propuesta.",
+      "acceptIntent": "<user>{username}</user> ha aceptado la propuesta, se han añadido los cambios a la publicación original.",
+      "declineIntent": "<user>{username}</user> ha rechazado la propuesta."
+    }
   },
   "components": {
     "post": {

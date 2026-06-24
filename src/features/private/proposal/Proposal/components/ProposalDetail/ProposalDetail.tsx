@@ -25,7 +25,7 @@ export const ProposalDetail = async ({ id }: ProposalDetailPropos) => {
   const userOwnsProposal = proposal.user.id === userId;
 
   return (
-    <div className={styles.postDetailContainer}>
+    <div className={styles.proposalDetailContainer}>
       <ProposalInformation
         proposal={proposal}
         userOwnsPost={userOwnsPost}
