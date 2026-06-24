@@ -1,4 +1,4 @@
-import { ProposalHistoryEntrie } from "@/modules/proposal/domain/value-objects/ProposalHIstoryEntrie";
+import { ProposalHistoryEntrie } from "@/modules/proposal/domain/value-objects/ProposalHistoryEntrie";
 import { GetProposalHistoryEntriesResponseDTO } from "@/modules/proposal/infrastructure/dtos/GetProposalHistoryEntriesResponseDTO";
 import { ProposalHistoryEntrieIntent } from "@/types/ProposalHistoryEntrieIntent";
 
