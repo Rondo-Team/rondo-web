@@ -30,6 +30,11 @@ export async function registerAction(
   if (validationErrors) {
     return {
       errors: validationErrors,
+      values: {
+        name: formData.get("name")?.toString(),
+        username: formData.get("username")?.toString(),
+        email: formData.get("email")?.toString(),
+      },
       success: false,
     } as RegisterFormActionState;
   }
@@ -40,7 +45,6 @@ export async function registerAction(
     .run(id, values.name, values.username, values.email, values.password)
     .catch(() => {
       return {
-        errors: {},
         message: t("registerFailed"),
         success: false,
       } as RegisterFormActionState;

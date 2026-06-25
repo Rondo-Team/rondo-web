@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/Button/Button";
+import { PasswordField } from "@/components/PasswordField";
 import { TextField } from "@/components/TextField";
 import { loginAction } from "@/features/public/auth/login/actions/loginAction";
 import { useTranslations } from "next-intl";
@@ -27,14 +28,14 @@ export const LoginForm = () => {
         type="text"
         placeholder={t("email.placeholder")}
         label={t("email.label")}
-        error={state.errors?.email}
+        error={state.errors?.email?.at(0)}
+        defaultValue={state.values?.email}
       />
-      <TextField
+      <PasswordField
         name="password"
-        type="password"
         placeholder={t("password.placeholder")}
         label={t("password.label")}
-        error={state.errors?.password}
+        error={state.errors?.password?.at(0)}
       />
       <Button type="submit" disabled={isPending}>
         {t("loginButton.title")}

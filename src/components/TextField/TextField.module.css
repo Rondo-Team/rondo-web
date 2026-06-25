@@ -9,6 +9,13 @@
   font-size: medium;
 }
 
+.descriptionText {
+  font-size: xx-small;
+  color: rgba(0, 0, 0, 0.55);
+  margin-top: -5px;
+  font-style: italic;
+}
+
 .textField {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -47,12 +54,28 @@
   gap: 5px;
 }
 
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper .textField {
+  width: 100%;
+}
+
+.textFieldWithTrailing {
+  padding-right: 40px;
+}
+
+.trailing {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
 .errorText {
   font-size: smaller;
   color: red;
-  line-clamp: 1;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
 }

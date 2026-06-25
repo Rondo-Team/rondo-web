@@ -17,10 +17,12 @@ export const RegisterSchema = (t: (arg: string) => string) =>
       password: z
         .string({ error: t("password.empty") })
         .min(8, { error: t("password.tooShort") })
-        .regex(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+={}[\]|\\:;"'<>,.?/~`]).{8,}$/,
-          { error: t("password.invalidChars") },
-        ),
+        .regex(/[a-z]/, { error: t("password.missingLowercase") })
+        .regex(/[A-Z]/, { error: t("password.missingUppercase") })
+        .regex(/\d/, { error: t("password.missingNumber") })
+        .regex(/[!@#$%^&*()_\-+={}[\]|\\:;"'<>,.?/~`]/, {
+          error: t("password.missingSpecialChar"),
+        }),
       passwordConfirm: z.string({ error: t("passwordConfirm.empty") }),
     })
     .refine((data) => data.password === data.passwordConfirm, {
