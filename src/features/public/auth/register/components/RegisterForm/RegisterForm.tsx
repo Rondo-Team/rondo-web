@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/Button/Button";
+import { PasswordField } from "@/components/PasswordField";
 import { TextField } from "@/components/TextField";
 import { registerAction } from "@/features/public/auth/register/actions/registerAction";
 import { useTranslations } from "next-intl";
@@ -27,35 +28,41 @@ export const RegisterForm = () => {
         type="text"
         placeholder={t("name.placeholder")}
         label={t("name.label")}
-        error={state.errors?.name}
+        defaultValue={state.values?.name}
+        error={state.errors?.name?.at(0)}
       />
       <TextField
         name="username"
         type="text"
         placeholder={t("username.placeholder")}
         label={t("username.label")}
-        error={state.errors?.username}
+        defaultValue={state.values?.username}
+        error={state.errors?.username?.at(0)}
       />
       <TextField
         name="email"
         type="text"
         placeholder={t("email.placeholder")}
         label={t("email.label")}
-        error={state.errors?.email}
+        defaultValue={state.values?.email}
+        error={state.errors?.email?.at(0)}
       />
-      <TextField
+      <PasswordField
         name="password"
-        type="password"
         placeholder={t("password.placeholder")}
         label={t("password.label")}
-        error={state.errors?.password}
+        description={t("password.description")}
+        error={state.errors?.password?.at(0)}
+        showLabel={t("password.show")}
+        hideLabel={t("password.hide")}
       />
-      <TextField
+      <PasswordField
         name="passwordConfirm"
-        type="password"
         placeholder={t("passwordConfirm.placeholder")}
-        label={t("password.label")}
-        error={state.errors?.passwordConfirm}
+        label={t("passwordConfirm.label")}
+        error={state.errors?.passwordConfirm?.at(0)}
+        showLabel={t("password.show")}
+        hideLabel={t("password.hide")}
       />
       <Button type="submit" disabled={isPending}>
         {t("registerButton.title")}

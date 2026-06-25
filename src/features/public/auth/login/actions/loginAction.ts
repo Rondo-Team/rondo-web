@@ -29,6 +29,9 @@ export async function loginAction(
   if (validationErrors) {
     return {
       errors: validationErrors,
+      values: {
+        email: formData.get("email")?.toString(),
+      },
       success: false,
     } as LoginFormActionState;
   }
