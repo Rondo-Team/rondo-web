@@ -1,5 +1,6 @@
 "use client";
 
+import { LogoutIcon } from "@/components/Icons/LogoutIcon";
 import { UserProfile } from "@/components/UserProfile";
 import { AppSectionsRoutes } from "@/types/AppSectionsRoutes";
 import { useTranslations } from "next-intl";
@@ -11,9 +12,10 @@ import styles from "./NavBar.module.css";
 interface NavBarProps {
   username?: string;
   name?: string;
+  onSignOut: () => void;
 }
 
-export const NavBar = ({ name, username }: NavBarProps) => {
+export const NavBar = ({ name, username, onSignOut }: NavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const userProfileData = name && username ? { name, username } : null;
 
@@ -78,27 +80,41 @@ export const NavBar = ({ name, username }: NavBarProps) => {
           {t("navSections.myTactics")}
         </Link>
         {userProfileData && (
-          <Link href={`${AppSectionsRoutes.USER}/${userProfileData.username}`}>
-            <div className={styles.mobileUserProfile}>
-              <UserProfile
-                name={userProfileData.name}
-                username={userProfileData.username}
-              />
-            </div>
-          </Link>
+          <div className={styles.mobileUserProfile}>
+            <UserProfile
+              name={userProfileData.name}
+              username={userProfileData.username}
+            />
+            <button
+              type="button"
+              className={styles.signOutButton}
+              onClick={() => {
+                closeMenu();
+                onSignOut();
+              }}
+              aria-label={t("signOut")}
+            >
+              <LogoutIcon />
+            </button>
+          </div>
         )}
       </div>
 
       {userProfileData && (
-        <Link
-          href={`${AppSectionsRoutes.USER}/${userProfileData.username}`}
-          className={styles.desktopUserProfile}
-        >
+        <div className={styles.desktopUserProfile}>
           <UserProfile
             name={userProfileData.name}
             username={userProfileData.username}
           />
-        </Link>
+          <button
+            type="button"
+            className={styles.signOutButton}
+            onClick={onSignOut}
+            aria-label={t("signOut")}
+          >
+            <LogoutIcon />
+          </button>
+        </div>
       )}
     </nav>
   );
