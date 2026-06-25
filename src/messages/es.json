@@ -182,7 +182,8 @@
       "create": "Crear",
       "community": "Comunidad",
       "myTactics": "Mis tácticas"
-    }
+    },
+    "signOut": "Cerrar sesión"
   },
   "homePage": {
     "trendingPost": {

@@ -55,6 +55,24 @@
 
 .desktopUserProfile {
   display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.signOutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin-left: -8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--foreground);
+}
+
+.signOutButton:hover {
+  opacity: 0.7;
 }
 
 .mobileUserProfile {
@@ -94,5 +112,9 @@
   .mobileUserProfile {
     display: flex;
     margin-top: 8px;
+  }
+
+  .signOutButton {
+    margin-left: 0;
   }
 }
