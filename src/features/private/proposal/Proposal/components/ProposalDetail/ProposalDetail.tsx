@@ -31,7 +31,7 @@ export const ProposalDetail = async ({ id }: ProposalDetailPropos) => {
         userOwnsPost={userOwnsPost}
         userOwnsProposal={userOwnsProposal}
       />
-      <ProposalHistory proposalId={proposal.id} />
+      <ProposalHistory proposalId={proposal.id} userOwnsPost={userOwnsPost} userOwnsProposal={userOwnsProposal} />
     </div>
   );
 };
