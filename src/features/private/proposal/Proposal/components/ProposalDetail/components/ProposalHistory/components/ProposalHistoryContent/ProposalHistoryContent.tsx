@@ -11,11 +11,13 @@ import styles from "./ProposalHistoryContent.module.css";
 interface ProposalHistoryContentProps {
   historyEntries: ProposalHistoryEntrie[];
   proposalId: string;
+  canReply: boolean;
 }
 
 export const ProposalHistoryContent = ({
   historyEntries,
   proposalId,
+  canReply,
 }: ProposalHistoryContentProps) => {
   const t = useTranslations("proposalPage.history");
   const newMessageTextareaRef = useRef<HTMLTextAreaElement>(null);
@@ -49,17 +51,19 @@ export const ProposalHistoryContent = ({
 
   return (
     <div className={styles.proposalHistoryContent}>
-      <div className={styles.composer}>
-        <textarea
-          ref={newMessageTextareaRef}
-          value={newMessageText}
-          onChange={(event) => setNewMessageText(event.target.value)}
-          onKeyDown={handleMessageKeyDown}
-          placeholder={t("newMessage")}
-          className={styles.textarea}
-          rows={1}
-        />
-      </div>
+      {canReply && (
+        <div className={styles.composer}>
+          <textarea
+            ref={newMessageTextareaRef}
+            value={newMessageText}
+            onChange={(event) => setNewMessageText(event.target.value)}
+            onKeyDown={handleMessageKeyDown}
+            placeholder={t("newMessage")}
+            className={styles.textarea}
+            rows={1}
+          />
+        </div>
+      )}
 
       <Timeline>
         {historyEntries.map((entrie, index) => (
