@@ -96,7 +96,7 @@
         "tooLong": "The description cannot exceed 500 characters."
       },
       "step": {
-        "empty": "Step must have at least one element"
+        "empty": "Steps must have at least one element."
       },
       "play": {
         "empty": "You must create at least one step in the play.",

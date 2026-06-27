@@ -55,7 +55,7 @@ export const CreateContent = () => {
           type="text"
           placeholder={t("title.placeholder")}
           onChange={handleTitleChange}
-          error={state.errors?.title}
+          error={state.errors?.title?.at(0)}
           maxLength={CREATE_PLAY_LIMITS.title.max}
         />
 
@@ -65,7 +65,7 @@ export const CreateContent = () => {
           type="textarea"
           placeholder={t("description.placeholder")}
           onChange={handleDescriptionChange}
-          error={state.errors?.description}
+          error={state.errors?.description?.at(0)}
           variant="subtitle"
           maxLength={CREATE_PLAY_LIMITS.description.max}
         />
@@ -76,7 +76,7 @@ export const CreateContent = () => {
       <input ref={playInputRef} name="play" type="hidden" defaultValue="" />
 
       <div className={styles.playField}>
-        <p className={styles.fieldErrorText}>{state.errors?.play || " "}</p>
+        <p className={styles.fieldErrorText}>{state.errors?.play?.at(0) || " "}</p>
         <TacticBoard ref={tacticBoardRef} onPlayChange={handlePlayChange} />
       </div>
 
