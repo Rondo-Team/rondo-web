@@ -461,6 +461,16 @@
       "editIntent": "<user>{username}</user> ha hecho cambios en la propuesta.",
       "acceptIntent": "<user>{username}</user> ha aceptado la propuesta, se han añadido los cambios a la publicación original.",
       "declineIntent": "<user>{username}</user> ha rechazado la propuesta."
+    },
+    "actions": {
+      "acceptChanges": "Aceptar cambios",
+      "declineChanges": "Rechazar cambios",
+      "edit": "Editar",
+      "delete": {
+        "label": "Eliminar",
+        "confirmationText": "Esta accion eliminara permanentemente tu propuesta",
+        "confirmLabel": "Confirmar"
+      }
     }
   },
   "components": {
